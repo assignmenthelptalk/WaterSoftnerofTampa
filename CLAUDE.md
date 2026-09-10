@@ -37,6 +37,15 @@
 - Images use Astro's `<Image />` component from `astro:assets` — never raw `<img>` tags.
 - Icons use inline SVG — no icon libraries unless one is already installed in the boilerplate.
 
+## Tailwind version note
+[Tailwind v4]: Configuration is CSS-based via @theme in tailwind.css.
+No tailwind.config.js exists. Design tokens defined in @theme are
+available as both Tailwind utilities (bg-primary) and CSS custom
+properties (var(--color-primary)).
+
+Do not use @apply anywhere. Do not remove global.css.
+Both tailwind.css and global.css are imported in Layout.astro.
+
 ## Brand Assets
 - Always check the `brand_assets/` folder before designing. It may contain logos, color guides, style guides, or images.
 - If assets exist there, use them. Do not use placeholders where real assets are available.
