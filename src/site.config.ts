@@ -21,6 +21,128 @@
  * boilerplate into a live city site.
  */
 
+export interface ServiceAreaNeighbourhood {
+  /** Real, named residential community only — never a road, highway, or
+   * recreation area. Run the neighbourhood verification checklist in
+   * PROVISION.md Step 5c before adding any entry here. */
+  name: string;
+  /** Optional one-line description of this community. */
+  note?: string;
+}
+
+export interface ServiceAreaFaq {
+  question: string;
+  answer: string;
+}
+
+/**
+ * ServiceArea — one entry per surrounding city a provisioner has verified
+ * via the QDP test (PROVISION.md Step 5c). A page is only generated for an
+ * entry once qdp.verified === true AND qdp.verdict === 'PASS' — see
+ * src/pages/[serviceArea]/index.astro's getStaticPaths filter.
+ */
+export interface ServiceArea {
+  // ── Identity ────────────────────────────────────────────────────────────
+  /** URL slug e.g. "boulder-city" → /boulder-city/ */
+  slug: string;
+  /** Display city name e.g. "Boulder City" */
+  city: string;
+  /** Two-letter state abbreviation e.g. "NV" */
+  stateAbbr: string;
+  /** County name e.g. "Clark County" */
+  county: string;
+  /** Verified population e.g. "16,000" */
+  population: string;
+  /** Verified ZIP codes */
+  zipCodes: string[];
+
+  // ── Water data — must be verified against real utility data ───────────
+  /** Lower bound of local hardness range */
+  gpgLow: number;
+  /** Upper bound of local hardness range */
+  gpgHigh: number;
+  /** WQA classification e.g. "Very Hard" */
+  gpgLabel: string;
+  /** Exact official name of the water authority */
+  waterAuthority: string;
+  /** Water source description */
+  waterSource: string;
+
+  // ── Distance and relationship to the primary city ──────────────────────
+  /** e.g. "7 miles southeast" */
+  distanceFromPrimary: string;
+  /** e.g. "separately incorporated city" or "unincorporated Clark County community" */
+  relationship: string;
+
+  // ── Page content ────────────────────────────────────────────────────────
+  /** Under 60 chars */
+  metaTitle: string;
+  /** Under 160 chars */
+  metaDesc: string;
+  /** Page H1 — must contain city + state */
+  h1: string;
+  /** H1 subheading — one line */
+  h1Sub: string;
+  /** e.g. "16–18 GPG" */
+  heroStat: string;
+  /** e.g. "Boulder City Water Hardness" */
+  heroStatLabel: string;
+  /** e.g. "VERY HARD" */
+  heroStatBadge: string;
+  /** City-specific GPG explanation paragraph */
+  gpgNote: string;
+  /** WQA classification note */
+  wqaNote: string;
+
+  /** VERIFIED residential areas only — no road names, recreation areas, or
+   * vague descriptors. Empty array is valid and must render gracefully. */
+  neighbourhoods: ServiceAreaNeighbourhood[];
+
+  /** 4 city-specific benefits — not copy-pasted from the primary city */
+  benefits: string[];
+
+  /** 3+ city-specific FAQs */
+  faqs: ServiceAreaFaq[];
+
+  // ── Internal linking ────────────────────────────────────────────────────
+  /** Page slugs this service area page links to, e.g. ["water-quality"].
+   * Reserved for provisioners extending internal-linking automation —
+   * not rendered by the base ServiceAreaLayout component. */
+  internalLinksTo: string[];
+  /** Links to other service area pages */
+  nearbyAreas: { name: string; slug: string }[];
+
+  // ── Testimonial placeholder ─────────────────────────────────────────────
+  testimonial: {
+    quote: string;
+    name: string;
+    location: string;
+    /** Must be true until a real review exists */
+    placeholder: boolean;
+  };
+
+  // ── QDP verification — required before a page is generated ─────────────
+  qdp: {
+    /** Must be true before a page is built for this entry */
+    verified: boolean;
+    /** Evidence of search volume */
+    searchDemand: string;
+    /** How this city differs from the primary city */
+    differentFrom: string;
+    verdict: "PASS" | "FAIL";
+    /** ISO date e.g. "2026-09-12" */
+    verifiedDate: string;
+    /** Who verified e.g. "manual research" */
+    verifiedBy: string;
+  };
+
+  // ── Data verification ────────────────────────────────────────────────────
+  /** Must be true — all figures verified */
+  dataVerified: boolean;
+  /** URL or source used to verify data */
+  verificationSource: string;
+}
+
 export interface SiteConfig {
   // ── Identity ────────────────────────────────────────────────────────────
   /** City name, e.g. "Las Vegas" */
@@ -101,6 +223,11 @@ export interface SiteConfig {
     /** Color used for the GPG stat callout component */
     gpgStatColor: string;
   };
+
+  // ── Service area subpages ────────────────────────────────────────────────
+  /** Empty array if no service areas built yet. Populate only after each
+   * entry passes the QDP test — see PROVISION.md Step 5c. */
+  serviceAreas: ServiceArea[];
 }
 
 export const siteConfig: SiteConfig = {
@@ -152,4 +279,11 @@ export const siteConfig: SiteConfig = {
     borderRadius: "8px",
     gpgStatColor: "#0F6E78",
   },
+
+  serviceAreas: [],
+  // Populate this array when adding service area pages.
+  // Each entry must pass the QDP test before the page is built.
+  // See PROVISION.md Step 5c for the full QDP checklist.
+  // All neighbourhood names must be verified residential communities —
+  // do not list road names, recreation areas, or vague descriptors.
 };

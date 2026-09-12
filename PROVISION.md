@@ -125,6 +125,77 @@ city. Import and add after the installation cost section.
 
 Build these during Step 5 using the Henderson versions as reference.
 
+### Step 5c — Service Area Pages (optional — only if surrounding cities have search demand)
+
+Service area pages target surrounding cities that homeowners in those cities
+search for. Each page must pass the QDP test before being built. Do not build
+a service area page for a city that fails the QDP test — it will not rank and
+may dilute the primary city's topical authority.
+
+#### QDP Test — run for every potential service area city
+
+Answer all four questions. All four must pass:
+
+1. SEARCH DEMAND
+   Is there measurable search volume for "water softener [city] [state]"?
+   Check: Google Keyword Planner, Ahrefs, or Semrush
+   Pass: volume > 10/month
+   Fail: no measurable volume — do not build this page
+
+2. DIFFERENT ENTITIES
+   Is this city genuinely different from the primary city?
+   Check: different water authority? Different county? Different ZIP codes?
+   Different incorporated status (city vs unincorporated community)?
+   Pass: at least two meaningful differences from the primary city
+   Fail: same water authority, same GPG, same county, same ZIP = do not
+         build a separate page — add a section to neighbourhood.astro instead
+
+3. LOW SIMILARITY
+   Would this page be meaningfully different from the primary homepage?
+   Check: different GPG note? Different water source? Different communities?
+   Pass: at least 60% of content is genuinely different
+   Fail: only the city name changes — this is a doorway page, do not build
+
+4. RECOGNISABLE PATTERN
+   Do homeowners in this city search specifically for "[city] water softener"
+   or do they search for the primary city?
+   Pass: city-specific search pattern confirmed in keyword tool
+   Fail: all searches go to the primary city keyword — do not build
+
+#### Neighbourhood verification checklist
+
+Before adding any neighbourhood name to the `neighbourhoods` array:
+
+- [ ] Is this a named residential community (not a road, highway, or park)?
+- [ ] Does it appear in at least one of: Zillow, Realtor.com, city government site?
+- [ ] Would a local homeowner recognise this as where they live?
+- [ ] Is it within the service area city limits (not the primary city)?
+
+If any answer is NO — remove the name. It is better to have 3 verified
+neighbourhood names than 8 that include roads and recreation areas.
+
+#### Adding a service area to site.config.ts
+
+1. Add a new object to the `serviceAreas` array in `site.config.ts`
+2. Fill every required field — TypeScript will error on missing fields
+3. Set `qdp.verified: false` initially
+4. Run the QDP test above — if all four pass set `qdp.verdict: 'PASS'`
+5. Set `qdp.verified: true` and `qdp.verifiedDate` to today's date
+6. Set `dataVerified: true` and `verificationSource` to the URL used
+7. Run `npm run build` — the dynamic route generates the page automatically
+8. Verify the new URL appears in `/sitemap.xml`
+9. Run Rich Results Test on the new page URL
+
+#### What NOT to do
+
+- Do not set `qdp.verified: true` before running the QDP test
+- Do not list road names as neighbourhoods
+- Do not copy the primary city's `gpgNote` verbatim — write a new one
+- Do not set `testimonial.placeholder: false` until a real review exists
+- Do not build a service area page for a city that shares the primary
+  city's water authority, GPG, county, and ZIP codes — it is the same
+  entity and will not rank as a separate page
+
 ### Step 6 — Build and verify locally
 
 ```bash

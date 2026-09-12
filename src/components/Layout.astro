@@ -145,6 +145,12 @@ const navLinks = [
               {site.neighbourhoods.map((n) => (
                 <li><a href="/neighbourhood/">{n}</a></li>
               ))}
+              {site.serviceAreas
+                .filter((a) => a.qdp.verified && a.qdp.verdict === "PASS")
+                .map((area) => (
+                  <li><a href={`/${area.slug}/`}>{area.city}, {area.stateAbbr}</a></li>
+                ))
+              }
             </ul>
           </nav>
         </div>

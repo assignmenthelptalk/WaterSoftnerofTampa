@@ -193,6 +193,43 @@ Do not proceed to Step 5 until build is confirmed clean.
 
 ---
 
+## WRITE SERVICE AREA PAGE CONTENT
+Trigger: after QDP test passes and serviceAreas entry added to site.config.ts
+Replace: [city] [primary-city] [state] [county] [gpg-range] [water-authority]
+```
+I am writing content for the [city] service area page on the [primary-city]
+water softener site.
+
+Context:
+- Service area data is in site.config.ts serviceAreas array — entry for [city]
+- Primary city data is in site.config.ts siteConfig object
+- QDP verdict for [city]: PASS — verified [date]
+
+Task:
+Fill the following fields in the serviceAreas entry for [city] in site.config.ts:
+  gpgNote:    City-specific explanation of [city]'s water hardness (2-3 sentences)
+              Must name {waterAuthority}, {waterSource}, and GPG figure
+              Must be different from the primary city's GPG note
+  wqaNote:    "Anything above 10.5 GPG is classified as Very Hard by the
+               Water Quality Association."
+  benefits:   4 city-specific benefits — relate to [city]'s specific situation
+              (older housing stock, newer development, pools, etc)
+  faqs:       3 FAQs specific to [city] — not generic water softener FAQs
+              FAQ 1: "How hard is the water in [city], [state]?"
+              FAQ 2: Something specific to [city]'s situation
+              FAQ 3: Service or installation question for [city]
+  testimonial: Placeholder card — placeholder: true always
+               Quote references a [city] neighbourhood if possible
+
+Apply all 14 core Koray writing rules to all prose content.
+Every sentence must contain a factual claim — no filler.
+City name "[city]" must appear in first 60 words of gpgNote.
+GPG figure must appear in first sentence of gpgNote (Rule 1 — most
+important information first).
+```
+
+---
+
 ## REGISTER SITE IN LOCAL-SEO-TOOLKIT
 Trigger: after Step 7 (Deploy to Vercel) of provisioning — after deploy is complete
 Replace: [business-id] [site-folder] [domain]
