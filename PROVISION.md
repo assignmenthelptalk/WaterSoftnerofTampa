@@ -95,6 +95,36 @@ Ask Claude Code:
 > for all 8 pages. Every page needs the city name, GPG hardness figure,
 > water source, and a local hook. No placeholder text in the final output.
 
+### Step 5b — Adapt interactive components
+
+Three interactive components exist in the boilerplate and are ready to use
+on any city page. They read from site.config.ts automatically — no manual
+data entry needed beyond filling in the config.
+
+**GPGSlider.astro** — add to water-quality.astro
+Reads gpgLow, gpgHigh, gpgLabel, waterSource, waterAuthority, city from
+site.config.ts. Default slider value centres on the city's GPG range.
+Import and add after the water hardness data section:
+```astro
+import GPGSlider from '../components/GPGSlider.astro'
+<GPGSlider />
+```
+
+**GPGSliderMini.astro** — add to comparison.astro
+Compact version contextualising the product comparison at the city's
+specific hardness level. Import and add before the product cards section.
+
+**SystemTour.astro** — add to installation.astro
+Four-step ion exchange process tour. Content is generic — applies to any
+city. Import and add after the installation cost section.
+
+**City-specific components to build per city (not in boilerplate):**
+- Neighbourhood hardness map (requires city-specific pin coordinates)
+- Installation process section (requires city-specific copy)
+- Testimonials section (requires city-specific placeholder copy)
+
+Build these during Step 5 using the Henderson versions as reference.
+
 ### Step 6 — Build and verify locally
 
 ```bash
