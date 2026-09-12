@@ -84,7 +84,7 @@ export interface SiteConfig {
   /** Default address — intentionally blank until rented */
   address: string;
 
-  // ── Design tokens (Henderson brand defaults; other cities override) ─────
+  // ── Design tokens (deep teal + warm orange defaults; other cities override) ─────
   design: {
     /** Primary brand color — deep teal or navy, hex */
     primaryColor: string;
@@ -142,7 +142,7 @@ export const siteConfig: SiteConfig = {
   email: "",
   address: "",
 
-  // Design tokens (Henderson brand defaults — other cities override these)
+  // Design tokens (deep teal + warm orange defaults — other cities override these)
   design: {
     primaryColor: "#0F6E78",
     primaryLight: "#E1F5EE",

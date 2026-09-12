@@ -16,6 +16,11 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   integrations: [react(), keystatic(), sitemap()],
+  image: {
+    // Allows astro:assets's <Image /> to optimize the placehold.co hero
+    // placeholder used until a city site is provisioned with a real photo.
+    domains: ["placehold.co"],
+  },
   vite: {
     plugins: [tailwindcss()],
     build: {

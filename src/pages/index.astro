@@ -1,0 +1,141 @@
+---
+export const prerender = true;
+
+import { Image } from "astro:assets";
+import Layout from "../components/Layout.astro";
+import LocalSchema from "../components/LocalSchema.astro";
+import QuoteForm from "../components/QuoteForm.astro";
+import { site } from "../lib/site";
+---
+
+<Layout title={`Water Softeners in ${site.city}, ${site.stateAbbr}`}>
+  <LocalSchema />
+
+  <section class="section hero">
+    <Image
+      src="https://placehold.co/1920x1080/0A4F57/ffffff?text=Hero+Image+Placeholder"
+      alt="Placeholder hero image — replace when provisioning a city site"
+      width={1920}
+      height={1080}
+      class="hero-bg"
+    />
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <p class="hero-badge">{site.city}, {site.stateAbbr} Water Hardness: {site.gpgLow}–{site.gpgHigh} GPG ({site.gpgLabel})</p>
+        <h1>Water Softeners in {site.city}, {site.stateAbbr}</h1>
+        <p class="hero-text">{site.heroSubheading}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/quote/">Get My Free Quote</a>
+          <a class="btn btn-secondary" href="/water-quality/">See {site.city}'s Water Report</a>
+        </div>
+      </div>
+      <div class="hero-form-wrap">
+        <QuoteForm heading="Free Water Test & Quote" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <p class="eyebrow">Why {site.city} Homes Need a Softener</p>
+        <h2>{site.gpgLabel} Water Is Hard on Your Home</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Local Water Source</h3>
+          <p>{site.city} draws its tap water from {site.waterSource}, managed by {site.waterAuthority}. At {site.gpgLow}–{site.gpgHigh} GPG, that water leaves mineral scale in pipes, water heaters, and appliances.</p>
+        </div>
+        <div class="card">
+          <h3>Appliance Lifespan</h3>
+          <p>Hard water buildup shortens the life of water heaters, dishwashers, and washing machines — costing {site.city} homeowners in early replacements and repairs.</p>
+        </div>
+        <div class="card">
+          <h3>Local, Fast Installation</h3>
+          <p>We install softeners for homes throughout {site.county}, including {site.neighbourhoods.slice(0, 3).join(", ")}.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <div class="section-header center">
+        <p class="eyebrow">Recommended Systems</p>
+        <h2>Softener & Filtration Options for {site.city} Water</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Water Softener</h3>
+          <p>Removes hardness minerals at {site.gpgLabel} levels. Best for homes seeing scale on fixtures and appliances.</p>
+          <a class="btn btn-primary btn-sm" href={site.affiliateSoftener} target="_blank" rel="noopener noreferrer sponsored">View SpringWell Softeners</a>
+        </div>
+        <div class="card">
+          <h3>Softener + Filter Combo</h3>
+          <p>Pairs hardness removal with whole-home filtration for chlorine, sediment, and other contaminants from {site.waterAuthority}.</p>
+          <a class="btn btn-primary btn-sm" href={site.affiliateCombo} target="_blank" rel="noopener noreferrer sponsored">View Combo Systems</a>
+        </div>
+        <div class="card">
+          <h3>Reverse Osmosis</h3>
+          <p>Under-sink drinking water purification for the cleanest possible glass of water at the tap.</p>
+          <a class="btn btn-primary btn-sm" href={site.affiliateRO} target="_blank" rel="noopener noreferrer sponsored">View RO Systems</a>
+        </div>
+      </div>
+      <p class="disclosure">Some links above are affiliate links. We may earn a commission at no extra cost to you if you purchase through them.</p>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container final-cta">
+      <h2>Ready for Soft Water in {site.city}?</h2>
+      <p>Get a free, no-obligation quote based on your home's water hardness and household size.</p>
+      <a class="btn btn-primary" href="/quote/">Get My Free Quote</a>
+    </div>
+  </section>
+
+  <style>
+    /* ---------- Hero: full-bleed image + gradient scrim ---------- */
+    .hero { position: relative; overflow: hidden; padding-top: clamp(64px, 10vw, 120px); padding-bottom: clamp(64px, 10vw, 120px); color: #ffffff; }
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 47, 55, 0.88) 0%, rgba(10, 47, 55, 0.78) 60%, rgba(10, 47, 55, 0.92) 100%);
+      mix-blend-mode: multiply;
+      z-index: 1;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      margin: 0 0 20px;
+    }
+    .hero-content h1 { color: #ffffff; }
+    .hero-text { font-size: 1.0625rem; max-width: 44ch; margin-bottom: 24px; color: rgba(255, 255, 255, 0.88); }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-form-wrap :global(.quote-form) { background: #ffffff; }
+    .disclosure { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 24px; }
+    .final-cta { text-align: center; }
+    .final-cta p { max-width: 48ch; margin: 0 auto 24px; }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</Layout>

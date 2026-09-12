@@ -71,6 +71,10 @@ export default config({
           label: "Google Business Profile URL",
           description: "Linked from the footer and used as the schema sameAs URL once claimed",
         }),
+        businessHours: fields.text({
+          label: "Business Hours",
+          description: "e.g. Mon–Fri: 8:00 AM – 5:00 PM · Sat–Sun: Closed",
+        }),
       },
     }),
   },

@@ -6,11 +6,15 @@ import "../styles/tailwind.css";
 
 interface Props {
   title: string;
+  /** Full literal <title> text, bypassing the sitewide "{title} | {businessName}"
+   * construction — for pages (like the homepage) that need a specific exact
+   * title order instead. */
+  fullTitle?: string;
   description?: string;
   noindex?: boolean;
 }
 
-const { title, description = site.metaDescription, noindex = false } = Astro.props;
+const { title, fullTitle, description = site.metaDescription, noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.siteUrl).toString();
 
@@ -23,6 +27,12 @@ const navLinks = [
   { href: "/faq/", label: "FAQ" },
   { href: "/neighbourhood/", label: "Neighbourhoods" },
 ];
+
+// site.businessHours is a placeholder until the rented business confirms
+// real hours in Keystatic — matches the same placeholder already used in
+// LocalSchema.astro's openingHoursSpecification, so the footer and
+// structured data never contradict each other unless a tenant sets a real
+// value via Keystatic (site.businessHours, from src/data/site.json).
 ---
 
 <!doctype html>
@@ -30,8 +40,18 @@ const navLinks = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Loaded as a <link>, not @import, so it fetches in parallel with the
+         rest of head instead of blocking on global.css first. 700 added
+         alongside the requested 400/500/600 because several UI elements
+         (eyebrow labels, table headers, footer heading) already set
+         font-weight: 700 on Inter — omitting it would force the browser to
+         synthesize a fake bold instead of rendering the real cut. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <SEO
-      title={`${title} | ${site.businessName}`}
+      title={fullTitle || `${title} | ${site.businessName}`}
       description={description}
       canonical={canonical}
       noindex={noindex}
@@ -53,14 +73,41 @@ const navLinks = [
         <a class="logo" href="/">
           {site.businessName}
         </a>
-        <nav class="site-nav" aria-label="Primary">
+
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Toggle menu"
+        >
+          <!-- Inline SVG per CLAUDE.md — no icon library installed -->
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path class="nav-toggle-bar nav-toggle-bar-top" d="M3 6H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path class="nav-toggle-bar nav-toggle-bar-mid" d="M3 11H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path class="nav-toggle-bar nav-toggle-bar-bottom" d="M3 16H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <nav id="primary-nav" class="site-nav" aria-label="Primary">
           <ul>
             {navLinks.map((link) => (
               <li><a href={link.href}>{link.label}</a></li>
             ))}
           </ul>
         </nav>
-        <a class="btn btn-primary btn-sm" href="/quote/">Get a Free Quote</a>
+
+        <div class="site-header-actions">
+          {site.phone && (
+            <a class="header-phone" href={`tel:${site.phone}`}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 1.5h2.2l1 3-1.6 1.2a9 9 0 0 0 4.2 4.2l1.2-1.6 3 1v2.2c0 .8-.7 1.4-1.4 1.3C7 12.4 3.6 9 3.2 3.9c-.1-.7.5-1.4 1.3-1.4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" />
+              </svg>
+              {site.phone}
+            </a>
+          )}
+          <a class="btn btn-primary btn-sm" href="/quote/">Get a Free Quote</a>
+        </div>
       </div>
     </header>
 
@@ -70,46 +117,122 @@ const navLinks = [
 
     <footer class="site-footer">
       <div class="container site-footer-inner">
-        <div>
+        <div class="footer-col footer-col-about">
+          <h4 class="footer-col-heading">About</h4>
           <p class="footer-business">{site.businessName}</p>
           <p>{site.address || `Serving ${site.city}, ${site.stateAbbr}`}</p>
-          {site.phone && <p><a href={`tel:${site.phone}`}>{site.phone}</a></p>}
-          {site.email && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
-          {site.googleBusinessUrl && (
-            <p><a href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer">Google Business Profile</a></p>
+          {site.phone && (
+            <a class="btn btn-primary footer-cta" href={`tel:${site.phone}`}>Call {site.phone}</a>
           )}
         </div>
-        <nav aria-label="Footer">
-          <ul>
-            {navLinks.map((link) => (
-              <li><a href={link.href}>{link.label}</a></li>
-            ))}
-            <li><a href="/quote/">Get a Quote</a></li>
-          </ul>
-        </nav>
+
+        <div class="footer-col footer-col-links">
+          <h4 class="footer-col-heading">Quick Links</h4>
+          <nav aria-label="Footer">
+            <ul>
+              {navLinks.map((link) => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+              <li><a href="/quote/">Get a Quote</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col-areas">
+          <h4 class="footer-col-heading">Service Areas</h4>
+          <nav aria-label="Service areas">
+            <ul>
+              {site.neighbourhoods.map((n) => (
+                <li><a href="/neighbourhood/">{n}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-col footer-col-hours">
+          <h4 class="footer-col-heading">Business Hours</h4>
+          {site.businessHours && <p class="footer-hours">{site.businessHours}</p>}
+          {site.email && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
+        </div>
       </div>
-      <p class="footer-copyright">&copy; {new Date().getFullYear()} {site.businessName}. All rights reserved.</p>
+
+      {site.googleBusinessUrl && (
+        <div class="container footer-social">
+          <a href={site.googleBusinessUrl} target="_blank" rel="noopener noreferrer" aria-label="Google Business Profile" class="footer-social-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M9 1c-3.3 0-6 2.7-6 6 0 4.5 6 10 6 10s6-5.5 6-10c0-3.3-2.7-6-6-6Z" stroke="currentColor" stroke-width="1.4" />
+              <circle cx="9" cy="7" r="2" stroke="currentColor" stroke-width="1.4" />
+            </svg>
+          </a>
+        </div>
+      )}
+
+      <p class="footer-serving container">Proudly serving {site.city}, {site.stateAbbr} and {site.neighbourhoods.join(", ")}.</p>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; {new Date().getFullYear()} {site.businessName}. All rights reserved.</p>
+      </div>
     </footer>
 
     {import.meta.env.DEV && (
       <a href="/keystatic" class="keystatic-dev-bar">Edit Site Settings (Keystatic)</a>
     )}
 
+    <script>
+      // Accessible mobile menu toggle — animates transform/opacity only (see
+      // Layout's .site-nav rules), never max-height/display, to avoid reflow
+      // and to honour the "transform and opacity only" animation rule.
+      const toggle = document.querySelector<HTMLButtonElement>(".nav-toggle");
+      const nav = document.getElementById("primary-nav");
+
+      toggle?.addEventListener("click", () => {
+        const isOpen = nav?.classList.toggle("is-open") ?? false;
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          toggle?.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && nav?.classList.contains("is-open")) {
+          nav.classList.remove("is-open");
+          toggle?.setAttribute("aria-expanded", "false");
+          toggle?.focus();
+        }
+      });
+    </script>
+
     <style>
+      /* Sticky nav with a subtle primary-tinted bottom shadow (CLAUDE.md nav spec) */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--surface-base);
+        box-shadow: var(--shadow-nav);
+      }
       .site-header-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
         padding-block: 16px;
+        position: relative;
       }
       .logo {
-        font-family: var(--font-display);
-        font-weight: 700;
-        font-size: 1.125rem;
-        color: var(--brand-primary);
+        font-family: var(--font-heading);
+        font-weight: 400;
+        font-size: 1.25rem;
+        color: var(--color-primary);
         text-decoration: none;
       }
+      .logo:hover { color: var(--color-accent); }
+      .logo:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
+
       .site-nav ul {
         display: flex;
         gap: 20px;
@@ -118,35 +241,142 @@ const navLinks = [
         padding: 0;
       }
       .site-nav a {
-        font-family: var(--font-display);
+        font-family: var(--font-body);
+        font-variant: small-caps;
         font-weight: 600;
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
         color: var(--color-text-muted);
         text-decoration: none;
+        transition: color var(--duration-micro) ease;
       }
-      .site-nav a:hover { color: var(--brand-accent-dark); }
+      .site-nav a:hover { color: var(--color-primary); }
+      .site-nav a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
+      .site-nav a:active { color: var(--color-primary-dark); }
+
+      .site-header-actions { display: flex; align-items: center; gap: 18px; }
+      .header-phone {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.9375rem;
+        color: var(--color-primary);
+        white-space: nowrap;
+      }
+      .header-phone:hover { color: var(--color-accent); }
+
       .btn-sm { padding: 10px 18px; font-size: 0.8125rem; white-space: nowrap; }
 
+      /* Hamburger button: hidden on desktop, only shown under the nav breakpoint */
+      .nav-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: var(--color-primary);
+        cursor: pointer;
+        border-radius: var(--radius-brand);
+        transition: background-color var(--duration-micro) ease, transform var(--duration-micro) var(--ease-spring);
+      }
+      .nav-toggle:hover { background: var(--color-primary-light); }
+      .nav-toggle:active { transform: scale(0.94); }
+      .nav-toggle:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+
+      @media (max-width: 860px) {
+        .nav-toggle { display: inline-flex; order: 3; }
+        .site-header-inner { flex-wrap: wrap; }
+        .site-header-actions { order: 4; margin-left: auto; }
+        .header-phone { display: none; }
+
+        /* Dropdown panel: transform + opacity only, per the animation rule */
+        .site-nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          order: 5;
+          background: var(--surface-base);
+          box-shadow: var(--shadow-nav);
+          padding: 8px 20px 20px;
+          transform: translateY(-8px);
+          opacity: 0;
+          pointer-events: none;
+          transition: transform var(--duration-large) var(--ease-spring), opacity var(--duration-micro) ease;
+        }
+        .site-nav.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        .site-nav ul { flex-direction: column; gap: 4px; }
+        .site-nav a { display: block; padding: 10px 4px; }
+      }
+
       .site-footer {
-        background: var(--brand-secondary);
+        background: var(--surface-footer);
         color: #cbd5e1;
-        padding: 48px 0 24px;
+        padding: 56px 0 24px;
         margin-top: 64px;
       }
       .site-footer-inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 32px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 40px;
       }
+      .footer-col-heading {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-primary-light);
+        margin: 0 0 14px;
+      }
+      .site-footer p { margin: 0 0 8px; }
       .site-footer a { color: #e0f2fe; }
-      .footer-business { font-family: var(--font-display); font-weight: 700; color: #ffffff; margin: 0 0 8px; }
+      .site-footer a:hover { color: var(--color-accent-light); }
+      .site-footer a:focus-visible { outline: 3px solid var(--color-primary-light); outline-offset: 2px; }
+      .footer-business { font-family: var(--font-heading); font-size: 1.0625rem; color: #ffffff; margin: 0 0 8px; }
       .site-footer nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-      .footer-copyright {
+      .footer-cta { margin-top: 16px; }
+
+      .footer-hours { font-size: 0.875rem; color: #e0f2fe; margin: 0 0 12px; }
+
+      .footer-social { display: flex; gap: 12px; margin-top: 40px; }
+      .footer-social-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        color: #e0f2fe;
+        transition: background-color var(--duration-micro) ease, transform var(--duration-micro) var(--ease-spring);
+      }
+      .footer-social-icon:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-1px); }
+
+      .footer-serving {
         text-align: center;
         font-size: 0.8125rem;
+        color: #94a3b8;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom { margin-top: 8px; }
+      .footer-copyright {
+        text-align: center;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
         color: #64748b;
-        margin: 32px 0 0;
+        margin: 16px 0 0;
+      }
+
+      @media (max-width: 720px) {
+        .site-footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
       }
 
       .keystatic-dev-bar {
@@ -155,18 +385,19 @@ const navLinks = [
         right: 16px;
         background: #0f172a;
         color: #ffffff;
-        font-family: var(--font-display);
+        font-family: var(--font-body);
         font-size: 0.8125rem;
         font-weight: 600;
         padding: 10px 16px;
         border-radius: var(--radius-full);
         text-decoration: none;
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-floating);
         z-index: 999;
       }
+      .keystatic-dev-bar:hover { color: var(--color-primary-light); }
 
-      @media (max-width: 860px) {
-        .site-nav { display: none; }
+      @media (max-width: 640px) {
+        .site-footer-inner { grid-template-columns: 1fr; gap: 32px; }
       }
     </style>
   </body>
