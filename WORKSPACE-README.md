@@ -1,5 +1,33 @@
 # Water Softener CITY_NAME STATE_ABBR — Workspace
 
+## Boilerplate build status (informational — not per-city data)
+This section tracks what the *template itself* contains, independent of any
+city. Update it when the boilerplate gains or loses a component; do not fill
+in per-city data here — that's the rest of this file, below.
+
+| Component | Status |
+|---|---|
+| Full design system (global.css) | ✅ commit 3b6e9cf |
+| Layout.astro (nav + footer) | ✅ commit 3b6e9cf |
+| QuoteForm.astro | ✅ commit 3b6e9cf |
+| Breadcrumbs.astro | ✅ commit 3b6e9cf |
+| LocalSchema.astro | ✅ (unchanged, already matched Henderson) |
+| All 8 page files with page-header | ✅ commit 3b6e9cf |
+| GPGSlider.astro | ✅ commit d084265 |
+| GPGSliderMini.astro | ✅ commit d084265 |
+| SystemTour.astro | ✅ commit d084265 |
+| CLAUDE.md | ✅ (pre-existing, unchanged) |
+| BRAND-GUIDE.md | ✅ (pre-existing, unchanged) |
+| PROVISION.md (Step 5b added) | ✅ commit 4aad52d |
+| HendersonMap.astro | ❌ city-specific — build per city (needs real pin coordinates) |
+| InstallationProcess.astro | ❌ city-specific — build per city (needs local copy) |
+| Testimonials.astro | ❌ city-specific — build per city (needs local placeholder copy) |
+
+GPGSlider/GPGSliderMini/SystemTour all read city data from `site.config.ts`
+automatically (city, gpgLow/gpgHigh, gpgLabel, waterSource, waterAuthority) —
+no manual editing needed beyond filling in the config. See PROVISION.md
+Step 5b for where to add each one.
+
 ## Site identity
 - Domain:           DOMAIN_NAME
 - City:             CITY_NAME, STATE_ABBR
