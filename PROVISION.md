@@ -119,11 +119,95 @@ Four-step ion exchange process tour. Content is generic — applies to any
 city. Import and add after the installation cost section.
 
 **City-specific components to build per city (not in boilerplate):**
-- Neighbourhood hardness map (requires city-specific pin coordinates)
+- Neighbourhood hardness map (requires city-specific pin coordinates) — see
+  the City Map section below, a template exists at `CityMap.astro`
 - Installation process section (requires city-specific copy)
 - Testimonials section (requires city-specific placeholder copy)
 
 Build these during Step 5 using the Henderson versions as reference.
+
+#### City Map (city-specific — build per city)
+
+The neighbourhood hardness map is a city-specific component because it requires
+real GPS coordinates for each neighbourhood — these cannot be genericised.
+`src/components/CityMap.astro` is a template with every interaction pattern
+(zoom lock, bounds lock, reset button, hover tooltips) already implemented —
+copy it rather than building the map from scratch.
+
+**Steps to build the city map:**
+
+1. Copy `src/components/CityMap.astro` to `src/components/[City]Map.astro`
+   Example: `src/components/MinneapolisMap.astro`
+
+2. Find the city centre coordinates using OpenStreetMap:
+   Go to https://www.openstreetmap.org → search for the city
+   Right-click the city centre → "Show address" → copy lat/lng
+
+3. Fill in the MAP_CONFIG constants near the top of the `<script>` block:
+   ```
+   CITY_LAT / CITY_LNG        ← city centre coordinates
+   zoom:     12                 ← leave at 12 unless city is very large/small
+   minZoom:  11                 ← prevents zooming out to wider metro
+   maxZoom:  14
+   BOUNDS_SOUTH / BOUNDS_WEST  ← southwest corner of the service area
+   BOUNDS_NORTH / BOUNDS_EAST  ← northeast corner of the service area
+   ```
+   Find the bounding box: https://boundingbox.klokantech.com → search city →
+   copy the CSV coordinates into the four `BOUNDS_*` constants.
+
+4. Find neighbourhood coordinates — for each neighbourhood in
+   `site.config.ts`'s `neighbourhoods` array:
+   Go to https://www.openstreetmap.org → search "[neighbourhood name] [city]"
+   Right-click the neighbourhood centre → "Show address" → copy lat/lng
+
+5. Fill in the `neighbourhoods` array in the script — one entry per
+   neighbourhood:
+   - `name`:     exact neighbourhood name (must match the site.config.ts entry)
+   - `coords`:   `[lat, lng]` from step 4
+   - `gpgRange`: `"[gpgLow]–[gpgHigh]"` from site.config.ts
+   - `wqaNote`:  `"Anything above 10.5 GPG is considered 'Very Hard' by the
+                 Water Quality Association."`
+   - `issues`:   4 hard water issues specific to this neighbourhood's situation
+               (older housing stock, pools, newer construction etc)
+
+6. Install Leaflet (not a boilerplate dependency — install per city):
+   ```bash
+   npm install leaflet @types/leaflet
+   ```
+
+7. Add to astro.config.mjs (if not already present):
+   ```javascript
+   vite: { ssr: { noExternal: ['leaflet'] } }
+   ```
+
+8. Add the Leaflet stylesheet to Layout.astro's head (if not already present):
+   ```html
+   <link rel="stylesheet"
+     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+   ```
+
+9. Import and add to index.astro after the GPG stat block:
+   ```astro
+   import MinneapolisMap from '../components/MinneapolisMap.astro'
+   <MinneapolisMap />
+   ```
+
+10. Run `npm run dev` — verify at localhost:4321:
+    - All neighbourhood pins visible within the viewport at zoom 12
+    - Hover over a pin — tooltip shows neighbourhood name and GPG
+    - Click a pin — report panel updates, map centres on that neighbourhood
+    - Reset View button returns the map to the default view
+    - Map cannot be panned outside the city bounds
+
+**TILE LAYER — DO NOT CHANGE:**
+The tile layer uses OpenStreetMap with a CSS inversion filter. Do not switch
+to CARTO (requires an API key as of September 2026) or Stadia Maps (also
+requires authentication). The CSS inversion filter is scoped to
+`.leaflet-tile-pane` only — it does not affect markers, popups, or controls,
+which sit on separate Leaflet panes. See CLAUDE.md → "Map Component — Tile
+Layer Rule" for the same note.
 
 ### Step 5c — Service Area Pages (optional — only if surrounding cities have search demand)
 

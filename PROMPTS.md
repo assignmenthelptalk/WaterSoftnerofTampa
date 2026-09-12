@@ -105,6 +105,44 @@ fill missing data before writing begins.
 
 ---
 
+## BUILD CITY NEIGHBOURHOOD MAP
+Trigger: Step 5b of provisioning — after site.config.ts is filled with city data
+Replace: [City] [city-slug] [business-id]
+```
+I am building the neighbourhood hardness map for the [City] water softener site.
+
+Context:
+- City data: src/site.config.ts (gpgLow, gpgHigh, neighbourhoods array)
+- Map template: src/components/CityMap.astro
+- Reference implementation: Henderson site HendersonMap.astro
+
+Task:
+1. Copy src/components/CityMap.astro to src/components/[City]Map.astro
+2. Research real GPS coordinates for [City] centre and each neighbourhood
+   using OpenStreetMap (https://www.openstreetmap.org)
+3. Find the bounding box for [City] using https://boundingbox.klokantech.com
+4. Fill in the MAP_CONFIG constants with verified coordinates and bounds
+5. Fill in the neighbourhoods array — one entry per neighbourhood in
+   siteConfig.neighbourhoods
+6. For each neighbourhood write 4 city-specific hard water issues
+   (relate to that specific neighbourhood's housing stock, age, features)
+7. Import and add <[City]Map /> to index.astro after the GPG stat block
+8. Run npm run dev and verify all pins are visible at zoom 12
+9. Run npm run build — must be 0 errors
+
+Coordinate research:
+For each neighbourhood: search "[neighbourhood] [city] [state]" on
+OpenStreetMap → right-click centre → Show address → note lat/lng
+Verify: all pins must be visible simultaneously at zoom 12 from the
+city centre coordinates. Adjust MAP_CONFIG.centre if any pin is cut off.
+
+Do not invent coordinates — every lat/lng must be verified on the map.
+Do not use CARTO tiles — they require an API key.
+Use the OSM tile layer already configured in CityMap.astro.
+```
+
+---
+
 ## UPDATE README AFTER SCORING
 Trigger: after running score-built-site on any page or all pages
 Replace: [business-id]

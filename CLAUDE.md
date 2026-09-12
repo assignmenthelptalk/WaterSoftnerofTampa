@@ -37,6 +37,30 @@
 - Images use Astro's `<Image />` component from `astro:assets` — never raw `<img>` tags.
 - Icons use inline SVG — no icon libraries unless one is already installed in the boilerplate.
 
+## Map Component — Tile Layer Rule
+
+When building city neighbourhood maps for any water softener site:
+
+NEVER use CARTO tiles (basemaps.cartocdn.com) — as of September 2026 they
+require an API key even for unauthenticated requests. Every tile URL returns
+an "API KEY REQUIRED" watermark baked into the tile image. This was
+confirmed via direct tile byte inspection on the Henderson site build.
+
+NEVER use Stadia Maps (tiles.stadiamaps.com) — also requires authentication.
+
+ALWAYS use: OpenStreetMap tiles with a CSS inversion filter.
+URL pattern: `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`
+CSS filter on `.leaflet-tile-pane` only (NOT on the whole map container):
+```css
+filter: invert(1) hue-rotate(190deg) brightness(1.18) contrast(0.85) saturate(0.65);
+```
+
+The filter must be scoped to `.leaflet-tile-pane` specifically. Markers,
+popups, controls, and the reset button sit on separate Leaflet panes and
+must NOT be filtered — they render correctly in their own CSS stacking context.
+
+See `src/components/CityMap.astro` for the working reference implementation.
+
 ## Tailwind version note
 [Tailwind v4]: Configuration is CSS-based via @theme in tailwind.css.
 No tailwind.config.js exists. Design tokens defined in @theme are
