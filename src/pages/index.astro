@@ -63,26 +63,88 @@ import { site } from "../lib/site";
   <section class="section" style="background: var(--color-surface);">
     <div class="container">
       <div class="section-header center">
-        <p class="eyebrow">Recommended Systems</p>
-        <h2>Softener & Filtration Options for {site.city} Water</h2>
+        <span class="section-pill">Recommended for {site.city}</span>
+        <h2>Water Softener Systems for {site.gpgLow}–{site.gpgHigh} GPG Hard Water</h2>
+        <p>{site.city} water from {site.waterAuthority} tests at {site.gpgLow}–{site.gpgHigh} GPG — {site.gpgLabel}. Every system below is selected and sized for this exact hardness level.</p>
       </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Water Softener</h3>
-          <p>Removes hardness minerals at {site.gpgLow}–{site.gpgHigh} GPG. Best for {site.city} homes seeing scale on fixtures and appliances.</p>
-          <a class="btn btn-primary btn-sm" href="/systems/">View Recommended Systems</a>
+
+      <div class="grid grid-3 product-grid">
+        <div class="card product-card product-card-featured">
+          <span class="badge">Best for {site.city}</span>
+          <h3>Salt-Based Water Softener</h3>
+          <p class="product-subtitle">Full hardness removal — the only system that works at {site.gpgLow}–{site.gpgHigh} GPG</p>
+          <ul class="product-features">
+            {[
+              "Removes calcium and magnesium via ion exchange — not just crystallizes them like salt-free conditioners",
+              `Sized for ${site.city}'s ${site.gpgLow}–${site.gpgHigh} GPG range: 32,000–64,000 grain capacity`,
+              "Free water hardness test included with every consultation",
+            ].map((item) => (
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7.2 5.4 10 11.5 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="product-ctas">
+            <a class="btn btn-primary" href={site.affiliateSoftener} target="_blank" rel="noopener noreferrer">View Salt-Based Softeners →</a>
+            <a class="product-outline-cta" href="/quote/">Get a Free Consultation</a>
+          </div>
         </div>
-        <div class="card">
-          <h3>Softener + Filter Combo</h3>
-          <p>Pairs hardness removal with whole-home filtration for chlorine, sediment, and other contaminants from {site.waterAuthority}.</p>
-          <a class="btn btn-primary btn-sm" href="/systems/">View Recommended Systems</a>
+
+        <div class="card product-card">
+          <h3>Softener + Whole-Home Filter</h3>
+          <p class="product-subtitle">Hardness removal plus filtration for {site.waterAuthority} supply</p>
+          <ul class="product-features">
+            {[
+              "Combines ion exchange softening with carbon filtration",
+              `Removes chlorine, sediment, and contaminants from ${site.waterSource}`,
+              "One system, one installation, one maintenance schedule",
+            ].map((item) => (
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7.2 5.4 10 11.5 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="product-ctas">
+            <a class="btn btn-primary" href={site.affiliateCombo} target="_blank" rel="noopener noreferrer">View Combo Systems →</a>
+            <a class="product-outline-cta" href="/quote/">Get a Free Consultation</a>
+          </div>
         </div>
-        <div class="card">
-          <h3>Reverse Osmosis</h3>
-          <p>Under-sink drinking water purification for {site.city} homes. The cleanest possible glass of water from your tap.</p>
-          <a class="btn btn-primary btn-sm" href="/systems/">View Recommended Systems</a>
+
+        <div class="card product-card">
+          <h3>Reverse Osmosis System</h3>
+          <p class="product-subtitle">Under-sink drinking water purification</p>
+          <ul class="product-features">
+            {[
+              `Removes up to 99% of dissolved solids from ${site.waterAuthority} supply`,
+              "Dedicated drinking water tap — eliminates bottled water",
+              "Works best paired with a whole-home softener",
+            ].map((item) => (
+              <li>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7.2 5.4 10 11.5 3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="product-ctas">
+            <a class="btn btn-primary" href={site.affiliateRO} target="_blank" rel="noopener noreferrer">View RO Systems →</a>
+            <a class="product-outline-cta" href="/quote/">Get a Free Consultation</a>
+          </div>
         </div>
       </div>
+
+      <div class="product-grid-cta">
+        <p>Not sure which system is right for your home?</p>
+        <a href="/quote/">Get a free water test and system recommendation →</a>
+      </div>
+
       <p class="disclosure">Some links above are affiliate links. We may earn a commission at no extra cost to you if you purchase through them.</p>
     </div>
   </section>
@@ -154,6 +216,59 @@ import { site } from "../lib/site";
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     .hero-form-wrap :global(.quote-form) { background: #ffffff; }
     .disclosure { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 24px; }
+
+    /* ---------- Product recommendation grid ---------- */
+    .section-pill {
+      display: inline-flex;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-primary-dark, var(--color-primary));
+      background: var(--color-primary-light);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 4px;
+    }
+    .product-grid { margin-top: 32px; align-items: stretch; }
+    .product-card { display: flex; flex-direction: column; position: relative; }
+    .product-card-featured { border: 1.5px solid var(--color-primary); }
+    .product-card-featured .badge {
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      background: var(--color-accent);
+      color: #ffffff;
+    }
+    .product-card h3 { margin-bottom: 6px; }
+    .product-subtitle { font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 16px; }
+    .product-features { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-direction: column; gap: 10px; flex-grow: 1; }
+    .product-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.875rem; line-height: 1.5; }
+    .product-features svg { color: var(--color-primary); flex-shrink: 0; margin-top: 4px; }
+    .product-ctas { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: auto; }
+    .product-outline-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border: 1.5px solid var(--color-primary);
+      border-radius: var(--radius-brand);
+      color: var(--color-primary);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      background: transparent;
+      transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+    }
+    .product-outline-cta:hover { background: var(--color-primary); color: #ffffff; transform: translateY(-1px); }
+    .product-outline-cta:active { transform: scale(0.98); }
+    .product-outline-cta:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+    .product-grid-cta { text-align: center; margin-top: 32px; }
+    .product-grid-cta p { font-family: var(--font-body); font-weight: 600; color: var(--color-text); margin-bottom: 6px; }
+    .product-grid-cta a { font-weight: 600; }
+
     .final-cta { text-align: center; }
     .final-cta p { max-width: 48ch; margin: 0 auto 24px; }
     @media (max-width: 860px) {
