@@ -28,6 +28,18 @@ const navLinks = [
   { href: "/neighbourhood/", label: "Neighbourhoods" },
 ];
 
+const slugify = (label: string) => label.toLowerCase().replace(/\s+/g, "-");
+
+// Dropdown content for the top nav's "Neighbourhoods" item: deep links to
+// each neighbourhood's own section on /neighbourhood/, plus any verified
+// service-area pages — matches the footer's Service Areas column so both
+// stay in sync from the same site.neighbourhoods/site.serviceAreas data.
+const neighbourhoodDropdown = [
+  { href: "/neighbourhood/", label: "All Neighbourhoods" },
+  ...site.neighbourhoods.map((n) => ({ href: `/neighbourhood/#${slugify(n)}`, label: n })),
+];
+const verifiedServiceAreas = site.serviceAreas.filter((a) => a.qdp.verified && a.qdp.verdict === "PASS");
+
 // site.businessHours is a placeholder until the rented business confirms
 // real hours in Keystatic — matches the same placeholder already used in
 // LocalSchema.astro's openingHoursSpecification, so the footer and
@@ -92,7 +104,36 @@ const navLinks = [
         <nav id="primary-nav" class="site-nav" aria-label="Primary">
           <ul>
             {navLinks.map((link) => (
-              <li><a href={link.href}>{link.label}</a></li>
+              link.label === "Neighbourhoods" ? (
+                <li class="nav-dropdown">
+                  <button
+                    type="button"
+                    class="nav-dropdown-trigger"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    {link.label}
+                    <svg class="nav-dropdown-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                  <ul class="nav-dropdown-menu">
+                    {neighbourhoodDropdown.map((item) => (
+                      <li><a href={item.href}>{item.label}</a></li>
+                    ))}
+                    {verifiedServiceAreas.length > 0 && (
+                      <>
+                        <li class="nav-dropdown-divider" role="separator"></li>
+                        {verifiedServiceAreas.map((area) => (
+                          <li><a href={`/${area.slug}/`}>{area.city}</a></li>
+                        ))}
+                      </>
+                    )}
+                  </ul>
+                </li>
+              ) : (
+                <li><a href={link.href}>{link.label}</a></li>
+              )
             ))}
           </ul>
         </nav>
@@ -106,7 +147,7 @@ const navLinks = [
               {site.phone}
             </a>
           )}
-          <a class="btn btn-primary btn-sm" href="/quote/">Get a Free Quote</a>
+          <a class="btn btn-primary btn-sm" href="/quote/">Free Consultation</a>
         </div>
       </div>
     </header>
@@ -133,7 +174,7 @@ const navLinks = [
               {navLinks.map((link) => (
                 <li><a href={link.href}>{link.label}</a></li>
               ))}
-              <li><a href="/quote/">Get a Quote</a></li>
+              <li><a href="/quote/">Free Consultation</a></li>
             </ul>
           </nav>
         </div>
@@ -143,14 +184,11 @@ const navLinks = [
           <nav aria-label="Service areas">
             <ul>
               {site.neighbourhoods.map((n) => (
-                <li><a href="/neighbourhood/">{n}</a></li>
+                <li><a href={`/neighbourhood/#${slugify(n)}`}>{n}</a></li>
               ))}
-              {site.serviceAreas
-                .filter((a) => a.qdp.verified && a.qdp.verdict === "PASS")
-                .map((area) => (
-                  <li><a href={`/${area.slug}/`}>{area.city}, {area.stateAbbr}</a></li>
-                ))
-              }
+              {verifiedServiceAreas.map((area) => (
+                <li><a href={`/${area.slug}/`}>{area.city}, {area.stateAbbr}</a></li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -210,6 +248,41 @@ const navLinks = [
           toggle?.focus();
         }
       });
+
+      // "Neighbourhoods" dropdown — click-to-toggle so it works the same
+      // way on mouse, touch, and keyboard, rather than relying on :hover
+      // (which doesn't work on touch devices and is unreliable for
+      // keyboard users tabbing through the nav).
+      const dropdown = document.querySelector<HTMLLIElement>(".nav-dropdown");
+      const dropdownTrigger = dropdown?.querySelector<HTMLButtonElement>(".nav-dropdown-trigger");
+
+      function closeDropdown() {
+        dropdown?.classList.remove("is-open");
+        dropdownTrigger?.setAttribute("aria-expanded", "false");
+      }
+
+      dropdownTrigger?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const isOpen = dropdown?.classList.toggle("is-open") ?? false;
+        dropdownTrigger.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (dropdown && !dropdown.contains(event.target as Node)) {
+          closeDropdown();
+        }
+      });
+
+      dropdown?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeDropdown);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && dropdown?.classList.contains("is-open")) {
+          closeDropdown();
+          dropdownTrigger?.focus();
+        }
+      });
     </script>
 
     <style>
@@ -239,7 +312,7 @@ const navLinks = [
       .logo:hover { color: var(--color-accent); }
       .logo:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
 
-      .site-nav ul {
+      .site-nav > ul {
         display: flex;
         gap: 20px;
         list-style: none;
@@ -258,6 +331,68 @@ const navLinks = [
       .site-nav a:hover { color: var(--color-primary); }
       .site-nav a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
       .site-nav a:active { color: var(--color-primary-dark); }
+
+      /* Neighbourhoods dropdown — deep links to each neighbourhood's own
+         section plus any verified service-area pages. */
+      .nav-dropdown { position: relative; }
+      .nav-dropdown-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: var(--font-body);
+        font-variant: small-caps;
+        font-weight: 600;
+        font-size: 0.9375rem;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        transition: color var(--duration-micro) ease;
+      }
+      .nav-dropdown-trigger:hover { color: var(--color-primary); }
+      .nav-dropdown-trigger:active { color: var(--color-primary-dark); }
+      .nav-dropdown-trigger:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
+      .nav-dropdown-caret { transition: transform var(--duration-micro) var(--ease-spring); }
+      .nav-dropdown.is-open .nav-dropdown-caret { transform: rotate(180deg); }
+
+      .nav-dropdown-menu {
+        list-style: none;
+        margin: 0;
+        padding: 8px;
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        min-width: 200px;
+        background: var(--surface-base);
+        border-radius: var(--radius-brand);
+        box-shadow: var(--shadow-floating);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-50%) translateY(-8px);
+        transition: opacity var(--duration-micro) ease, transform var(--duration-large) var(--ease-spring);
+        z-index: 60;
+      }
+      .nav-dropdown.is-open .nav-dropdown-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .nav-dropdown-menu a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: var(--font-body);
+        font-variant: normal;
+        font-weight: 500;
+        font-size: 0.875rem;
+        color: var(--color-text);
+        white-space: nowrap;
+        transition: background-color var(--duration-micro) ease, color var(--duration-micro) ease;
+      }
+      .nav-dropdown-menu a:hover { background: var(--color-primary-light); color: var(--color-primary); }
+      .nav-dropdown-menu a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: -3px; border-radius: 4px; }
+      .nav-dropdown-divider { height: 1px; background: var(--color-border); margin: 6px 4px; }
 
       .site-header-actions { display: flex; align-items: center; gap: 18px; }
       .header-phone {
@@ -315,8 +450,23 @@ const navLinks = [
           transition: transform var(--duration-large) var(--ease-spring), opacity var(--duration-micro) ease;
         }
         .site-nav.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-        .site-nav ul { flex-direction: column; gap: 4px; }
+        .site-nav > ul { flex-direction: column; gap: 4px; }
         .site-nav a { display: block; padding: 10px 4px; }
+
+        /* On mobile the dropdown becomes an inline accordion inside the
+           already-vertical nav panel, instead of a floating popover. */
+        .nav-dropdown-trigger { width: 100%; justify-content: space-between; padding: 10px 4px; }
+        .nav-dropdown-menu {
+          position: static;
+          transform: none;
+          opacity: 1;
+          box-shadow: none;
+          padding: 0 0 4px 12px;
+          min-width: 0;
+          display: none;
+        }
+        .nav-dropdown.is-open .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu a { color: var(--color-text-muted); padding: 8px 4px; }
       }
 
       .site-footer {

@@ -122,7 +122,7 @@ import { site } from "../lib/site";
             </div>
 
             <a href="/quote/" class="report-cta" id="report-cta">
-              Get a Free Quote →
+              Free Consultation →
             </a>
 
           </div>
@@ -702,7 +702,7 @@ import { site } from "../lib/site";
         if (reportWqa) reportWqa.innerHTML = `<div class="wqa-note">ℹ️ ${hood.wqaNote}</div>`;
         if (issuesHeading) issuesHeading.textContent = `Common issues in ${hood.name}:`;
         if (reportIssues) reportIssues.innerHTML = hood.issues.map((i) => `<li>${i}</li>`).join("");
-        if (reportCta) reportCta.textContent = `Get a Quote for ${hood.name} →`;
+        if (reportCta) reportCta.textContent = `Free Consultation for ${hood.name} →`;
       });
     });
   });

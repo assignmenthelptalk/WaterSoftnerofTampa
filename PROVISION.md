@@ -306,6 +306,69 @@ All 8 pages must score 80+ before the domain is connected and the site goes live
 If any page fails: fix the flagged rules in the .astro source, rebuild, and rescore.
 Do not proceed to Step 7 until all pages pass.
 
+### Step 6c — Quality gate gotchas (learned fixing the Henderson homepage)
+
+The gate's checks are regex/heuristic, not real NLP. These patterns cost real
+iteration time on the Henderson site — check for them before assuming a rule
+failure means missing content.
+
+**Every H2 section needs an authority signal AND a next-step pointer in its
+own last sentence, not just anywhere in the section body.**
+- Authority signal (Rule 21/24/39): the literal phrase "according to", "per
+  [Capitalized word]" (lowercase "per" required — no `i` flag), "research/data/
+  studies show", the bare word "report"/"reports", or "the [1-4 Capitalized
+  Words] authority/utility/department/agency/association".
+- Next-step pointer (Rule 35): the section's last sentence must contain one of
+  see / get a / quote / next / continue / explore / contact / learn more about
+  / find out, or end in "?".
+- Fastest fix: end each section with one sentence carrying both, e.g.
+  "According to {waterAuthority}, this reading holds across every ZIP code —
+  see the full report for your neighbourhood."
+
+**GOTCHA — an "eyebrow" label before the *next* section's `<h2>` gets counted
+as the end of the *current* section, not the next one.** The checker splits
+sections on literal `## heading` lines. A short `<p class="eyebrow">Label</p>`
+sitting right before the next `<h2>` is still, textually, before that heading
+line — so it becomes the trailing content (and often the literal "last
+sentence") of the section *above* it, silently burying a carefully-written
+closing sentence. If an eyebrow label has no punctuation and no trigger word,
+it can flip Rule 21/35 to failing even though the section's real closing
+paragraph already had both. Fix: give every eyebrow label a trigger word too
+(e.g. "Where We Work" → "See Where We Work") rather than relying only on
+content earlier in the section.
+
+**GOTCHA — an `<h3>` per grid card makes each card its own heading for Rule
+9, and 3 single-sentence `<h3>` cards in a row trips Rule 41.** Rule 9 needs
+a real sentence (with `.`/`!`) in the first 40 words under *every* H2 *and*
+H3. A repeating card grid using `<h3>{name}</h3>` for a label with no lead-in
+prose fails per-card. Separately, if 3 such cards in a row each pair with
+exactly one sentence, the checker's sentence splitter treats "### Heading\n
+Sentence." as one chunk whose first token is literally "###" — three in a row
+trips Rule 41's "3+ consecutive sentences share the same opening word" check.
+This is a heading-format artifact, not repeated prose — already treated as a
+known false positive elsewhere in this project (see WORKSPACE-README.md
+"Bucket 3" notes on any live city site). Prefer a non-heading element (`<span
+class="...">`) for small repeating link-tiles/pills unless the card
+genuinely needs its own heading level.
+
+**GOTCHA — Rule 6 (passive voice) matches on prefix, not whole word, and
+across merged sentences.** `SERVICE_VERB_KEYWORDS` is `/\b(install|repair|
+service|deliver|maintain|replace)/i` with no closing `\b` — it matches
+"installer", "installation", "services" too. Combined with `/\b(is|are|was|
+were|be|been|being)\s+\w+ed\b/i` anywhere in the *same* sentence, this can
+fire on two unrelated clauses that got glued together (see next gotcha). Fix
+by rewriting the actual passive verb active ("is sourced from" → "draws
+from"), not by chasing the service-verb match.
+
+**GOTCHA — the sentence splitter is period-based and naive.** It splits on
+`(?<=[.!?])\s+`, so a period immediately followed by a closing quote mark
+(`."`) does *not* count as a sentence end, and short un-punctuated UI text
+(button labels, bullet list items with no trailing period) gets glued onto
+whatever text follows it into one long "sentence." Don't assume the sentence
+you just wrote is literally the last text the checker sees under a heading —
+verify against the real checker (or the project's own rule functions run
+against the built HTML) rather than predicting by eye.
+
 ### Step 7 — Deploy to Vercel
 
 ```bash
