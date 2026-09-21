@@ -30,7 +30,7 @@ import { site } from "../lib/site";
   </section>
 
   {site.neighbourhoods.map((neighbourhood) => (
-    <section class="section neighbourhood-section">
+    <section class="section neighbourhood-section" id={neighbourhood.toLowerCase().replace(/\s+/g, "-")}>
       <div class="container">
         <h2>{neighbourhood}</h2>
         <p>
@@ -54,6 +54,10 @@ import { site } from "../lib/site";
   <style>
     .neighbourhood-section:nth-of-type(odd) { background: var(--color-surface); }
     .neighbourhood-section h2 { margin-bottom: 8px; }
+    /* Offsets the anchor-scroll target below the sticky site header (plus
+       utility bar) so a deep link from the Locations nav dropdown doesn't
+       land with the heading hidden underneath. */
+    .neighbourhood-section { scroll-margin-top: 120px; }
     .neighbourhood-cta { margin-top: 16px; }
     .neighbourhood-cta:not(:hover) { color: var(--color-primary); border-color: var(--color-primary); }
     .final-cta { text-align: center; }

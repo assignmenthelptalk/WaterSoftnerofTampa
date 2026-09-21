@@ -27,6 +27,14 @@ const servicesDropdown = [
   { href: "/neighbourhood/", label: "Neighbourhoods" },
 ];
 
+// Locations dropdown — every city site has site.neighbourhoods, so this
+// works out of the box for any clone. Requires each neighbourhood section
+// on neighbourhood.astro to carry a matching id (see that file).
+const locationsDropdown = site.neighbourhoods.map((hood) => ({
+  href: `/neighbourhood/#${hood.toLowerCase().replace(/\s+/g, "-")}`,
+  label: hood,
+}));
+
 const verifiedServiceAreas = site.serviceAreas.filter((a) => a.qdp.verified && a.qdp.verdict === "PASS");
 
 // Footer keeps a flat single row of every real page, including verified
@@ -118,8 +126,8 @@ const footerNavLinks = [
           <ul>
             <li><a href="/">Home</a></li>
 
-            <li class="nav-services">
-              <button type="button" class="nav-services-btn" aria-haspopup="true">
+            <li class="nav-has-dropdown">
+              <button type="button" class="nav-has-dropdown-btn" aria-haspopup="true">
                 Services
               </button>
               <div class="nav-dropdown">
@@ -130,7 +138,18 @@ const footerNavLinks = [
             </li>
 
             <li><a href="/products/">Products</a></li>
-            <li><a href="/neighbourhood/">Locations</a></li>
+
+            <li class="nav-has-dropdown">
+              <button type="button" class="nav-has-dropdown-btn" aria-haspopup="true">
+                Locations
+              </button>
+              <div class="nav-dropdown">
+                {locationsDropdown.map((item) => (
+                  <a href={item.href}>{item.label}</a>
+                ))}
+              </div>
+            </li>
+
             <li><a href="/about/">About</a></li>
             <li><a class="nav-contact-btn" href="/contact/">Contact</a></li>
           </ul>
@@ -192,10 +211,10 @@ const footerNavLinks = [
         }
       });
 
-      // "Services" is a pure-CSS hover/focus-within dropdown on desktop (see
-      // .nav-services in <style> below) and a flat always-visible indented
-      // list on mobile — neither needs JavaScript. The hamburger toggle
-      // above is the only JS-driven nav interaction.
+      // Services and Locations are pure-CSS hover/focus-within dropdowns on
+      // desktop (see .nav-has-dropdown in <style> below) and flat
+      // always-visible indented lists on mobile — neither needs JavaScript.
+      // The hamburger toggle above is the only JS-driven nav interaction.
     </script>
 
     <style>
@@ -272,9 +291,11 @@ const footerNavLinks = [
       .site-nav a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
       .site-nav a:active { color: var(--color-primary-dark); }
 
-      /* Services dropdown — pure CSS hover/focus-within, no JS on desktop */
-      .nav-services { position: relative; }
-      .nav-services-btn {
+      /* Nav dropdowns (Services / Locations) — pure CSS hover/focus-within,
+         no JS on desktop. Both share this one set of rules via the
+         .nav-has-dropdown class. */
+      .nav-has-dropdown { position: relative; }
+      .nav-has-dropdown-btn {
         background: none;
         border: none;
         font-family: var(--font-body);
@@ -287,18 +308,18 @@ const footerNavLinks = [
         gap: 4px;
         padding: 0;
       }
-      .nav-services-btn::after {
+      .nav-has-dropdown-btn::after {
         content: '▾';
         font-size: 10px;
         transition: transform 200ms ease;
       }
-      .nav-services:hover .nav-services-btn,
-      .nav-services:focus-within .nav-services-btn { color: var(--color-primary); }
-      .nav-services:hover .nav-services-btn::after,
-      .nav-services:focus-within .nav-services-btn::after { transform: rotate(180deg); }
-      .nav-services-btn:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
+      .nav-has-dropdown:hover .nav-has-dropdown-btn,
+      .nav-has-dropdown:focus-within .nav-has-dropdown-btn { color: var(--color-primary); }
+      .nav-has-dropdown:hover .nav-has-dropdown-btn::after,
+      .nav-has-dropdown:focus-within .nav-has-dropdown-btn::after { transform: rotate(180deg); }
+      .nav-has-dropdown-btn:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
 
-      .nav-services .nav-dropdown {
+      .nav-has-dropdown .nav-dropdown {
         position: absolute;
         top: calc(100% + 8px);
         left: 0;
@@ -315,8 +336,8 @@ const footerNavLinks = [
                     transform 200ms ease;
         z-index: 999;
       }
-      .nav-services:hover .nav-dropdown,
-      .nav-services:focus-within .nav-dropdown {
+      .nav-has-dropdown:hover .nav-dropdown,
+      .nav-has-dropdown:focus-within .nav-dropdown {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
@@ -406,13 +427,14 @@ const footerNavLinks = [
         .site-nav > ul { flex-direction: column; align-items: stretch; gap: 4px; }
         .site-nav a { display: block; padding: 10px 4px; }
 
-        /* Services becomes a static label with all 6 sub-links always shown,
-           indented, directly below it — a flat list, not a collapsible
-           accordion, since mobile has no hover and the whole nav panel is
-           already collapsed behind the hamburger. */
-        .nav-services-btn { pointer-events: none; padding: 10px 4px; }
-        .nav-services-btn::after { content: ''; }
-        .nav-services .nav-dropdown {
+        /* Each dropdown (Services / Locations) becomes a static label with
+           all its sub-links always shown, indented, directly below it — a
+           flat list, not a collapsible accordion, since mobile has no
+           hover and the whole nav panel is already collapsed behind the
+           hamburger. */
+        .nav-has-dropdown-btn { pointer-events: none; padding: 10px 4px; }
+        .nav-has-dropdown-btn::after { content: ''; }
+        .nav-has-dropdown .nav-dropdown {
           position: static;
           visibility: visible;
           opacity: 1;

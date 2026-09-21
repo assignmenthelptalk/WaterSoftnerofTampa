@@ -241,6 +241,29 @@ table.data-table tbody tr:nth-child(even) { background: var(--surface-elevated);
   margin: 6px 0 0;
 }
 
+/* Brand backlink — used on 10+ pages (see grep for "brand-backlink") but
+   had no CSS definition anywhere in the boilerplate until now, so every
+   instance rendered completely unstyled. Ported from watersoftenerhendersonnv,
+   where this pattern is fully styled. */
+.brand-backlink {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.brand-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.brand-link:hover { color: var(--color-accent); text-decoration: underline; }
+.brand-link:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 /* FAQ accordion: native <details>/<summary> so open/close needs no JS and
    no height animation — only the answer's opacity/transform animates,
    honouring the "transform and opacity only" rule. */
