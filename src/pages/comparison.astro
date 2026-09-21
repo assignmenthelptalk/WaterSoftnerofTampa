@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
@@ -20,6 +18,11 @@ import { site } from "../lib/site";
 
   <section class="section">
     <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides water softener system comparison and guidance across {site.city} and {site.county}.
+      </p>
+
       <div class="section-header">
         <p>At {site.gpgLow}–{site.gpgHigh} GPG, {site.city} homes need to weigh true softening against lower-maintenance conditioning. Here's how the two approaches compare.</p>
       </div>

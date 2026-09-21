@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
@@ -20,6 +18,11 @@ import { site } from "../lib/site";
 
   <section class="section">
     <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides water softener installation and sizing across {site.city} and {site.county}.
+      </p>
+
       <div class="section-header">
         <p>Most {site.city} homeowners pay between <strong>$800 and $3,500</strong> for a fully installed water softener, depending on system size, water hardness, and existing plumbing.</p>
       </div>

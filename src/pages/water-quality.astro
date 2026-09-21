@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
@@ -20,6 +18,11 @@ import { site } from "../lib/site";
 
   <section class="section">
     <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides water hardness testing and quality reporting across {site.city} and {site.county}.
+      </p>
+
       <div class="section-header">
         <p>{site.city}'s public water supply is sourced from {site.waterSource} and managed by {site.waterAuthority}. Homes across {site.county} see hardness levels of {site.gpgLow}–{site.gpgHigh} grains per gallon (GPG), classified as {site.gpgLabel}.</p>
       </div>

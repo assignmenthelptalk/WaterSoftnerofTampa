@@ -10,12 +10,11 @@
  * obvious in the rendered output — if you see "CITY_NAME" on a live page,
  * this file was never filled in.
  *
- * business identity fields (phone, email, address, businessName) are
- * DEFAULTS ONLY. Once a site is rented, Keystatic writes the real values
- * to src/data/site.json, which overrides these defaults. See src/lib/site.ts
- * for the merge — pages should import `site` from there, not this file
- * directly, so they always see the final (possibly Keystatic-overridden)
- * values.
+ * No CMS layer (Keystatic was removed — this is a phone-call-based
+ * rank-and-rent model). To update the phone number, email, or any other
+ * detail after a tenant signs, edit the fields below directly and
+ * `git push` — Vercel rebuilds and redeploys automatically. See
+ * PROVISION.md's "CMS — No Keystatic" section for the full workflow.
  *
  * See PROVISION.md for the full step-by-step process of turning this
  * boilerplate into a live city site.
@@ -43,13 +42,13 @@ export interface ServiceAreaFaq {
  */
 export interface ServiceArea {
   // ── Identity ────────────────────────────────────────────────────────────
-  /** URL slug e.g. "boulder-city" → /boulder-city/ */
+  /** URL slug e.g. "eastville" → /eastville/ */
   slug: string;
-  /** Display city name e.g. "Boulder City" */
+  /** Display city name e.g. "Eastville" */
   city: string;
-  /** Two-letter state abbreviation e.g. "NV" */
+  /** Two-letter state abbreviation e.g. "OH" */
   stateAbbr: string;
-  /** County name e.g. "Clark County" */
+  /** County name e.g. "Example County" */
   county: string;
   /** Verified population e.g. "16,000" */
   population: string;
@@ -71,7 +70,7 @@ export interface ServiceArea {
   // ── Distance and relationship to the primary city ──────────────────────
   /** e.g. "7 miles southeast" */
   distanceFromPrimary: string;
-  /** e.g. "separately incorporated city" or "unincorporated Clark County community" */
+  /** e.g. "separately incorporated city" or "unincorporated county community" */
   relationship: string;
 
   // ── Page content ────────────────────────────────────────────────────────
@@ -83,9 +82,9 @@ export interface ServiceArea {
   h1: string;
   /** H1 subheading — one line */
   h1Sub: string;
-  /** e.g. "16–18 GPG" */
+  /** e.g. "12–16 GPG" */
   heroStat: string;
-  /** e.g. "Boulder City Water Hardness" */
+  /** e.g. "Eastville Water Hardness" */
   heroStatLabel: string;
   /** e.g. "VERY HARD" */
   heroStatBadge: string;
@@ -161,7 +160,7 @@ export interface SiteConfig {
   gpgHigh: number;
   /** Human label for the hardness range, e.g. "Very Hard" | "Extreme" */
   gpgLabel: string;
-  /** Where the city's tap water comes from, e.g. "Colorado River via Lake Mead" */
+  /** Where the city's tap water comes from, e.g. "Municipal reservoir supply" */
   waterSource: string;
   /** The utility/authority that manages the water supply */
   waterAuthority: string;
@@ -177,7 +176,7 @@ export interface SiteConfig {
   // ── Local data ──────────────────────────────────────────────────────────
   /** City population, formatted for display, e.g. "641,900" */
   population: string;
-  /** Full county name including any suffix the county actually uses, e.g. "Clark County" or "Orleans Parish" — pages interpolate this value as-is, with no " County" appended */
+  /** Full county name including any suffix the county actually uses, e.g. "Example County" or "Orleans Parish" — pages interpolate this value as-is, with no " County" appended */
   county: string;
   /** 3+ real neighbourhoods/suburbs, used by neighbourhood.astro */
   neighbourhoods: string[];
@@ -192,19 +191,27 @@ export interface SiteConfig {
   /** SpringWell affiliate link — reverse osmosis */
   affiliateRO: string;
 
-  // ── Forms ───────────────────────────────────────────────────────────────
-  /** formsubmit.co destination inbox for lead form submissions */
-  formEmail: string;
-
-  // ── Business defaults (overridden by Keystatic src/data/site.json) ──────
-  /** Default business name shown until Keystatic sets a real one */
+  // ── Business identity — edit directly, no CMS ────────────────────────────
+  /** Business name shown in the header, footer, and page titles */
   businessName: string;
-  /** Default phone — intentionally blank until rented */
-  phone: string;
-  /** Default email — intentionally blank until rented */
-  email: string;
-  /** Default address — intentionally blank until rented */
+  /** Phone number — SCREAMING_SNAKE_CASE placeholder until a tenant signs.
+   * Every phone display checks for this exact placeholder string (not just
+   * truthiness) before rendering, so a half-provisioned site never shows
+   * a fake number. Also used as the formsubmit.co destination via
+   * businessEmail below — phone is the primary contact method, the
+   * QuoteForm is a secondary option for homeowners who prefer a form. */
+  phoneNumber: string;
+  /** Business email — used as the formsubmit.co destination for QuoteForm
+   * submissions. SCREAMING_SNAKE_CASE placeholder until a tenant signs. */
+  businessEmail: string;
+  /** Physical or service-area address — blank (not a placeholder token)
+   * until a tenant signs; every usage hides gracefully when empty. */
   address: string;
+  /** Google Business Profile URL — blank until claimed; used as the
+   * footer link and the LocalBusiness schema's sameAs URL. */
+  googleBusinessUrl: string;
+  /** Fully-qualified site URL derived from `domain`, e.g. "https://example.com" */
+  siteUrl: string;
 
   // ── Design tokens (deep teal + warm orange defaults; other cities override) ─────
   design: {
@@ -230,12 +237,16 @@ export interface SiteConfig {
   serviceAreas: ServiceArea[];
 }
 
+// Declared separately so siteUrl below can derive from it without
+// duplicating the literal.
+const domain = "DOMAIN_NAME";
+
 export const siteConfig: SiteConfig = {
   // Identity
   city: "CITY_NAME",
   state: "STATE_NAME",
   stateAbbr: "STATE_ABBR",
-  domain: "DOMAIN_NAME",
+  domain,
 
   // Water hardness data
   gpgLow: 0,
@@ -260,14 +271,13 @@ export const siteConfig: SiteConfig = {
   affiliateCombo: "https://springwellwater.com/follow/combo/",
   affiliateRO: "https://springwellwater.com/follow/ro/",
 
-  // Forms
-  formEmail: "FORM_EMAIL",
-
-  // Business (overridden by Keystatic when rented)
+  // Business identity — edit directly, no CMS
   businessName: "Water Softener CITY_NAME",
-  phone: "",
-  email: "",
+  phoneNumber: "PHONE_NUMBER",
+  businessEmail: "BUSINESS_EMAIL",
   address: "",
+  googleBusinessUrl: "",
+  siteUrl: `https://${domain}`,
 
   // Design tokens (deep teal + warm orange defaults — other cities override these)
   design: {

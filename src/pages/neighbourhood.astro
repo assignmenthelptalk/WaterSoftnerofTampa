@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
@@ -20,6 +18,11 @@ import { site } from "../lib/site";
 
   <section class="section">
     <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides water softener installation and service across {site.city} and {site.county}.
+      </p>
+
       <div class="section-header">
         <p>We install and service water softeners throughout {site.city}, {site.stateAbbr}, and every neighbourhood shares the same {site.gpgLow}–{site.gpgHigh} GPG ({site.gpgLabel}) water from {site.waterSource}.</p>
       </div>

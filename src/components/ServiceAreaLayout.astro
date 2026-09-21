@@ -47,7 +47,7 @@ const localBusinessSchema = {
   name: site.businessName || site.primaryKeyword,
   description: `Water softener installation and service in ${city}, ${stateAbbr}`,
   url: `${site.siteUrl}/${slug}/`,
-  telephone: site.phone || undefined,
+  telephone: site.phoneNumber !== "PHONE_NUMBER" ? site.phoneNumber : undefined,
   areaServed: [
     {
       "@type": "City",
@@ -71,8 +71,8 @@ const localBusinessSchema = {
     <Breadcrumbs items={[{ label: `${city}, ${stateAbbr}` }]} />
   </div>
   <div class="sa-header-right">
-    {site.phone && (
-      <a class="sa-header-phone" href={`tel:${site.phone}`}>{site.phone}</a>
+    {site.phoneNumber !== "PHONE_NUMBER" && (
+      <a class="sa-header-phone" href={`tel:${site.phoneNumber}`}>{site.phoneNumber}</a>
     )}
     <a class="sa-header-cta" href="/quote/">Get a Free Water Test</a>
   </div>

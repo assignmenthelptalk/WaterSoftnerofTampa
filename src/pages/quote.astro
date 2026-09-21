@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import QuoteForm from "../components/QuoteForm.astro";
@@ -20,6 +18,12 @@ import { site } from "../lib/site";
   </section>
 
   <section class="section quote-section">
+    <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides free water testing and no-obligation quotes across {site.city} and {site.county}.
+      </p>
+    </div>
     <div class="container quote-grid">
       <div>
         <p>Tell us a bit about your home and we'll follow up with a no-obligation recommendation and price, sized for {site.city}'s {site.gpgLow}–{site.gpgHigh} GPG water.</p>
@@ -28,8 +32,8 @@ import { site } from "../lib/site";
           <li>No-obligation, transparent pricing</li>
           <li>Local installation across {site.county}</li>
         </ul>
-        {site.phone && (
-          <p class="quote-phone">Prefer to talk now? Call <a href={`tel:${site.phone}`}>{site.phone}</a></p>
+        {site.phoneNumber !== "PHONE_NUMBER" && (
+          <p class="quote-phone">Prefer to talk now? Call <a href={`tel:${site.phoneNumber}`}>{site.phoneNumber}</a></p>
         )}
       </div>
       <QuoteForm />

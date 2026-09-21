@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
@@ -20,6 +18,11 @@ import { site } from "../lib/site";
 
   <section class="section">
     <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides hard water treatment and scale prevention across {site.city} and {site.county}.
+      </p>
+
       <div class="section-header">
         <p>At {site.gpgLabel} levels, {site.city} tap water carries enough dissolved calcium and magnesium to leave visible and invisible damage throughout your home over time.</p>
       </div>

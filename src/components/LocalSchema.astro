@@ -1,9 +1,9 @@
 ---
 /**
  * LocalSchema — emits LocalBusiness JSON-LD for the water treatment
- * service area. Reads exclusively from src/lib/site.ts (site.config.ts +
- * Keystatic-managed site.json), so it is identical for every page and
- * automatically correct once a city is provisioned.
+ * service area. Reads exclusively from src/lib/site.ts (site.config.ts),
+ * so it is identical for every page and automatically correct once a
+ * city is provisioned.
  */
 import { site } from "../lib/site";
 
@@ -12,8 +12,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: site.businessName,
   url: site.siteUrl,
-  telephone: site.phone || undefined,
-  email: site.email || undefined,
+  telephone: site.phoneNumber !== "PHONE_NUMBER" ? site.phoneNumber : undefined,
+  email: site.businessEmail !== "BUSINESS_EMAIL" ? site.businessEmail : undefined,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address || undefined,

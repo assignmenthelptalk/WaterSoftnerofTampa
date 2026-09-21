@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
@@ -95,6 +93,11 @@ const faqSchema = {
 
   <section class="section">
     <div class="container">
+      <p class="brand-backlink">
+        <a href="/" class="brand-link">{site.city} Water Softeners</a>
+        {" "}provides water softener information and consultation across {site.city} and {site.county}.
+      </p>
+
       <div class="faq-list">
         {faqs.map((item) => (
           <details class="faq-item">

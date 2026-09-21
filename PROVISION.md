@@ -52,40 +52,16 @@ placeholder with real data for the city:
 - `population`, `county`
 - `neighbourhoods` (array of 3+ real suburbs)
 - `zipCodes` (array of 3+ real ZIP codes)
-- `formEmail` (your formsubmit.co destination inbox for this city)
+- `businessName`, `phoneNumber`, `businessEmail`, `address` (the tenant's
+  real business identity — see "CMS — No Keystatic" below; these can also
+  be left as their placeholder values until a tenant actually signs)
 
-Leave `phone`, `email`, `address`, and `businessName` as-is — those get set
-through Keystatic in Step 4, not hardcoded here.
+### Step 4 — ~~Switch Keystatic to GitHub mode~~ REMOVED
 
-### Step 4 — Switch Keystatic to GitHub mode
-
-This boilerplate ships with `storage: { kind: "local" }` in
-`keystatic.config.ts` because it's never deployed. A live city site on
-Vercel can't write to its own filesystem, so Keystatic needs to commit
-content changes back to GitHub instead. In `keystatic.config.ts`, change:
-
-```ts
-storage: {
-  kind: "local",
-},
-```
-
-to:
-
-```ts
-storage: {
-  kind: "github",
-  repo: "assignmenthelptalk/watersoftener[CITY][STATE]",
-},
-```
-
-Also update the singleton `label` from `"Boilerplate — Site Settings..."` to
-`"[City] — Site Settings"`.
-
-GitHub-mode Keystatic requires a GitHub OAuth App for authentication — see
-https://keystatic.com/docs/github-mode for the one-time setup, then add the
-resulting `KEYSTATIC_GITHUB_CLIENT_ID` and `KEYSTATIC_GITHUB_CLIENT_SECRET`
-as environment variables in the Vercel project (Step 7).
+Keystatic has been removed from this boilerplate entirely. There is no CMS
+step anymore — site identity fields are edited directly in
+`site.config.ts` in Step 3 above. See "CMS — No Keystatic" below for the
+ongoing workflow once a site is live.
 
 ### Step 5 — Write city content
 
@@ -379,9 +355,8 @@ vercel link   # create a new Vercel project for this repo
 vercel --prod
 ```
 
-If you switched Keystatic to GitHub mode in Step 4, add
-`KEYSTATIC_GITHUB_CLIENT_ID` and `KEYSTATIC_GITHUB_CLIENT_SECRET` to the
-Vercel project's environment variables before the first production deploy.
+No environment variables are required — the site is pure static output
+with zero serverless functions.
 
 ### Step 8 — Add the custom domain
 
@@ -399,7 +374,27 @@ Submit to: Google Business Profile, Yelp, BBB, Angi, HomeAdvisor,
 Bing Places, Apple Maps, Foursquare, Manta, Hotfrog.
 
 Use identical NAP (Name / Address / Phone) on every directory — pull these
-from Keystatic's Site Settings once they're set, not from memory.
+from `site.config.ts` once they're set, not from memory.
+
+## CMS — No Keystatic
+
+Keystatic has been removed from all sites. Site data is managed directly
+in `site.config.ts`.
+
+To update the phone number after a tenant signs:
+1. Open `site.config.ts`
+2. Change `phoneNumber: 'PHONE_NUMBER'` to the tenant's number
+3. `git add site.config.ts`
+4. `git push origin main`
+5. Vercel rebuilds and deploys automatically in ~60 seconds
+6. The phone number updates across the utility bar, nav, hero, footer, and
+   all contact sections simultaneously
+
+To update any other site detail (address, email, business name):
+Same process — edit `site.config.ts`, git push, done.
+
+No GitHub OAuth setup needed. No `/keystatic` admin route. No tenant
+GitHub account required.
 
 ## City Config Reference
 
