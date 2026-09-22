@@ -23,8 +23,15 @@ const servicesDropdown = [
   { href: "/hard-water/", label: "Hard Water" },
   { href: "/installation/", label: "Installation" },
   { href: "/repair/", label: "Repair" },
+  { href: "/resin-bed-replacement/", label: "Resin Bed Replacement" },
   { href: "/comparison/", label: "Comparison" },
   { href: "/neighbourhood/", label: "Neighbourhoods" },
+];
+
+const productsDropdown = [
+  { href: "/products/", label: "Water Softener" },
+  { href: "/whole-home-filtration/", label: "Whole House Filtration" },
+  { href: "/reverse-osmosis/", label: "Reverse Osmosis" },
 ];
 
 // Locations dropdown — every city site has site.neighbourhoods, so this
@@ -48,6 +55,8 @@ const footerNavLinks = [
   { href: "/repair/", label: "Repair" },
   { href: "/comparison/", label: "Compare" },
   { href: "/products/", label: "Products" },
+  { href: "/whole-home-filtration/", label: "Whole Home Filtration" },
+  { href: "/reverse-osmosis/", label: "Reverse Osmosis" },
   { href: "/faq/", label: "FAQ" },
   { href: "/neighbourhood/", label: "Locations" },
   { href: "/about/", label: "About" },
@@ -137,7 +146,16 @@ const footerNavLinks = [
               </div>
             </li>
 
-            <li><a href="/products/">Products</a></li>
+            <li class="nav-has-dropdown">
+              <button type="button" class="nav-has-dropdown-btn" aria-haspopup="true">
+                Products
+              </button>
+              <div class="nav-dropdown">
+                {productsDropdown.map((item) => (
+                  <a href={item.href}>{item.label}</a>
+                ))}
+              </div>
+            </li>
 
             <li class="nav-has-dropdown">
               <button type="button" class="nav-has-dropdown-btn" aria-haspopup="true">
@@ -211,7 +229,7 @@ const footerNavLinks = [
         }
       });
 
-      // Services and Locations are pure-CSS hover/focus-within dropdowns on
+      // Services, Products, and Locations are pure-CSS hover/focus-within dropdowns on
       // desktop (see .nav-has-dropdown in <style> below) and flat
       // always-visible indented lists on mobile — neither needs JavaScript.
       // The hamburger toggle above is the only JS-driven nav interaction.
@@ -291,7 +309,7 @@ const footerNavLinks = [
       .site-nav a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; border-radius: 2px; }
       .site-nav a:active { color: var(--color-primary-dark); }
 
-      /* Nav dropdowns (Services / Locations) — pure CSS hover/focus-within,
+      /* Nav dropdowns (Services / Products / Locations) — pure CSS hover/focus-within,
          no JS on desktop. Both share this one set of rules via the
          .nav-has-dropdown class. */
       .nav-has-dropdown { position: relative; }
@@ -427,7 +445,7 @@ const footerNavLinks = [
         .site-nav > ul { flex-direction: column; align-items: stretch; gap: 4px; }
         .site-nav a { display: block; padding: 10px 4px; }
 
-        /* Each dropdown (Services / Locations) becomes a static label with
+        /* Each dropdown (Services / Products / Locations) becomes a static label with
            all its sub-links always shown, indented, directly below it — a
            flat list, not a collapsible accordion, since mobile has no
            hover and the whole nav panel is already collapsed behind the
