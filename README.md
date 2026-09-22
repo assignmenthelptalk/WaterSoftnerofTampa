@@ -11,8 +11,10 @@ staging server, no server-side rendering.
 
 ## What this is
 
-- A city-agnostic set of 8 pages (home, water quality, hard water,
-  installation, comparison, FAQ, neighbourhoods, quote) that read every
+- A city-agnostic set of 16 pages (home, water quality, hard water,
+  installation, comparison, FAQ, neighbourhoods, quote, products,
+  repair, resin bed replacement, brine tank cleaning, whole home
+  filtration, reverse osmosis, about, contact) that read every
   piece of city-specific data from `src/site.config.ts` and
   `src/data/site.json` — never hardcoded.
 - A single config file (`src/site.config.ts`) that is the only thing you

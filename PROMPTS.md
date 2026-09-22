@@ -20,7 +20,7 @@ Do not do anything else until you have read the README.
 ---
 
 ## WRITE A SINGLE PAGE
-Trigger: writing any one of the 8 core pages
+Trigger: writing any one of the 16 pages
 Replace: [city] [business-id] [page] [site-folder]
 ```
 I am working on the [city] water softener site.
@@ -51,11 +51,11 @@ Do not fix anything — report only.
 
 ---
 
-## SCORE ALL 8 PAGES AFTER BUILD
+## SCORE ALL 16 PAGES AFTER BUILD
 Trigger: after all pages are written and npm run build is clean
 Replace: [city] [business-id] [site-folder]
 ```
-Score all 8 pages for [city] after the Astro build.
+Score all 16 pages for [city] after the Astro build.
 
 Run:
 cd Local-SEO-Toolkit
@@ -88,17 +88,18 @@ Report the new score. Repeat until 80+.
 Trigger: before Step 5 (Write city content) of provisioning — after topical map is saved
 Replace: [city] [business-id] [site-folder]
 ```
-Generate EAV briefs for all 8 pages for the [city] site.
+Generate EAV briefs for all 14 EAV-driven pages for the [city] site
+(all pages except about and contact — see eavPageTypes.js). This also
+covers products, repair, resin-bed-replacement, brine-tank-cleaning,
+whole-home-filtration, and reverse-osmosis, plus one brief per configured
+neighbourhood — 17 files total for a 4-neighbourhood site.
 
 Run from Local-SEO-Toolkit:
-node scripts\validate-content.js
-  --business [business-id]
+node scripts\generate-briefs.js
   --site-config [site-folder]\src\site.config.ts
-  --site-json [site-folder]\src\data\site.json
-  --page all
-  --brief-only
+  --business [business-id]
 
-Save briefs to Local-SEO-Toolkit\data\[business-id]\briefs\
+Saves briefs to Local-SEO-Toolkit\data\[business-id]\briefs\
 Report the openDataGaps list from each brief so I can
 fill missing data before writing begins.
 ```
@@ -209,11 +210,12 @@ Work through these steps in order:
 Step 1: Read site.config.ts — confirm all city values are filled,
         no SCREAMING_SNAKE_CASE placeholders remain
 
-Step 2: Generate EAV briefs for all 8 pages using Local-SEO-Toolkit
+Step 2: Generate EAV briefs for all 14 EAV-driven pages using Local-SEO-Toolkit
+        (all pages except about and contact — see eavPageTypes.js)
         Save to data/[business-id]/briefs/
         Report openDataGaps before writing
 
-Step 3: Write all 8 pages using the briefs
+Step 3: Write all 16 pages (14 from briefs + about + contact)
         Apply all 14 core Koray writing rules per page
         Save each page to [site-folder]/src/pages/
         Use [PLACEHOLDER] for any data gap
@@ -221,11 +223,11 @@ Step 3: Write all 8 pages using the briefs
 Step 4: Run npm run build in [site-folder]
         Must complete with 0 errors and 0 warnings
 
-Step 5: Score all 8 pages using score-built-site
+Step 5: Score all 16 pages using score-built-site
         Report scores per page
         Flag pages below 80
 
-Do not proceed to Step 4 until all 8 pages are written.
+Do not proceed to Step 4 until all 16 pages are written.
 Do not proceed to Step 5 until build is confirmed clean.
 ```
 
@@ -279,7 +281,6 @@ cd Local-SEO-Toolkit
 node scripts\validate-content.js
   --business [business-id]
   --site-config [site-folder]\src\site.config.ts
-  --site-json [site-folder]\src\data\site.json
   --register
 
 Verify the four field conflict resolutions are correct:

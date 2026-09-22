@@ -68,7 +68,7 @@ ongoing workflow once a site is live.
 Ask Claude Code:
 
 > Using the values in site.config.ts, write real water softener content
-> for all 8 pages. Every page needs the city name, GPG hardness figure,
+> for all 16 pages. Every page needs the city name, GPG hardness figure,
 > water source, and a local hook. No placeholder text in the final output.
 
 ### Step 5b — Adapt interactive components
@@ -278,7 +278,7 @@ npm run score-built-site -- \
   --dist C:\Users\lenevo\waterSoftenerProjects\[site-folder]\dist
 ```
 
-All 8 pages must score 80+ before the domain is connected and the site goes live.
+All 16 pages must score 80+ before the domain is connected and the site goes live.
 If any page fails: fix the flagged rules in the .astro source, rebuild, and rescore.
 Do not proceed to Step 7 until all pages pass.
 
@@ -344,6 +344,44 @@ whatever text follows it into one long "sentence." Don't assume the sentence
 you just wrote is literally the last text the checker sees under a heading —
 verify against the real checker (or the project's own rule functions run
 against the built HTML) rather than predicting by eye.
+
+**GOTCHA — Rule 13/27 (anchor text) requires an *exact* string match against
+the brief's `title()` output — nothing appended.** `checkRule13` compares
+`link.anchorText !== matchingTarget.anchorText` with no tolerance: a
+trailing "→", extra whitespace, or any other character makes a
+byte-for-byte-correct anchor fail again. When fixing an anchor to match a
+destination title, copy the title string alone — put any arrow/decoration
+outside what gets compared, or drop it. Only links whose `href` contains a
+brief-known `targetPageType` slug are checked at all (an unrelated or
+external link, or one pointing to a page type with no EAV brief like
+`/contact/`, is never checked) — see `eavPageTypes.js` for which page types
+exist.
+
+**GOTCHA — do not "fix" the standard affiliate disclosure sentence to
+silence Rule 2/12.** `HEDGE_WORDS` flags the literal word "may" anywhere in a
+sentence (no exception for legal copy), and the conditional-structure check
+flags "if" appearing mid-sentence. "We may earn a commission at no extra
+cost to you if you purchase through them" is standard FTC-style affiliate
+disclosure language — reword it and you trade a false-positive score
+deduction for actual legal risk. Leave it as-is; this is an accepted,
+permanent gate failure on any page carrying an affiliate link.
+
+**GOTCHA — FAQ `<summary>` questions read as passive/static-verb/no-claim to
+Rules 6, 15, and 20.** A question like "How hard is the water in [city]?" is
+inherently a question with a static "is" verb — that's the FAQ format
+working correctly (and matches `FAQPage` schema expectations), not a defect.
+Don't rewrite FAQ questions into declarative claims to chase these rules.
+
+**GOTCHA — breadcrumb anchor text is also checked by Rule 13/27, but
+matching it exactly degrades navigation UX.** A breadcrumb crumb like
+`{ label: "Repair", href: "/repair/" }` gets flagged wanting to read "Water
+Softener Repair and Maintenance in [City]" — the destination page's full SEO
+title. Forcing every breadcrumb crumb to carry its destination's full title
+makes the breadcrumb trail unreadable. This project's call: leave short
+breadcrumb labels as-is and accept the Rule 13/27 deduction they cause,
+rather than degrade the UI. Body-content links (a "See our installation
+page" sentence, a CTA button) should still get the exact-title treatment —
+only breadcrumbs are exempted by this decision.
 
 ### Step 7 — Deploy to Vercel
 
