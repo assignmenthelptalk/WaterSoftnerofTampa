@@ -239,32 +239,37 @@ export interface SiteConfig {
 
 // Declared separately so siteUrl below can derive from it without
 // duplicating the literal.
-const domain = "DOMAIN_NAME";
+const domain = "watersofteneroftampa.com";
 
 export const siteConfig: SiteConfig = {
   // Identity
-  city: "CITY_NAME",
-  state: "STATE_NAME",
-  stateAbbr: "STATE_ABBR",
+  city: "Tampa",
+  state: "Florida",
+  stateAbbr: "FL",
   domain,
 
-  // Water hardness data
-  gpgLow: 0,
-  gpgHigh: 0,
-  gpgLabel: "GPG_LABEL",
-  waterSource: "WATER_SOURCE",
-  waterAuthority: "WATER_AUTHORITY",
+  // Water hardness data — range brackets the 12.9 GPG / 220 mg/L confirmed
+  // reading from supplemental research (2026-09-23), still within the WQA
+  // "Very Hard" band (>10.5 GPG) also confirmed by tampa.gov/water/faq's own
+  // 8-17 GPG seasonal range and 2024 Water Quality Report average.
+  gpgLow: 11,
+  gpgHigh: 15,
+  gpgLabel: "Very Hard",
+  waterSource: "Surface water from the Hillsborough River, Alafia River, and Tampa Bypass Canal, supplemented by Floridan Aquifer groundwater and desalinated seawater from the Tampa Bay Seawater Desalination Plant at Apollo Beach during dry periods",
+  waterAuthority: "Tampa Water Department",
 
-  // SEO
-  primaryKeyword: "PRIMARY_KEYWORD",
+  // SEO — searchVol is an open data gap: no keyword-tool access from this
+  // session (Keyword Planner/Ahrefs/Semrush). Verify before relying on it.
+  primaryKeyword: "water softener tampa fl",
   searchVol: 0,
-  metaDescription: "META_DESCRIPTION",
+  metaDescription: "Hard water in Tampa, FL? Get expert water softener installation, repair, and free quotes from a local team serving Hillsborough County.",
 
-  // Local data
-  population: "POPULATION",
-  county: "COUNTY_NAME",
-  neighbourhoods: ["NEIGHBOURHOOD_1", "NEIGHBOURHOOD_2", "NEIGHBOURHOOD_3"],
-  zipCodes: ["ZIP_1", "ZIP_2", "ZIP_3"],
+  // Local data — population from Census Reporter (ACS 2024 1-year estimate).
+  // Neighbourhoods and ZIPs verified via real-estate/city sources (see chat).
+  population: "414,575",
+  county: "Hillsborough County",
+  neighbourhoods: ["Hyde Park", "Seminole Heights", "Ybor City", "Davis Islands"],
+  zipCodes: ["33606", "33604", "33609"],
 
   // Monetisation
   affiliateSoftener: "https://springwellwater.com/follow/softener/",
@@ -272,22 +277,25 @@ export const siteConfig: SiteConfig = {
   affiliateRO: "https://springwellwater.com/follow/ro/",
 
   // Business identity — edit directly, no CMS
-  businessName: "Water Softener CITY_NAME",
+  businessName: "Water Softener of Tampa",
   phoneNumber: "PHONE_NUMBER",
   businessEmail: "BUSINESS_EMAIL",
   address: "",
   googleBusinessUrl: "",
   siteUrl: `https://${domain}`,
 
-  // Design tokens (deep teal + warm orange defaults — other cities override these)
+  // Design tokens — adapted from SPSSassignment.help's theme: blue/slate,
+  // single sans-serif family, no teal/orange. See src/styles/global.css
+  // and src/styles/tailwind.css for the actual live values these mirror
+  // (design.* here is documentation only — not read by any component).
   design: {
-    primaryColor: "#0F6E78",
-    primaryLight: "#E1F5EE",
-    accentColor: "#E65100",
-    headingFont: "DM Serif Display",
+    primaryColor: "#2563EB",
+    primaryLight: "#EFF6FF",
+    accentColor: "#1D4ED8",
+    headingFont: "Inter",
     bodyFont: "Inter",
-    borderRadius: "8px",
-    gpgStatColor: "#0F6E78",
+    borderRadius: "6px",
+    gpgStatColor: "#2563EB",
   },
 
   serviceAreas: [],

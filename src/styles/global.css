@@ -1,33 +1,35 @@
 /* =============================================================================
-   Water Softener Boilerplate — Design System
+   Water Softener of Tampa — Design System
    =============================================================================
-   Deep teal (#0F6E78) as primary, warm orange (#E65100) reserved for CTAs
-   and key highlights, DM Serif Display for headings, Inter for body/labels/
-   navigation. This file is NOT city-specific — every city site cloned from
-   this boilerplate inherits it unchanged; only src/site.config.ts differs
-   per city. Legacy --brand-* / --font-display names are kept as aliases so
-   any selector not explicitly migrated still renders on-brand instead of
-   silently falling back to an unstyled default.
+   Theme adapted from SPSSassignment.help: blue-600 (#2563EB) as the single
+   brand hue (no separate orange accent — accent is just a darker blue shade,
+   matching SPSS's own monochrome approach), slate neutrals, one sans-serif
+   family (Inter) for both headings and body — SPSS never pairs a serif
+   display font with body text, so this site doesn't either. Shadows are
+   flatter and lower-opacity than the boilerplate default, matching SPSS's
+   minimal, mostly-border-driven card style. Legacy --brand-* / --font-display
+   names are kept as aliases so any selector not explicitly migrated still
+   renders on-brand instead of silently falling back to an unstyled default.
    ============================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Brand colors — exact hex values from the site's design tokens */
-  --color-primary:       #0F6E78;
-  --color-primary-dark:  #0A4F57; /* hero gradient endpoint */
-  --color-primary-light: #E1F5EE;
-  --color-accent:        #E65100;
-  --color-accent-dark:   #C2410C; /* accent hover/active state */
-  --color-accent-light:  #FDE4D0; /* light accent tint for badges */
+  /* Brand colors — matched to SPSSassignment.help's literal hex values */
+  --color-primary:       #2563EB; /* blue-600 */
+  --color-primary-dark:  #1E40AF; /* blue-800 — hero/page-header gradient endpoint */
+  --color-primary-light: #EFF6FF; /* blue-50 */
+  --color-accent:        #1D4ED8; /* blue-700 — SPSS's own button-hover blue, reused as accent */
+  --color-accent-dark:   #1E3A8A; /* blue-900 — accent hover/active state */
+  --color-accent-light:  #DBEAFE; /* blue-100 — light accent tint for badges */
 
   /* Depth system: base -> elevated -> floating, never one flat z-plane */
   --surface-base:     #ffffff;
-  --surface-elevated: #F8FFFE;
-  --surface-footer:   #0A2E33; /* darkened primary, footer only */
+  --surface-elevated: #F8FAFC; /* slate-50 */
+  --surface-footer:   #0F172A; /* slate-900 — SPSS's own dark CTA-section color */
 
-  /* Never the same font for headings and body */
-  --font-heading: 'DM Serif Display', Georgia, serif;
+  /* One sans-serif family throughout, matching SPSS exactly */
+  --font-heading: 'Inter', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
   /* Legacy aliases — keep any un-migrated selector on-brand */
@@ -38,24 +40,25 @@
   --brand-accent-light: var(--color-accent-light);
   --font-display:       var(--font-heading);
 
-  --color-text:       #0f172a;
-  --color-text-muted: #475569;
+  --color-text:       #0F172A; /* slate-900 */
+  --color-text-muted: #475569; /* slate-600 */
   --color-surface:    var(--surface-elevated);
-  --color-border:     #e2e8f0;
+  --color-border:     #E2E8F0; /* slate-200 */
 
   --radius-sm:    4px;
-  --radius-md:    8px;
+  --radius-md:    6px;
   --radius-lg:    8px;
-  --radius-xl:    20px;
+  --radius-xl:    12px;
   --radius-full:  9999px;
-  --radius-brand: 8px;
+  --radius-brand: 6px;
 
-  /* Layered, color-tinted shadows — never a flat shadow-md */
-  --shadow-card:         0 1px 2px rgba(15, 110, 120, 0.06), 0 4px 16px rgba(15, 110, 120, 0.10);
-  --shadow-card-hover:   0 2px 4px rgba(15, 110, 120, 0.08), 0 12px 28px rgba(15, 110, 120, 0.14);
-  --shadow-button-hover: 0 2px 8px rgba(230, 81, 0, 0.25);
-  --shadow-nav:          0 1px 0 rgba(15, 110, 120, 0.08), 0 4px 16px rgba(15, 110, 120, 0.05);
-  --shadow-floating:     0 8px 24px rgba(15, 110, 120, 0.16);
+  /* Flat, low-opacity slate/blue-tinted shadows — SPSS relies on borders
+     first and only a subtle hover:shadow-md, never a heavy tinted glow. */
+  --shadow-card:         0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover:   0 4px 6px rgba(15, 23, 42, 0.05), 0 10px 15px rgba(15, 23, 42, 0.08);
+  --shadow-button-hover: 0 4px 6px rgba(37, 99, 235, 0.15);
+  --shadow-nav:          0 1px 0 rgba(15, 23, 42, 0.04), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-floating:     0 10px 15px rgba(15, 23, 42, 0.10);
   --shadow-sm: var(--shadow-card);
   --shadow-md: var(--shadow-card);
   --shadow-lg: var(--shadow-floating);
@@ -65,7 +68,10 @@
   --duration-micro: 200ms;
   --duration-large: 300ms;
 
-  --gradient-accent:  linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  /* SPSS uses flat colors, not gradients — these resolve to a single hue
+     so every component that references a "gradient" var still renders
+     correctly without introducing a blend SPSS never uses. */
+  --gradient-accent:  linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   --gradient-primary: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }
 

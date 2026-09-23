@@ -11,12 +11,17 @@ staging server, no server-side rendering.
 
 ## What this is
 
-- A city-agnostic set of 16 pages (home, water quality, hard water,
+- A city-agnostic set of 22 pages (home, water quality, hard water,
   installation, comparison, FAQ, neighbourhoods, quote, products,
   repair, resin bed replacement, brine tank cleaning, whole home
-  filtration, reverse osmosis, about, contact) that read every
-  piece of city-specific data from `src/site.config.ts` and
-  `src/data/site.json` — never hardcoded.
+  filtration, reverse osmosis, about, contact, salt-based-installation,
+  salt-free-installation, water-softener-sizing,
+  new-construction-installation, control-head-repair, free-water-test)
+  that read every piece of city-specific data from `src/site.config.ts` —
+  never hardcoded. Plus an optional, QDP-gated `[serviceArea]` dynamic
+  route (see PROVISION.md Step 5c) that extends a city toward the
+  portfolio's Core 30 page-count target — see the `local-gbp-core30`
+  skill in Local-SEO-Toolkit for that planning workflow.
 - A single config file (`src/site.config.ts`) that is the only thing you
   edit to turn this into a specific city's site.
 - A Keystatic singleton for the business identity fields (phone, email,

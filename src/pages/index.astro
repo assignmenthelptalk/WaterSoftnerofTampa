@@ -99,7 +99,15 @@ const faqs = [
           According to {site.waterAuthority}, {site.city} water holds steady at {site.gpgLow}-{site.gpgHigh} GPG
           citywide, classified as {site.gpgLabel} by the Water Quality Association. This reading comes from
           {site.waterSource}, and it stays consistent across every neighbourhood {site.city} homes sit in,
-          including {site.neighbourhoods.slice(0, 3).join(", ")}.
+          including {site.neighbourhoods.join(", ")}.
+        </p>
+        <p>
+          {site.waterAuthority} serves {site.population} residents across {site.county}, including ZIP codes{" "}
+          {site.zipCodes.join(", ")}. See the full{" "}
+          <a href="/water-quality/">Tampa Water Quality Report: Hardness, Source &amp; Safety</a> for a
+          neighbourhood-by-neighbourhood breakdown, or read{" "}
+          <a href="/hard-water/">Hard Water Effects in Tampa: What It Does to Your Home</a> to see what this
+          reading does to fixtures and appliances left untreated.
         </p>
       </div>
       <div class="gpg-stat-card">
@@ -194,6 +202,43 @@ const faqs = [
     </div>
   </section>
 
+  <!-- 8b. Cost & timeline placeholder — open data gaps, not invented -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container why-choose-us">
+      <h2>Cost, Timeline &amp; What's Included</h2>
+      <p>
+        Typical installation time is [PLACEHOLDER — confirm with installer], and every installation carries a
+        [PLACEHOLDER — confirm warranty terms]. Equipment and install pricing runs [PLACEHOLDER — confirm local
+        price range], with [PLACEHOLDER — confirm financing options] available for larger systems.
+        {site.city} installs are sized using [PLACEHOLDER — confirm grain-capacity sizing guidance] for local
+        household sizes. A Hillsborough County plumbing permit is required for any work connecting to the municipal
+        supply line, issued through Hillsborough County Development Services or the City of Tampa Construction
+        Services Division — a licensed master plumber must pull it unless the homeowner occupies the residence and
+        self-permits, and a backflow preventer is required at the connection point before work begins. Maintenance
+        runs on a [PLACEHOLDER — confirm salt refill/service interval] schedule once installed. See{" "}
+        <a href="/installation/">Water Softener Installation in Tampa: Process, Timeline &amp; Cost</a> for the
+        full breakdown, or{" "}
+        <a href="/quote/">Get a Free Water Softener Quote in Tampa</a> for pricing specific to your household.
+      </p>
+    </div>
+  </section>
+
+  <!-- 8c. Explore further — remaining brief-mandated internal links -->
+  <section class="section">
+    <div class="container why-choose-us">
+      <h2>Explore {site.city} Water Softener Services</h2>
+      <ul class="why-choose-list">
+        <li><a href="/repair/">Water Softener Repair and Maintenance in Tampa</a></li>
+        <li><a href="/resin-bed-replacement/">Water Softener Resin Bed Replacement in Tampa</a></li>
+        <li><a href="/brine-tank-cleaning/">Best Brine Tank Cleaning in Tampa</a></li>
+        <li><a href="/whole-home-filtration/">Whole Home Filtration in Tampa</a></li>
+        <li><a href="/reverse-osmosis/">Reverse Osmosis Systems in Tampa</a></li>
+        <li><a href="/products/">Best Water Softener in Tampa</a></li>
+        <li><a href="/faq/">Water Softener FAQs for Tampa Homeowners</a></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- 9. FAQ accordion — details/summary, no JavaScript -->
   <section class="homepage-faq-section">
     <div class="homepage-faq-inner">
@@ -230,7 +275,7 @@ const faqs = [
   <style>
     /* ---------- 1. Hero ---------- */
     .hero-section {
-      background: linear-gradient(135deg, #0F6E78 0%, #0A2E33 100%);
+      background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
       padding: clamp(56px, 9vw, 100px) 24px;
       color: #ffffff;
       text-align: center;

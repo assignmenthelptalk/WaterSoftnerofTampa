@@ -35,6 +35,11 @@ import { site } from "../lib/site";
         {site.phoneNumber !== "PHONE_NUMBER" && (
           <p class="quote-phone">Prefer to talk now? Call <a href={`tel:${site.phoneNumber}`}>{site.phoneNumber}</a></p>
         )}
+        <p class="quote-links">
+          Not ready to request a quote yet? See{" "}
+          <a href="/installation/">Water Softener Installation in Tampa: Process, Timeline &amp; Cost</a>{" "}
+          or the <a href="/faq/">Water Softener FAQs for Tampa Homeowners</a> first.
+        </p>
       </div>
       <QuoteForm />
     </div>
@@ -50,6 +55,7 @@ import { site } from "../lib/site";
     .quote-benefits { padding-left: 20px; color: var(--color-text-muted); }
     .quote-benefits li { margin-bottom: 8px; }
     .quote-phone { margin-top: 24px; font-weight: 600; }
+    .quote-links { margin-top: 16px; font-size: 14px; color: var(--color-text-muted); }
     @media (max-width: 860px) {
       .quote-grid { grid-template-columns: 1fr; }
     }

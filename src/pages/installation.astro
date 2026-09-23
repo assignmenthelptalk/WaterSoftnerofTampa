@@ -24,23 +24,34 @@ import { site } from "../lib/site";
       </p>
 
       <div class="section-header">
-        <p>Most {site.city} homeowners pay between <strong>$800 and $3,500</strong> for a fully installed water softener, depending on system size, water hardness, and existing plumbing.</p>
+        <p>Installed pricing depends on system size, water hardness, and existing plumbing — exact {site.city} pricing is [PLACEHOLDER — confirm local price range for equipment + install]. Every quote reflects your actual household size and {site.city}'s {site.gpgLow}–{site.gpgHigh} GPG reading, not a national average.</p>
       </div>
 
       <div class="grid grid-3">
         <div class="card">
-          <h3>$800 – $1,500</h3>
-          <p>Entry-level single-tank softeners, sized for smaller households and moderate hardness.</p>
+          <h3>Entry-Level</h3>
+          <p>Single-tank softeners sized for smaller households and moderate hardness. [PLACEHOLDER — confirm price tier].</p>
         </div>
         <div class="card">
-          <h3>$1,500 – $2,500</h3>
-          <p>Mid-range systems for {site.gpgLabel.toLowerCase()} water and average household sizes — the most common installation in {site.city}.</p>
+          <h3>Mid-Range</h3>
+          <p>Systems sized for {site.gpgLabel.toLowerCase()} water and average household sizes — the most common installation in {site.city}. [PLACEHOLDER — confirm price tier].</p>
         </div>
         <div class="card">
-          <h3>$2,500 – $3,500</h3>
-          <p>Whole-home softener/filtration combo systems for large households or additional filtration needs.</p>
+          <h3>Whole-Home Combo</h3>
+          <p>Softener/filtration combo systems for large households or additional filtration needs. [PLACEHOLDER — confirm price tier].</p>
         </div>
       </div>
+      <p>
+        Most installations complete in [PLACEHOLDER — confirm typical install duration] and carry
+        [PLACEHOLDER — confirm warranty terms]. A Hillsborough County plumbing permit — issued through
+        Hillsborough County Development Services or the City of Tampa Construction Services Division — applies
+        before work begins, pulled by a licensed master plumber unless the homeowner occupies the residence and
+        self-permits; a backflow preventer is required at the connection point. [PLACEHOLDER — confirm financing
+        options] are available on larger systems. {site.waterAuthority} serves {site.population} residents across
+        {site.county} — including{" "}
+        {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")} — all at the same
+        {" "}{site.gpgLow}–{site.gpgHigh} GPG reading this sizing is based on.
+      </p>
     </div>
   </section>
 
@@ -63,11 +74,41 @@ import { site } from "../lib/site";
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Installation Options in {site.city}</h2>
+        <p>Four situations come up most often and each has its own dedicated guide:</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Choosing Salt-Based</h3>
+          <p>Ion exchange removes hardness minerals entirely — see <a href="/salt-based-installation/">salt-based installation</a> for the full process and cost.</p>
+        </div>
+        <div class="card">
+          <h3>Choosing Salt-Free</h3>
+          <p>No sodium, no drain line, no regeneration cycle — see <a href="/salt-free-installation/">salt-free installation</a> to check the tradeoffs.</p>
+        </div>
+        <div class="card">
+          <h3>Sizing It Correctly</h3>
+          <p>Grain capacity by household size at {site.city}'s {site.gpgLow}-{site.gpgHigh} GPG — see the <a href="/water-softener-sizing/">sizing guide</a> for the formula.</p>
+        </div>
+        <div class="card">
+          <h3>Building New</h3>
+          <p>Planning rough-in before drywall goes up — see <a href="/new-construction-installation/">new construction installation</a> for what to coordinate with your builder.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section-dark">
     <div class="container final-cta">
       <h2>Get an Exact Installation Quote</h2>
-      <p>Every {site.city} home is different. Get a free quote based on your actual water hardness and household size.</p>
-      <a class="btn btn-primary" href="/quote/">Free Consultation</a>
+      <p>
+        Every {site.city} home is different — get a free quote based on your actual water hardness and household
+        size, or check the <a href="/faq/">Water Softener FAQs for Tampa Homeowners</a> first.
+      </p>
+      <a class="btn btn-primary" href="/quote/">Get a Free Water Softener Quote in Tampa</a>
     </div>
   </section>
 

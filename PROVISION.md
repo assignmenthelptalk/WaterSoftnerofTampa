@@ -68,8 +68,26 @@ ongoing workflow once a site is live.
 Ask Claude Code:
 
 > Using the values in site.config.ts, write real water softener content
-> for all 16 pages. Every page needs the city name, GPG hardness figure,
+> for all 22 pages. Every page needs the city name, GPG hardness figure,
 > water source, and a local hook. No placeholder text in the final output.
+
+The 22 fixed pages are: home, water quality, hard water, installation,
+comparison, FAQ, neighbourhoods, quote, products, repair, resin bed
+replacement, brine tank cleaning, whole home filtration, reverse osmosis,
+about, contact, plus 6 expansion pages added 2026-09-23 —
+salt-based-installation, salt-free-installation, water-softener-sizing,
+and new-construction-installation (linked from `installation.astro`),
+control-head-repair (linked from `repair/index.astro`), and
+free-water-test (linked from `water-quality.astro`). None of the 6 are in
+the main nav or footer — they're linked contextually from their parent
+page and reachable via the sitemap, same as `brine-tank-cleaning`.
+
+**Reaching Core 30:** 22 fixed pages plus up to ~8 QDP-verified service-area
+pages (Step 5c below) is this portfolio's Core 30 target — see the
+`local-gbp-core30` skill in Local-SEO-Toolkit for the full GBP-category and
+page-architecture planning workflow behind that number. Do not pad the
+service-area count to hit 30 with pages that fail the QDP test in Step 5c;
+a smaller, all-QDP-passing set beats a padded one.
 
 ### Step 5b — Adapt interactive components
 
@@ -278,7 +296,7 @@ npm run score-built-site -- \
   --dist C:\Users\lenevo\waterSoftenerProjects\[site-folder]\dist
 ```
 
-All 16 pages must score 80+ before the domain is connected and the site goes live.
+All 22 pages must score 80+ before the domain is connected and the site goes live.
 If any page fails: fix the flagged rules in the .astro source, rebuild, and rescore.
 Do not proceed to Step 7 until all pages pass.
 

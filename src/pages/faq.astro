@@ -14,11 +14,11 @@ const faqs = [
   },
   {
     q: `How much does a water softener cost to install in ${site.city}?`,
-    a: `Installed systems in ${site.city} typically run $800–$3,500 depending on system size and household water usage.`,
+    a: `Installed cost depends on system size and household water usage — exact ${site.city} pricing is [PLACEHOLDER — confirm local price range for equipment + install]. See Water Softener Installation in Tampa: Process, Timeline & Cost for the full breakdown.`,
   },
   {
     q: `How long does installation take?`,
-    a: `Most residential installations in ${site.county} are completed in half a day to a full day, depending on existing plumbing.`,
+    a: `Typical install duration is [PLACEHOLDER — confirm with installer], depending on existing plumbing across ${site.county}.`,
   },
   {
     q: `What size softener do I need for my ${site.city} home?`,
@@ -45,8 +45,12 @@ const faqs = [
     a: `DIY installation is possible but risks incorrect sizing, code violations, and warranty issues. Professional installation ensures the system is sized correctly for ${site.city}'s water and installed to code.`,
   },
   {
+    q: `Do I need a permit to install a water softener in ${site.county}?`,
+    a: `Yes. Work connecting to the municipal supply line requires a plumbing permit issued through Hillsborough County Development Services or the City of Tampa Construction Services Division, and a backflow preventer is required at the connection point. A licensed master plumber must pull the permit unless you occupy the residence and self-permit as the owner-builder.`,
+  },
+  {
     q: `Do you service all of ${site.county}?`,
-    a: `Yes, including ${site.neighbourhoods.join(", ")} and surrounding areas.`,
+    a: `Yes — ${site.waterAuthority} serves ${site.population} residents across ${site.county}, including ${site.neighbourhoods.join(", ")} at ZIP codes ${site.zipCodes.join(", ")}, and surrounding areas.`,
   },
   {
     q: `What's the difference between a softener and reverse osmosis?`,
@@ -94,8 +98,10 @@ const faqSchema = {
   <section class="section">
     <div class="container">
       <p class="brand-backlink">
-        <a href="/" class="brand-link">{site.city} Water Softeners</a>
-        {" "}provides water softener information and consultation across {site.city} and {site.county}.
+        <a href="/" class="brand-link">Water Softener Tampa | Free Water Test &amp; Quote</a>
+        {" "}provides water softener information and consultation across {site.city} and {site.county}. See{" "}
+        <a href="/installation/">Water Softener Installation in Tampa: Process, Timeline &amp; Cost</a> for the
+        full installation process.
       </p>
 
       <div class="faq-list">
@@ -118,7 +124,7 @@ const faqSchema = {
     <div class="container final-cta">
       <h2>Still Have Questions?</h2>
       <p>Get a free, personalized quote for your {site.city} home.</p>
-      <a class="btn btn-primary" href="/quote/">Free Consultation</a>
+      <a class="btn btn-primary" href="/quote/">Get a Free Water Softener Quote in Tampa</a>
     </div>
   </section>
 

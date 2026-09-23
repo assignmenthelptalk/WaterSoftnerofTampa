@@ -13,6 +13,7 @@ in per-city data here — that's the rest of this file, below.
 | Layout.astro (utility bar + Services-dropdown nav + minimal footer) | ✅ synced from Henderson structural improvements |
 | Homepage (10 sections: hero, services grid, GPG data, 2 alternating image-text, CityMap placeholder, service areas, why-choose-us, FAQ accordion, slim CTA bar) | ✅ synced from Henderson structural improvements |
 | New pages: repair, about, contact | ✅ created this pass |
+| 6 expansion pages (salt-based-installation, salt-free-installation, water-softener-sizing, new-construction-installation, control-head-repair, free-water-test) | ✅ added 2026-09-23, ported from the Minneapolis site build — linked contextually from installation/repair/water-quality, not in main nav/footer |
 | Brand backlink on every inner page | ✅ this pass |
 | QuoteForm.astro | ✅ commit 3b6e9cf, updated to use businessEmail |
 | Breadcrumbs.astro | ✅ commit 3b6e9cf |
@@ -27,7 +28,10 @@ in per-city data here — that's the rest of this file, below.
 | InstallationProcess.astro | ❌ city-specific — build per city (needs local copy) |
 | Testimonials.astro | ❌ city-specific — build per city (needs local placeholder copy) |
 
-**Next action**: Ready for Minneapolis provisioning.
+**Next action**: Ready to provision the next city. The boilerplate now
+ships 22 fixed pages (up from 16) — see PROVISION.md Step 5 for the full
+list and Step 5c for the QDP-gated service-area pages that extend a city
+toward the Core 30 target (`local-gbp-core30` skill in Local-SEO-Toolkit).
 
 GPGSlider/GPGSliderMini/SystemTour all read city data from `site.config.ts`
 automatically (city, gpgLow/gpgHigh, gpgLabel, waterSource, waterAuthority) —
@@ -57,21 +61,34 @@ Step 5b for where to add each one.
     dist/                                  ← built static HTML (after npm run build)
 
 ## Page status
-| Page          | Written | Score | Ship-ready |
-|---------------|---------|-------|------------|
-| homepage      | ⏳      | —     | —          |
-| water-quality | ⏳      | —     | —          |
-| hard-water    | ⏳      | —     | —          |
-| installation  | ⏳      | —     | —          |
-| comparison    | ⏳      | —     | —          |
-| faq           | ⏳      | —     | —          |
-| neighbourhood | ⏳      | —     | —          |
-| repair        | ⏳      | —     | —          |
-| about         | ⏳      | —     | —          |
-| contact       | ⏳      | —     | —          |
-| quote         | ⏳      | —     | —          |
+| Page                           | Written | Score | Ship-ready |
+|--------------------------------|---------|-------|------------|
+| homepage                       | ⏳      | —     | —          |
+| water-quality                  | ⏳      | —     | —          |
+| hard-water                     | ⏳      | —     | —          |
+| installation                   | ⏳      | —     | —          |
+| comparison                     | ⏳      | —     | —          |
+| faq                            | ⏳      | —     | —          |
+| neighbourhood                  | ⏳      | —     | —          |
+| repair                         | ⏳      | —     | —          |
+| about                          | ⏳      | —     | —          |
+| contact                        | ⏳      | —     | —          |
+| quote                          | ⏳      | —     | —          |
+| products                       | ⏳      | —     | —          |
+| whole-home-filtration          | ⏳      | —     | —          |
+| reverse-osmosis                | ⏳      | —     | —          |
+| resin-bed-replacement          | ⏳      | —     | —          |
+| brine-tank-cleaning            | ⏳      | —     | —          |
+| salt-based-installation        | ⏳      | —     | —          |
+| salt-free-installation         | ⏳      | —     | —          |
+| water-softener-sizing          | ⏳      | —     | —          |
+| new-construction-installation  | ⏳      | —     | —          |
+| control-head-repair            | ⏳      | —     | —          |
+| free-water-test                | ⏳      | —     | —          |
 
-Update this table after every write and score session.
+22 pages total (excludes `thank-you` and the QDP-gated `[serviceArea]`
+dynamic route — see PROVISION.md Step 5c). All start ⏳ in a freshly cloned
+site; update this table after every write and score session.
 ✅ = done | 🔄 = in progress | ⏳ = not started | ❌ = blocked
 
 ## Quality gate (last run: never)
@@ -82,9 +99,10 @@ Run: cd C:\Users\lenevo\Local-SEO-Toolkit
 ## Current task
 Keystatic removed, Henderson structural improvements synced (utility bar,
 Services-dropdown nav, minimal single-row footer, 10-section homepage,
-repair/about/contact pages, brand backlinks on every inner page), static
-output confirmed via a clean build (0 errors/warnings, 13 pages, dist/
-not dist/client/). Ready for Minneapolis provisioning.
+repair/about/contact pages, brand backlinks on every inner page), 6
+expansion pages added (2026-09-23, ported from Minneapolis), static output
+confirmed via a clean build (0 errors/warnings, 23 pages, dist/ not
+dist/client/). Ready to provision the next city.
 
 ## Local data
 - Neighbourhoods:  NEIGHBOURHOOD_1, NEIGHBOURHOOD_2, NEIGHBOURHOOD_3
@@ -105,9 +123,9 @@ itself if a step here needs more detail than fits on one line.
 - [ ] Step 2 — Boilerplate copied into the repo + `npm install`
 - [ ] Step 3 — `src/site.config.ts` filled in with real city data
 - [ ] Step 4 — ~~Keystatic~~ REMOVED — no CMS step, see PROVISION.md "CMS — No Keystatic"
-- [ ] Step 5 — Content written for all pages (8 core + repair + about + contact)
+- [ ] Step 5 — Content written for all 22 pages (see Page status table above)
 - [ ] Step 6 — `npm run build` — 0 errors, 0 warnings confirmed
-- [ ] Step 6b — All pages scored 80+ via the quality gate
+- [ ] Step 6b — All 22 pages scored 80+ via the quality gate
 - [ ] Step 7 — Deployed to Vercel (static output, no environment variables needed)
 - [ ] Step 8 — Custom domain added (Vercel dashboard + Namecheap DNS)
 - [ ] Step 9 — Google Search Console property added, sitemap submitted
@@ -115,3 +133,22 @@ itself if a step here needs more detail than fits on one line.
 
 ## Notes
 _Add any city-specific notes, open data gaps, or decisions made here._
+
+- **2026-09-23 — boilerplate expanded from 16 to 22 fixed pages.** Ported
+  6 pages from the Minneapolis site build after validating they contain no
+  hardcoded city data: `salt-based-installation`, `salt-free-installation`,
+  `water-softener-sizing`, `new-construction-installation` (linked from
+  `installation.astro`'s new "Installation Options" section),
+  `control-head-repair` (linked from `repair/index.astro`), and
+  `free-water-test` (linked from `water-quality.astro`). None are in the
+  main nav or footer, matching the existing `brine-tank-cleaning`
+  precedent — reachable via contextual links + sitemap only. `npm run
+  build` confirmed 0 errors, 0 warnings, 23 pages (22 content + thank-you).
+  `Layout.astro` was intentionally left untouched (Minneapolis's copy has
+  since diverged with a per-city Leaflet map link and `site.businessName`
+  usage that are out of scope for this pass — a separate task if this
+  boilerplate should pick those up too). This is the fixed-page half of
+  the portfolio's Core 30 target; see PROVISION.md Step 5c for the
+  QDP-gated service-area pages that make up the rest, and the
+  `local-gbp-core30` skill in Local-SEO-Toolkit for the planning workflow
+  behind the 30 figure.

@@ -72,14 +72,15 @@ const footerNavLinks = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- Loaded as a <link>, not @import, so it fetches in parallel with the
-         rest of head instead of blocking on global.css first. 700 added
-         alongside the requested 400/500/600 because several UI elements
-         (eyebrow labels, table headers, footer heading) already set
-         font-weight: 700 on Inter — omitting it would force the browser to
-         synthesize a fake bold instead of rendering the real cut. -->
+         rest of head instead of blocking on global.css first. Inter only —
+         theme is adapted from SPSSassignment.help, which uses one sans-serif
+         family throughout rather than pairing a serif display font with
+         body text. 700 covers the bold logo treatment and table/eyebrow
+         headings so the browser renders the real cut instead of a
+         synthesized fake bold. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <SEO
       title={fullTitle || `${title} | ${site.businessName}`}
       description={description}
@@ -281,7 +282,7 @@ const footerNavLinks = [
       }
       .logo {
         font-family: var(--font-heading);
-        font-weight: 400;
+        font-weight: 700;
         font-size: 1.25rem;
         color: var(--color-primary);
         text-decoration: none;
@@ -477,6 +478,7 @@ const footerNavLinks = [
       .footer-inner { max-width: 1000px; margin: 0 auto; padding: 0; }
       .footer-brand {
         font-family: var(--font-heading);
+        font-weight: 700;
         font-size: 20px;
         color: #ffffff;
         margin-bottom: 8px;
