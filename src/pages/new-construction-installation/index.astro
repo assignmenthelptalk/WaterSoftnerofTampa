@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { site } from "../../lib/site";
+import headerImage from "../../assets/images/new-construction-header.jpg";
 
 const faqs = [
   {
@@ -33,7 +35,7 @@ const faqs = [
 
   <section class="page-header-image-section">
     <div class="container">
-      <img src="https://placehold.co/1600x500?text=New+Construction+Rough-In" alt={`Water softener rough-in plumbing in a new ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width="1600" height="500" loading="eager" />
+      <Image src={headerImage} alt={`Water softener rough-in plumbing in a new ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

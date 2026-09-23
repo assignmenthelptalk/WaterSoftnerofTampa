@@ -1,7 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
 import LocalSchema from "../components/LocalSchema.astro";
 import { site } from "../lib/site";
+import installationImage from "../assets/images/installation-tile.jpg";
+import hardWaterImage from "../assets/images/hard-water-tile.jpg";
 
 const services = [
   { emoji: "💧", name: "Water Quality Testing", href: "/water-quality/", detail: `Free in-home hardness test for ${site.city} homes.` },
@@ -137,7 +140,7 @@ const faqs = [
           <a class="service-learn-more" href="/installation/">See Installation Details →</a>
         </div>
         <div class="service-section-media">
-          <img src="https://placehold.co/600x400/0F6E78/ffffff?text=Installation" alt={`Water softener installation in ${site.city}, ${site.stateAbbr}`} width="600" height="400" loading="lazy" />
+          <Image src={installationImage} alt={`Water softener installation in ${site.city}, ${site.stateAbbr}`} width={600} height={400} loading="lazy" />
         </div>
       </div>
     </div>
@@ -157,7 +160,7 @@ const faqs = [
           <a class="service-learn-more" href="/hard-water/">See Hard Water Effects →</a>
         </div>
         <div class="service-section-media">
-          <img src="https://placehold.co/600x400/0A2E33/ffffff?text=Hard+Water" alt={`Hard water effects in ${site.city}, ${site.stateAbbr}`} width="600" height="400" loading="lazy" />
+          <Image src={hardWaterImage} alt={`Hard water effects in ${site.city}, ${site.stateAbbr}`} width={600} height={400} loading="lazy" />
         </div>
       </div>
     </div>

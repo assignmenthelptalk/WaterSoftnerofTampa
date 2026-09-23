@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { site } from "../../lib/site";
+import headerImage from "../../assets/images/water-softener-sizing-header.jpg";
 
 const gpgMid = Math.round(((site.gpgLow + site.gpgHigh) / 2) * 10) / 10;
 
@@ -42,7 +44,7 @@ const faqs = [
 
   <section class="page-header-image-section">
     <div class="container">
-      <img src="https://placehold.co/1600x500?text=Water+Softener+Sizing" alt={`Sizing a water softener for a ${site.city}, ${site.stateAbbr} household`} class="page-header-image" width="1600" height="500" loading="eager" />
+      <Image src={headerImage} alt={`Sizing a water softener for a ${site.city}, ${site.stateAbbr} household`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

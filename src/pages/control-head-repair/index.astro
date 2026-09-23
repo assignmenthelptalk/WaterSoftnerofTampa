@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { site } from "../../lib/site";
+import headerImage from "../../assets/images/control-head-repair-header.jpg";
 
 const signs = [
   { name: "Constant Regeneration", detail: "The unit regenerates far more often than its programmed schedule, wasting salt and water on every extra cycle." },
@@ -41,7 +43,7 @@ const faqs = [
 
   <section class="page-header-image-section">
     <div class="container">
-      <img src="https://placehold.co/1600x500?text=Control+Head+Repair" alt={`Water softener control head diagnostic in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width="1600" height="500" loading="eager" />
+      <Image src={headerImage} alt={`Water softener control head diagnostic in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

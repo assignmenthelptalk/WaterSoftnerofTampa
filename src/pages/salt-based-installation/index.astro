@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { site } from "../../lib/site";
+import headerImage from "../../assets/images/salt-based-installation-header.jpg";
 
 const faqs = [
   {
@@ -37,7 +39,7 @@ const faqs = [
 
   <section class="page-header-image-section">
     <div class="container">
-      <img src="https://placehold.co/1600x500?text=Salt-Based+Installation" alt={`Salt-based water softener tank installed in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width="1600" height="500" loading="eager" />
+      <Image src={headerImage} alt={`Salt-based water softener tank installed in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 
