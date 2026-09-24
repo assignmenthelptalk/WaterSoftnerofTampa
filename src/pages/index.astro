@@ -59,16 +59,13 @@ const faqs = [
         <h1>Water Softeners of {site.city} - Premier Water Softener Installation in {site.city}, {site.stateAbbr}</h1>
 
         <p class="hero-p">
-          Tampa water tests at 11–15 GPG, classified as Very Hard
-          by the Water Quality Association. The City of Tampa Water
-          Department draws from the Hillsborough River, Alafia River,
-          and Tampa Bypass Canal, supplemented by Floridan Aquifer
-          groundwater and desalinated seawater from the Apollo Beach
-          plant during dry months. At this hardness level, calcium
-          and magnesium deposits build up on fixtures, appliances,
-          and plumbing within weeks of moving in. A properly sized
-          salt-based water softener removes these minerals completely.
-          Free in-home water test available. No obligation.
+          <a href="/" class="brand-link">Water Softeners of {site.city}</a> is a professional water softener
+          installation and service company providing salt-based softener installation, repair, resin bed
+          replacement, brine tank cleaning, and water quality testing across {site.city} and {site.county}.
+          {site.waterAuthority} delivers {site.gpgLow}–{site.gpgHigh} GPG water to every {site.city} home,
+          classified as {site.gpgLabel} by the Water Quality Association. Every system we install is sized to
+          your confirmed GPG reading and household water usage, not a statewide estimate. Free in-home water
+          test available. No obligation.
         </p>
 
         <div class="hero-actions">
@@ -97,20 +94,6 @@ const faqs = [
     </div>
   </section>
 
-  <!-- 1b. Brand IS opening paragraph — Glendale Elite pattern -->
-  <section class="section" style="padding-bottom: 0;">
-    <div class="container">
-      <p class="page-opening">
-        Water Softeners of {site.city} is a professional water softener installation and service company
-        providing salt-based softener installation, repair, resin bed replacement, brine tank cleaning, and
-        water quality testing across {site.city} and {site.county}. {site.waterAuthority} delivers {site.gpgLow}
-        –{site.gpgHigh} GPG water to every {site.city} home, classified as {site.gpgLabel} by the Water Quality
-        Association. Every system we install is sized to your confirmed GPG reading and household water usage,
-        not a statewide estimate. Free in-home water test available. No obligation.
-      </p>
-    </div>
-  </section>
-
   <!-- 2. Services grid — 5 tiles -->
   <section class="section">
     <div class="container">
@@ -135,10 +118,12 @@ const faqs = [
       <div>
         <h2>{site.city}'s Water Hardness Reading</h2>
         <p>
-          According to {site.waterAuthority}, {site.city} water holds steady at {site.gpgLow}-{site.gpgHigh} GPG
-          citywide, classified as {site.gpgLabel} by the Water Quality Association. This reading comes from
-          {site.waterSource}, and it stays consistent across every neighbourhood {site.city} homes sit in,
-          including {site.neighbourhoods.join(", ")}.
+          {site.city} water tests at {site.gpgLow}-{site.gpgHigh} GPG citywide, classified as {site.gpgLabel} by
+          the Water Quality Association. This reading comes from {site.waterSource}, delivered by
+          {site.waterAuthority}, and it stays consistent across every neighbourhood {site.city} homes sit in,
+          including {site.neighbourhoods.join(", ")}. At this hardness level, calcium and magnesium deposits
+          build up on fixtures, appliances, and plumbing within weeks of moving in. A properly sized salt-based
+          water softener removes these minerals completely. Free in-home water test available. No obligation.
         </p>
         <p>
           {site.waterAuthority} serves {site.population} residents across {site.county}, including ZIP codes{" "}
