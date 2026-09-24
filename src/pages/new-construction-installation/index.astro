@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/new-construction-header.webp";
 
@@ -25,19 +24,14 @@ const faqs = [
   title={`New Construction Water Softener Installation, ${site.city}`}
   description={`Plan water softener rough-in for a new ${site.city} home — loop placement, drain line, and builder coordination before drywall.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Installation", href: "/installation/" }, { label: "New Construction" }]} />
-      <p class="eyebrow">Rough-In Planning</p>
-      <h1>New Construction Water Softener Installation in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Water softener rough-in plumbing in a new ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Installation", href: "/installation/" }, { label: "New Construction" }]}
+    heading={`New Construction Water Softener Installation in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading="Plan your softener rough-in before drywall goes up — loop, drain, and equipment location done right."
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

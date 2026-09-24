@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/salt-based-installation-header.webp";
 
@@ -29,19 +28,14 @@ const faqs = [
   title={`Salt-Based Water Softener Installation in ${site.city}, ${site.stateAbbr}`}
   description={`How salt-based water softener installation works in ${site.city}, what it costs, and why ion exchange is the standard fix for ${site.gpgLow}-${site.gpgHigh} GPG water.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Installation", href: "/installation/" }, { label: "Salt-Based Installation" }]} />
-      <p class="eyebrow">Ion Exchange Systems</p>
-      <h1>Salt-Based Water Softener Installation in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Salt-based water softener tank installed in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Installation", href: "/installation/" }, { label: "Salt-Based Installation" }]}
+    heading={`Salt-Based Water Softener Installation in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading={`Ion exchange removes hardness minerals completely — the standard fix for ${site.city}'s ${site.gpgLow}-${site.gpgHigh} GPG water.`}
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

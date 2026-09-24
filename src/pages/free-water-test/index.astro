@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/free-water-test-header.webp";
 
@@ -36,19 +35,14 @@ const faqs = [
   title={`Free Water Test in ${site.city}, ${site.stateAbbr}`}
   description={`Book a free in-home water hardness test in ${site.city}. No obligation, a written recommendation, and confirmation of ${site.waterAuthority}'s ${site.gpgLow}-${site.gpgHigh} GPG reading at your own tap.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Water Quality", href: "/water-quality/" }, { label: "Free Water Test" }]} />
-      <p class="eyebrow">No Obligation, No Cost</p>
-      <h1>Free Water Test in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Free in-home water hardness test in ${site.city}, ${site.stateAbbr}`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Water Quality", href: "/water-quality/" }, { label: "Free Water Test" }]}
+    heading={`Free Water Test in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading="No cost, no obligation — confirm your exact water hardness reading at your own tap."
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/water-quality/", text: "See the Full Water Report" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

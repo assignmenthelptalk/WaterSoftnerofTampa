@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/about-header.webp";
 ---
@@ -10,19 +9,14 @@ import headerImage from "../../assets/images/about-header.webp";
   title={`About Water Softeners of ${site.city}`}
   description={`About Water Softeners of ${site.city}. Serving ${site.city} and ${site.county} homeowners with professional water softener installation, repair, and maintenance. Free consultation available.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "About" }]} />
-      <p class="eyebrow">Local Water Treatment Guidance</p>
-      <h1>About Water Softeners of {site.city} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Water softener technician serving ${site.city}, ${site.stateAbbr}`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "About" }]}
+    heading={`About Water Softeners of ${site.city} | Trusted Local Specialists`}
+    subheading={`Local water softener installation, repair, and guidance for ${site.city} homeowners.`}
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

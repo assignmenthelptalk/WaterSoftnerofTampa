@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/control-head-repair-header.webp";
 
@@ -33,19 +32,14 @@ const faqs = [
   title={`Water Softener Control Head Repair, ${site.city}`}
   description={`Signs your water softener's control head is failing, repair vs. replacement, and what a control head repair costs in ${site.city}.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Repair", href: "/repair/" }, { label: "Control Head Repair" }]} />
-      <p class="eyebrow">Regeneration Cycle Diagnostics</p>
-      <h1>Control Head Repair in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Water softener control head diagnostic in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Repair", href: "/repair/" }, { label: "Control Head Repair" }]}
+    heading={`Control Head Repair in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading="Diagnose regeneration failures, programming drift, and control valve faults on any softener brand."
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

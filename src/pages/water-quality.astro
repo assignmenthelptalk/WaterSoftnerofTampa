@@ -1,28 +1,26 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
+import PageHero from "../components/PageHero.astro";
 import { site } from "../lib/site";
 import headerImage from "../assets/images/water-quality-header.webp";
+
+const primaryCta = site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER"
+  ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` }
+  : { href: "/contact/", text: "📞 Call for a Free Consultation" };
 ---
 
 <Layout
   title={`${site.city} Water Quality and Hardness Report`}
   description={`${site.city} water quality report. ${site.waterAuthority} delivers ${site.gpgLow}–${site.gpgHigh} GPG water to every ${site.city} home. Full hardness data, WQA classification, and treatment recommendations.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Water Quality" }]} />
-      <p class="eyebrow">Local Water Data</p>
-      <h1>{site.city} Water Quality Report | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Water quality testing sample for ${site.city}, ${site.stateAbbr} tap water`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Water Quality" }]}
+    heading={`${site.city} Water Quality Report | Trusted Local Specialists`}
+    subheading={`See exactly how hard ${site.city}'s water is, where it comes from, and what ${site.waterAuthority} reports citywide.`}
+    primaryCta={primaryCta}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

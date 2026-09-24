@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/reverse-osmosis-header.webp";
 
@@ -29,19 +28,14 @@ const faqs = [
   title={`Reverse Osmosis Systems in ${site.city}, ${site.stateAbbr}`}
   description={`Best reverse osmosis systems for ${site.city}: what RO removes, price, and how installation works.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Reverse Osmosis" }]} />
-      <p class="eyebrow">Drinking Water Purification</p>
-      <h1>Reverse Osmosis Systems in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Under-sink reverse osmosis system installed in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Reverse Osmosis" }]}
+    heading={`Reverse Osmosis Systems in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading="Under-sink purification for the cleanest possible drinking and cooking water in your home."
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

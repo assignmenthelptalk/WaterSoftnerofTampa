@@ -1,28 +1,26 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
+import PageHero from "../components/PageHero.astro";
 import { site } from "../lib/site";
 import headerImage from "../assets/images/hard-water-header.webp";
+
+const primaryCta = site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER"
+  ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` }
+  : { href: "/contact/", text: "📞 Call for a Free Consultation" };
 ---
 
 <Layout
   title={`Hard Water Treatment in ${site.city}, ${site.stateAbbr}`}
   description={`Hard water effects in ${site.city}, ${site.stateAbbr}. ${site.city} water tests at ${site.gpgLow}–${site.gpgHigh} GPG from ${site.waterAuthority}. Learn how hard water damages appliances and how to protect your home.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Hard Water Explained" }]} />
-      <p class="eyebrow">{site.gpgLow}–{site.gpgHigh} GPG in {site.city}</p>
-      <h1>Hard Water Treatment in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Hard water mineral damage on a fixture in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Hard Water Explained" }]}
+    heading={`Hard Water Treatment in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading={`See what ${site.gpgLabel.toLowerCase()} water does to fixtures, appliances, and plumbing in ${site.city} homes — and how to stop it.`}
+    primaryCta={primaryCta}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

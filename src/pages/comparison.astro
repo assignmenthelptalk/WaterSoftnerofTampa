@@ -1,28 +1,26 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
+import PageHero from "../components/PageHero.astro";
 import { site } from "../lib/site";
 import headerImage from "../assets/images/comparison-header.webp";
+
+const primaryCta = site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER"
+  ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` }
+  : { href: "/contact/", text: "📞 Call for a Free Consultation" };
 ---
 
 <Layout
   title={`Best Water Softener in ${site.city}, ${site.stateAbbr}`}
   description={`Salt-based vs salt-free vs reverse osmosis water softeners in ${site.city}, ${site.stateAbbr}. Which system works at ${site.gpgLow}–${site.gpgHigh} GPG. Free system recommendation with every water test.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Compare Systems" }]} />
-      <p class="eyebrow">Choosing the Right System</p>
-      <h1>Best Water Softener in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt="Salt-based water softener and salt-free conditioner systems compared side by side" class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Compare Systems" }]}
+    heading={`Best Water Softener in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading={`Salt-based, salt-free, or a combo — see which system actually fits ${site.city}'s ${site.gpgLow}-${site.gpgHigh} GPG water.`}
+    primaryCta={primaryCta}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

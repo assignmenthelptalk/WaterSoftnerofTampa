@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
-import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/whole-home-filtration-header.webp";
 
@@ -29,19 +28,14 @@ const faqs = [
   title={`Whole Home Filtration in ${site.city}, ${site.stateAbbr}`}
   description={`Whole-home water filtration for ${site.city}: what it removes, cost, and how to get one installed.`}
 >
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "Whole Home Filtration" }]} />
-      <p class="eyebrow">Combo Systems</p>
-      <h1>Whole Home Filtration in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Whole home water filtration system installed in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "Whole Home Filtration" }]}
+    heading={`Whole Home Filtration in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading="Pair hardness removal with whole-home filtration for chlorine, sediment, and odor at every tap."
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">

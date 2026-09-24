@@ -1,7 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
+import PageHero from "../components/PageHero.astro";
 import { site } from "../lib/site";
 import headerImage from "../assets/images/faq-header.webp";
 
@@ -89,19 +88,14 @@ const faqSchema = {
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <section class="page-header">
-    <div class="container">
-      <Breadcrumbs items={[{ label: "FAQ" }]} />
-      <p class="eyebrow">{site.city} Homeowner Questions</p>
-      <h1>Water Softener FAQ in {site.city}, {site.stateAbbr} | Trusted Local Specialists</h1>
-    </div>
-  </section>
-
-  <section class="page-header-image-section">
-    <div class="container">
-      <Image src={headerImage} alt={`Homeowner consultation about water softener questions in ${site.city}, ${site.stateAbbr}`} class="page-header-image" width={1600} height={500} loading="eager" />
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: "FAQ" }]}
+    heading={`Water Softener FAQ in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    subheading={`Straight answers to the questions ${site.city} homeowners ask most about hard water and softener installation.`}
+    primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
+    secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
+    image={headerImage}
+  />
 
   <section class="section">
     <div class="container">
