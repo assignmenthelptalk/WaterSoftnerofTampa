@@ -247,6 +247,21 @@ table.data-table tbody tr:nth-child(even) { background: var(--surface-elevated);
   margin: 6px 0 0;
 }
 
+/* Photo strip directly under .page-header on pages that have one — used by
+   6 expansion pages originally, now also the 15 core pages below. Had no
+   CSS definition anywhere in the boilerplate until now (every instance
+   rendered at native image size with no crop/radius treatment). */
+.page-header-image-section {
+  padding: 20px 0 0;
+}
+.page-header-image {
+  width: 100%;
+  height: clamp(200px, 32vw, 420px);
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
 /* Brand backlink — used on 10+ pages (see grep for "brand-backlink") but
    had no CSS definition anywhere in the boilerplate until now, so every
    instance rendered completely unstyled. Ported from watersoftenerhendersonnv,

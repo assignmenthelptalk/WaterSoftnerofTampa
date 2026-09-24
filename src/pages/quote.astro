@@ -1,8 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import QuoteForm from "../components/QuoteForm.astro";
 import { site } from "../lib/site";
+import headerImage from "../assets/images/quote-header.webp";
 ---
 
 <Layout
@@ -14,6 +16,12 @@ import { site } from "../lib/site";
       <Breadcrumbs items={[{ label: "Get a Quote" }]} />
       <p class="eyebrow">{site.city}, {site.stateAbbr}</p>
       <h1>Get a Free Water Softener Quote in {site.city}</h1>
+    </div>
+  </section>
+
+  <section class="page-header-image-section">
+    <div class="container">
+      <Image src={headerImage} alt={`Technician reviewing a written water softener quote with a ${site.city}, ${site.stateAbbr} homeowner`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

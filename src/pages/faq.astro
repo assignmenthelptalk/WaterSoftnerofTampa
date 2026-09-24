@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
+import headerImage from "../assets/images/faq-header.webp";
 
 const faqs = [
   {
@@ -92,6 +94,12 @@ const faqSchema = {
       <Breadcrumbs items={[{ label: "FAQ" }]} />
       <p class="eyebrow">{site.city} Homeowner Questions</p>
       <h1>Water Softener FAQ — {site.city}, {site.stateAbbr}</h1>
+    </div>
+  </section>
+
+  <section class="page-header-image-section">
+    <div class="container">
+      <Image src={headerImage} alt={`Homeowner consultation about water softener questions in ${site.city}, ${site.stateAbbr}`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

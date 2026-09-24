@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { site } from "../../lib/site";
+import headerImage from "../../assets/images/whole-home-filtration-header.webp";
 
 const faqs = [
   {
@@ -32,6 +34,12 @@ const faqs = [
       <Breadcrumbs items={[{ label: "Whole Home Filtration" }]} />
       <p class="eyebrow">Combo Systems</p>
       <h1>Whole Home Filtration in {site.city}, {site.stateAbbr}</h1>
+    </div>
+  </section>
+
+  <section class="page-header-image-section">
+    <div class="container">
+      <Image src={headerImage} alt={`Whole home water filtration system installed in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

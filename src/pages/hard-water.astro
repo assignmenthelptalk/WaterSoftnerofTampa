@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../components/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { site } from "../lib/site";
+import headerImage from "../assets/images/hard-water-header.webp";
 ---
 
 <Layout
@@ -13,6 +15,12 @@ import { site } from "../lib/site";
       <Breadcrumbs items={[{ label: "Hard Water Explained" }]} />
       <p class="eyebrow">{site.gpgLow}–{site.gpgHigh} GPG in {site.city}</p>
       <h1>Hard Water Effects in {site.city}</h1>
+    </div>
+  </section>
+
+  <section class="page-header-image-section">
+    <div class="container">
+      <Image src={headerImage} alt={`Hard water mineral damage on a fixture in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 

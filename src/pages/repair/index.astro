@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { site } from "../../lib/site";
+import headerImage from "../../assets/images/repair-header.webp";
 
 const problems = [
   {
@@ -63,6 +65,12 @@ const faqs = [
       <Breadcrumbs items={[{ label: "Repair" }]} />
       <p class="eyebrow">Fast Local Diagnosis</p>
       <h1>Water Softener Repair in {site.city}, {site.stateAbbr}</h1>
+    </div>
+  </section>
+
+  <section class="page-header-image-section">
+    <div class="container">
+      <Image src={headerImage} alt={`Water softener repair diagnostic in a ${site.city}, ${site.stateAbbr} home`} class="page-header-image" width={1600} height={500} loading="eager" />
     </div>
   </section>
 
