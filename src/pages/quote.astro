@@ -13,7 +13,6 @@ import headerImage from "../assets/images/quote-header.webp";
   <PageHero
     breadcrumbs={[{ label: "Get a Quote" }]}
     heading={`Free Water Softener Quote in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
-    subheading={`Tell us about your home and get a no-obligation recommendation sized for ${site.city}'s water.`}
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/installation/", text: "See How Installation Works" }}
     image={headerImage}
