@@ -11,9 +11,10 @@ in per-city data here — that's the rest of this file, below.
 | Output mode | Static (`output: "static"`, `@astrojs/vercel`, zero serverless functions) |
 | Full design system (global.css) | ✅ reskinned this build — blue/slate theme adapted from SPSSassignment.help, replacing the boilerplate's default teal/orange |
 | Layout.astro (utility bar + Services-dropdown nav + minimal footer) | ✅ synced from Henderson structural improvements |
-| Homepage | ✅ rebuilt this build — two-column light hero (real product photo, not the boilerplate's centered dark-gradient version), 10 content sections below it |
+| Homepage | ✅ rebuilt this build — two-column light hero (real product photo, not the boilerplate's centered dark-gradient version), 10 content sections below it. Hero now carries the Glendale Elite "Brand IS" opening paragraph directly (split into two paragraphs, brand name linked to `/`) — the old Tampa-hardness blurb that used to be the hero copy was merged into the "Water Hardness Reading" section further down the page instead of being duplicated |
 | 6 expansion pages (salt-based-installation, salt-free-installation, water-softener-sizing, new-construction-installation, control-head-repair, free-water-test) | ✅ written this build, ported structurally from the boilerplate |
-| Brand backlink on every inner page | ✅ |
+| PageHero.astro (split inner-page hero: breadcrumbs, H1, opening paragraph, CTAs left; real photo or GPG stat-card right) | ✅ built and wired into all 21 inner pages. Opening paragraph (Glendale Elite "Brand OFFERS" pattern) lives inside the hero via an `opening` slot, brand name underlined in white against the dark hero background. No `subheading` prop — content runs straight from H1 into the opening paragraph |
+| Opening paragraph pattern (Glendale Elite) on every page | ✅ homepage uses "Brand IS" (no backlink, already on that page); all 21 inner pages use "Brand OFFERS" with the brand name linked to `/` |
 | QuoteForm.astro | ✅ |
 | Breadcrumbs.astro | ✅ |
 | LocalSchema.astro | ✅ |
@@ -95,12 +96,23 @@ Run: cd C:\Users\lenevo\Local-SEO-Toolkit
 All 22 pages written and all 23 site images are real photography (0
 `placehold.co` references remain in `src/`). Homepage hero rebuilt as a
 two-column light layout (real product photo replacing the boilerplate's
-centered dark-gradient design — see the boilerplate's own WORKSPACE-README
-for the ported version). Homepage H1 updated to
+centered dark-gradient design). Homepage H1 is
 "Water Softeners of {city} - Premier Water Softener Installation in
-{city}, {state}" pattern — **this change is written to
-`src/pages/index.astro` but not yet committed/pushed**, confirm before
-assuming it's live. Next: run the quality gate, then fill remaining
+{city}, {state}" (committed and pushed). Meta-title pattern
+(`[Service] in [City], [State] | Water Softeners of [City]: ...`) and
+inner-page H1 pattern (`[Service] in [City], [State] | Trusted Local
+Specialists`) are applied across all pages, centralized in
+`Layout.astro` for the title. All 21 inner pages are migrated to the
+`PageHero.astro` split layout, with the Glendale Elite opening paragraph
+moved inside the hero (no separate section below it) and the old
+`subheading` prop removed entirely. The homepage hero was restructured
+the same way — its Brand IS paragraph now lives directly in the hero,
+split into two paragraphs, brand name linked to `/`. Everything above is
+committed and pushed to `main` (last commit `8a49a26`); working tree is
+otherwise clean except one small leftover fix (a dead `.page-hero-sub`
+CSS selector renamed to `.page-hero-opening` after the subheading was
+removed — build-verified, about to be committed with this README
+update). Next: run the quality gate (never run), then fill remaining
 `[PLACEHOLDER]` business facts once a tenant/operator is identified.
 
 ## Local data
@@ -123,7 +135,7 @@ itself if a step here needs more detail than fits on one line.
 - [x] Step 3 — `src/site.config.ts` filled in with real city data (phone/email still placeholders — no tenant yet)
 - [x] Step 4 — ~~Keystatic~~ REMOVED — no CMS step
 - [x] Step 5 — Content written for all 22 pages
-- [x] Step 6 — `npm run build` — 0 errors, 0 warnings confirmed (last verified with the H1 change in the working tree)
+- [x] Step 6 — `npm run build` — 0 errors, 0 warnings confirmed (last verified after the PageHero opening-paragraph migration)
 - [ ] Step 6b — Quality gate never run — no page has a score yet
 - [x] Step 7 — Deployed to Vercel, auto-deploy on push confirmed working (live images verified returning 200 OK)
 - [ ] Step 8 — Custom domain (watersofteneroftampa.com) not yet connected
