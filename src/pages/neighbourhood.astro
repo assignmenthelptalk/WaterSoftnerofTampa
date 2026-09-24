@@ -16,18 +16,19 @@ import headerImage from "../assets/images/neighbourhood-header.webp";
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}provides water softener installation and service across every {site.city} neighbourhood and
+      surrounding {site.county} community. {site.waterAuthority} delivers the same {site.gpgLow}
+      –{site.gpgHigh} GPG supply citywide. Every neighbourhood receives the same {site.gpgLabel} water
+      classification. Free in-home water test available across all service areas. Same day service. No
+      obligation.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}provides water softener installation and service across every {site.city} neighbourhood and
-        surrounding {site.county} community. {site.waterAuthority} delivers the same {site.gpgLow}
-        –{site.gpgHigh} GPG supply citywide. Every neighbourhood receives the same {site.gpgLabel} water
-        classification. Free in-home water test available across all service areas. Same day service. No
-        obligation.
-      </p>
 
       <div class="section-header">
         <p>We install and service water softeners throughout {site.city}, {site.stateAbbr}, and every neighbourhood shares the same {site.gpgLow}–{site.gpgHigh} GPG ({site.gpgLabel}) water from {site.waterSource}, delivered by {site.waterAuthority} to {site.population} residents across {site.county} at ZIP codes {site.zipCodes.join(", ")}.</p>

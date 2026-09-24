@@ -35,18 +35,19 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers salt-based water softener installation across {site.city} and {site.county}. Salt-based ion
+      exchange is the only system that fully removes calcium and magnesium at {site.gpgLow}–{site.gpgHigh}
+      GPG. Salt-free conditioners crystallize minerals rather than removing them and are not effective above
+      10 GPG. Every system is sized to your household and your confirmed {site.city} GPG reading. Free water
+      test included.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers salt-based water softener installation across {site.city} and {site.county}. Salt-based ion
-        exchange is the only system that fully removes calcium and magnesium at {site.gpgLow}–{site.gpgHigh}
-        GPG. Salt-free conditioners crystallize minerals rather than removing them and are not effective above
-        10 GPG. Every system is sized to your household and your confirmed {site.city} GPG reading. Free water
-        test included.
-      </p>
 
       <div class="section-header">
         <p>A salt-based softener removes calcium and magnesium from {site.city}'s {site.gpgLow}-{site.gpgHigh} GPG supply through ion exchange, swapping hardness minerals for sodium as water passes through a resin tank. This is different from a salt-free conditioner, which alters mineral structure but leaves the minerals in the water — see our <a href="/salt-free-installation/">salt-free installation page</a> if you want a no-sodium option instead. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>

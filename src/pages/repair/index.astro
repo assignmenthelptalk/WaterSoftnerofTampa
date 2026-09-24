@@ -66,21 +66,21 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers water softener repair and maintenance services across {site.city} and {site.county}. We
+      diagnose and repair all major water softener brands, including Kinetico, Culligan, EcoWater, Morton, GE,
+      and Whirlpool. Free diagnostic included with every repair call. Same day service available across
+      {site.city} and {site.county}. Written repair quote before any work begins. No surprise charges.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
       <div class="section-header">
         <p>Fast local diagnosis and repair for all major softener brands. Free diagnostic with every repair call.</p>
       </div>
-
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers water softener repair and maintenance services across {site.city} and {site.county}. We
-        diagnose and repair all major water softener brands, including Kinetico, Culligan, EcoWater, Morton, GE,
-        and Whirlpool. Free diagnostic included with every repair call. Same day service available across
-        {site.city} and {site.county}. Written repair quote before any work begins. No surprise charges.
-      </p>
 
       <h2>Common Water Softener Problems</h2>
       <div class="grid grid-3">

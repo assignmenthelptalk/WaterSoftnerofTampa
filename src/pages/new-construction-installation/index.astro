@@ -31,18 +31,19 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers water softener installation for new construction homes across {site.city} and {site.county}.
+      New {site.city} builds receive {site.gpgLow}–{site.gpgHigh} GPG water from {site.waterAuthority} from
+      day one. Installing a softener during construction is the cleanest and most cost-effective point, since
+      plumbing rough-in is already exposed. Free consultation available for builders and homeowners. Same day
+      service across {site.county}.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers water softener installation for new construction homes across {site.city} and {site.county}.
-        New {site.city} builds receive {site.gpgLow}–{site.gpgHigh} GPG water from {site.waterAuthority} from
-        day one. Installing a softener during construction is the cleanest and most cost-effective point, since
-        plumbing rough-in is already exposed. Free consultation available for builders and homeowners. Same day
-        service across {site.county}.
-      </p>
 
       <div class="section-header">
         <p>Planning for a softener before drywall means a dedicated water loop, a floor drain or standpipe, and a nearby outlet are already in place when the unit arrives — no exposed pipe runs or retrofit cutting later. At {site.city}'s {site.gpgLow}-{site.gpgHigh} GPG reading, every new build benefits from this step regardless of final system choice.</p>

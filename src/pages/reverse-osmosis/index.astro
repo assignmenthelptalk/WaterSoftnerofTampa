@@ -35,18 +35,19 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers reverse osmosis system installation and service across {site.city} and {site.county}. An
+      under-sink RO system removes up to 99 percent of dissolved solids from {site.waterAuthority} supply
+      water, including residual minerals, nitrates, chlorine byproducts, and other contaminants. Works best
+      paired with a whole-home softener that protects the RO membrane from scale damage at {site.gpgLow}
+      –{site.gpgHigh} GPG.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers reverse osmosis system installation and service across {site.city} and {site.county}. An
-        under-sink RO system removes up to 99 percent of dissolved solids from {site.waterAuthority} supply
-        water, including residual minerals, nitrates, chlorine byproducts, and other contaminants. Works best
-        paired with a whole-home softener that protects the RO membrane from scale damage at {site.gpgLow}
-        –{site.gpgHigh} GPG.
-      </p>
 
       <div class="section-header">
         <p>Reverse osmosis removes up to roughly 99 percent of dissolved solids from tap water, including residual minerals, nitrates, and chlorine byproducts that pass through standard filtration and softening. Unlike a softener or whole-home filter, RO is a point-of-use system, typically installed under the kitchen sink, producing a dedicated purified drinking-water tap. {site.waterAuthority} delivers {site.gpgLow}-{site.gpgHigh} GPG water to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>

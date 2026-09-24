@@ -52,6 +52,10 @@ const { breadcrumbs, heading, subheading, primaryCta, secondaryCta, image } = As
       <h1 class="page-hero-h1">{heading}</h1>
       <p class="page-hero-sub">{subheading}</p>
 
+      <div class="page-hero-opening">
+        <slot name="opening" />
+      </div>
+
       <div class="page-hero-ctas">
         <a href={primaryCta.href} class="page-hero-btn-primary">{primaryCta.text}</a>
         <a href={secondaryCta.href} class="page-hero-btn-secondary">{secondaryCta.text}</a>
@@ -174,6 +178,29 @@ const { breadcrumbs, heading, subheading, primaryCta, secondaryCta, image } = As
     line-height: 1.65;
     margin-bottom: 28px;
     max-width: 520px;
+  }
+
+  /* Opening paragraph — Glendale Elite pattern, moved up into the hero */
+  .page-hero-opening {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 540px;
+  }
+  .page-hero-opening :global(.brand-link) {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .page-hero-opening :global(.brand-link:hover) {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .page-hero-opening :global(.brand-link:focus-visible) {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 
   /* CTA row */

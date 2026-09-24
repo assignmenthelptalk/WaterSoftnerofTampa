@@ -20,18 +20,19 @@ const primaryCta = site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER"
     primaryCta={primaryCta}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers hard water treatment and scale prevention services across {site.city} and {site.county}. At
+      {site.gpgLow}–{site.gpgHigh} GPG from {site.waterAuthority}, calcium and magnesium deposits build up on
+      fixtures, inside appliances, and inside supply lines within weeks of installation. A salt-based ion
+      exchange softener removes these minerals completely at the main water entry point. Free in-home water
+      test available. Same day service.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers hard water treatment and scale prevention services across {site.city} and {site.county}. At
-        {site.gpgLow}–{site.gpgHigh} GPG from {site.waterAuthority}, calcium and magnesium deposits build up on
-        fixtures, inside appliances, and inside supply lines within weeks of installation. A salt-based ion
-        exchange softener removes these minerals completely at the main water entry point. Free in-home water
-        test available. Same day service.
-      </p>
 
       <div class="section-header">
         <p>At {site.gpgLabel} levels, {site.city} tap water carries enough dissolved calcium and magnesium to leave visible and invisible damage throughout your home over time. {site.waterAuthority} delivers this reading to all {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")}, at ZIP codes {site.zipCodes.join(", ")} — see the full <a href="/water-quality/">Tampa Water Quality Report: Hardness, Source &amp; Safety</a> for the source-level breakdown.</p>

@@ -35,17 +35,18 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers whole home filtration installation and service across {site.city} and {site.county}. A
+      softener plus whole-home carbon filter combination addresses both hardness minerals and chlorine,
+      sediment, and other contaminants from {site.waterAuthority} supply water. One system, one installation
+      point, one maintenance schedule. Free consultation included. Same day service available.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers whole home filtration installation and service across {site.city} and {site.county}. A
-        softener plus whole-home carbon filter combination addresses both hardness minerals and chlorine,
-        sediment, and other contaminants from {site.waterAuthority} supply water. One system, one installation
-        point, one maintenance schedule. Free consultation included. Same day service available.
-      </p>
 
       <div class="section-header">
         <p>A whole-home filtration system adds a carbon-based filtration stage to a standard water softener, treating chlorine, sediment, and other contaminants that hardness removal alone leaves behind. At {site.gpgLow}-{site.gpgHigh} GPG, a combo unit is the only single-install option that addresses both the hardness and the taste-and-clarity side of a {site.city} home's water supply at once. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>

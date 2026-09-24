@@ -17,16 +17,17 @@ import headerImage from "../../assets/images/contact-header.webp";
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}provides free water testing and no-obligation consultation across {site.city} and {site.county}.
+      Free in-home water hardness test available today. Same day availability. Pricing confirmed before any
+      work begins. No surprise charges. Call or fill in the form below to schedule.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}provides free water testing and no-obligation consultation across {site.city} and {site.county}.
-        Free in-home water hardness test available today. Same day availability. Pricing confirmed before any
-        work begins. No surprise charges. Call or fill in the form below to schedule.
-      </p>
 
       <div class="grid grid-2 contact-grid">
         <div class="contact-details">

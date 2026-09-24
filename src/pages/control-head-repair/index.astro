@@ -39,18 +39,19 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers water softener control head repair and replacement across {site.city} and {site.county}. The
+      control head manages regeneration cycles. A faulty control valve causes the softener to regenerate
+      continuously, not at all, or at wrong intervals, passing hard water at {site.gpgLow}–{site.gpgHigh} GPG
+      through untreated. Free diagnostic included with every repair call. All major control head brands
+      diagnosed and serviced. Same day availability.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers water softener control head repair and replacement across {site.city} and {site.county}. The
-        control head manages regeneration cycles. A faulty control valve causes the softener to regenerate
-        continuously, not at all, or at wrong intervals, passing hard water at {site.gpgLow}–{site.gpgHigh} GPG
-        through untreated. Free diagnostic included with every repair call. All major control head brands
-        diagnosed and serviced. Same day availability.
-      </p>
 
       <div class="section-header">
         <p>The control head is the electronic brain of a water softener — it tracks water use, triggers regeneration, and manages the internal piston that redirects water flow. At {site.gpgLow}-{site.gpgHigh} GPG, per {site.waterAuthority}, a {site.city} softener's control head cycles more often than in a softer-water market, which shortens its working life compared to a city with lower hardness. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>

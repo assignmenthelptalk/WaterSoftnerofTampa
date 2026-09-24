@@ -20,18 +20,19 @@ const primaryCta = site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER"
     primaryCta={primaryCta}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers water softener system comparison and selection guidance for {site.city} homeowners. At
+      {site.gpgLow}–{site.gpgHigh} GPG from {site.waterAuthority}, not every system works. Salt-free
+      conditioners do not remove calcium and magnesium at this hardness level. Salt-based ion exchange is the
+      only system that fully eliminates hardness minerals above 10 GPG. Free system recommendation included
+      with every free water test.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers water softener system comparison and selection guidance for {site.city} homeowners. At
-        {site.gpgLow}–{site.gpgHigh} GPG from {site.waterAuthority}, not every system works. Salt-free
-        conditioners do not remove calcium and magnesium at this hardness level. Salt-based ion exchange is the
-        only system that fully eliminates hardness minerals above 10 GPG. Free system recommendation included
-        with every free water test.
-      </p>
 
       <div class="section-header">
         <p>At {site.gpgLow}–{site.gpgHigh} GPG, {site.city} homes need to weigh true softening against lower-maintenance conditioning. Here's how the two approaches compare — see <a href="/installation/">Water Softener Installation in Tampa: Process, Timeline &amp; Cost</a> once you've picked one.</p>

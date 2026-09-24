@@ -20,17 +20,18 @@ const primaryCta = site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER"
     primaryCta={primaryCta}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers professional water hardness testing and quality reporting across {site.city} and {site.county}.
+      {" "}{site.waterAuthority} delivers {site.waterSource} at {site.gpgLow}–{site.gpgHigh} GPG to every {site.city} home,
+      classified as {site.gpgLabel} by the Water Quality Association. Free in-home water hardness test included with
+      every consultation. Results confirmed on the spot. No obligation to proceed.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers professional water hardness testing and quality reporting across {site.city} and {site.county}.
-        {" "}{site.waterAuthority} delivers {site.waterSource} at {site.gpgLow}–{site.gpgHigh} GPG to every {site.city} home,
-        classified as {site.gpgLabel} by the Water Quality Association. Free in-home water hardness test included with
-        every consultation. Results confirmed on the spot. No obligation to proceed.
-      </p>
 
       <div class="section-header">
         <p>{site.city}'s public water supply is sourced from {site.waterSource} and managed by {site.waterAuthority}, which serves {site.population} residents across {site.county}. Homes across {site.city} — including {site.neighbourhoods.join(", ")} — see hardness levels of {site.gpgLow}–{site.gpgHigh} grains per gallon (GPG), classified as {site.gpgLabel}. Left untreated, this level of hardness has measurable effects on plumbing and appliances — see <a href="/hard-water/">Hard Water Effects in Tampa: What It Does to Your Home</a>.</p>

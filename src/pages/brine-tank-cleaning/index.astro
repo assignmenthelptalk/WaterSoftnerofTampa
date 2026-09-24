@@ -54,21 +54,21 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers water softener brine tank cleaning services across {site.city} and {site.county}. Annual
+      cleaning is recommended at {site.gpgLow}–{site.gpgHigh} GPG hard water levels. Salt bridges, salt
+      mushing, and dirty brine reduce regeneration effectiveness and waste salt. Free diagnostic included with
+      every cleaning call. Same day availability.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
       <div class="section-header">
         <p>The brine tank holds the salt solution a water softener uses to regenerate its resin bed. At {site.gpgLow}-{site.gpgHigh} GPG, {site.city} softeners regenerate more often than in a moderate-hardness market, which means more salt cycling through the tank and a shorter interval before it needs attention. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>
       </div>
-
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers water softener brine tank cleaning services across {site.city} and {site.county}. Annual
-        cleaning is recommended at {site.gpgLow}–{site.gpgHigh} GPG hard water levels. Salt bridges, salt
-        mushing, and dirty brine reduce regeneration effectiveness and waste salt. Free diagnostic included with
-        every cleaning call. Same day availability.
-      </p>
 
       <h2>Signs Your Brine Tank Needs Cleaning</h2>
       <div class="grid grid-2">

@@ -40,17 +40,18 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers water softener sizing guidance and consultation across {site.city} and {site.county}.
+      Correct sizing at {site.gpgLow}–{site.gpgHigh} GPG prevents premature regeneration cycles that waste
+      salt and water, and prevents undersized systems from passing hard water. Every free water test includes
+      a sizing recommendation based on your confirmed GPG reading and household water usage.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers water softener sizing guidance and consultation across {site.city} and {site.county}.
-        Correct sizing at {site.gpgLow}–{site.gpgHigh} GPG prevents premature regeneration cycles that waste
-        salt and water, and prevents undersized systems from passing hard water. Every free water test includes
-        a sizing recommendation based on your confirmed GPG reading and household water usage.
-      </p>
 
       <div class="section-header">
         <p>Grain capacity is calculated as household size × 75 gallons of daily water use per person × {site.city}'s hardness reading in GPG. At {site.gpgLow}-{site.gpgHigh} GPG, per {site.waterAuthority}, this formula gives a starting point — see the sizing table below for four common household sizes. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>

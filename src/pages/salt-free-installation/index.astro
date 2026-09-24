@@ -35,18 +35,19 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}offers salt-free water conditioner installation and guidance across {site.city} and {site.county}.
+      Salt-free conditioners do not remove hardness minerals. They alter the mineral structure to reduce scale
+      adhesion. At {site.gpgLow}–{site.gpgHigh} GPG from {site.waterAuthority}, a salt-based system is the
+      recommended solution for full hardness removal. Free consultation available to identify the right
+      system for your household.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}offers salt-free water conditioner installation and guidance across {site.city} and {site.county}.
-        Salt-free conditioners do not remove hardness minerals. They alter the mineral structure to reduce scale
-        adhesion. At {site.gpgLow}–{site.gpgHigh} GPG from {site.waterAuthority}, a salt-based system is the
-        recommended solution for full hardness removal. Free consultation available to identify the right
-        system for your household.
-      </p>
 
       <div class="section-header">
         <p>A salt-free conditioner uses template-assisted crystallization (TAC) media to convert dissolved calcium and magnesium into microscopic crystals that pass through {site.city}'s {site.gpgLow}-{site.gpgHigh} GPG plumbing without bonding to pipes or fixtures. Unlike a salt-based softener, it needs no drain line, no electricity, and no salt — but it does not remove the minerals, see our full <a href="/comparison/">salt-based vs salt-free comparison</a> for the complete tradeoff. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>

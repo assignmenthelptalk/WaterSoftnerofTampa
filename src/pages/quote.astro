@@ -17,17 +17,18 @@ import headerImage from "../assets/images/quote-header.webp";
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/installation/", text: "See How Installation Works" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}provides free water testing and no-obligation quotes across {site.city} and {site.county}. Every
+      quote starts with a free in-home water hardness test. We confirm your exact GPG reading from
+      {site.waterAuthority} before recommending any system. Pricing confirmed in writing before any work
+      begins. No surprise charges. No obligation to proceed.
+    </p>
+  </PageHero>
 
   <section class="section quote-section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}provides free water testing and no-obligation quotes across {site.city} and {site.county}. Every
-        quote starts with a free in-home water hardness test. We confirm your exact GPG reading from
-        {site.waterAuthority} before recommending any system. Pricing confirmed in writing before any work
-        begins. No surprise charges. No obligation to proceed.
-      </p>
     </div>
     <div class="container quote-grid">
       <div>

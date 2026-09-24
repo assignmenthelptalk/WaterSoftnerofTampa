@@ -16,17 +16,18 @@ import headerImage from "../../assets/images/about-header.webp";
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}provides professional water softener installation, repair, and maintenance service across
+      {site.city} and {site.county}. {site.waterAuthority} delivers {site.gpgLow}–{site.gpgHigh} GPG water to
+      every {site.city} home. We size every system to your confirmed GPG reading, not a regional estimate.
+      Licensed and insured. Free in-home water test available. No obligation.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}provides professional water softener installation, repair, and maintenance service across
-        {site.city} and {site.county}. {site.waterAuthority} delivers {site.gpgLow}–{site.gpgHigh} GPG water to
-        every {site.city} home. We size every system to your confirmed GPG reading, not a regional estimate.
-        Licensed and insured. Free in-home water test available. No obligation.
-      </p>
 
       <div class="section-header">
         <p>

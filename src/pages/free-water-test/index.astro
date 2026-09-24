@@ -42,17 +42,18 @@ const faqs = [
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/water-quality/", text: "See the Full Water Report" }}
     image={headerImage}
-  />
+  >
+    <p slot="opening">
+      <a href="/" class="brand-link">Water Softeners of {site.city}</a>
+      {" "}provides free in-home water hardness testing across {site.city} and {site.county}. We test your
+      water at the tap and confirm your exact GPG reading from {site.waterAuthority} supply lines at your
+      address. Most {site.city} homes test at {site.gpgLow}–{site.gpgHigh} GPG, classified {site.gpgLabel}.
+      Results in minutes. No obligation to proceed. Same day availability.
+    </p>
+  </PageHero>
 
   <section class="section">
     <div class="container">
-      <p class="page-opening">
-        <a href="/" class="brand-link">Water Softeners of {site.city}</a>
-        {" "}provides free in-home water hardness testing across {site.city} and {site.county}. We test your
-        water at the tap and confirm your exact GPG reading from {site.waterAuthority} supply lines at your
-        address. Most {site.city} homes test at {site.gpgLow}–{site.gpgHigh} GPG, classified {site.gpgLabel}.
-        Results in minutes. No obligation to proceed. Same day availability.
-      </p>
 
       <div class="section-header">
         <p>{site.waterAuthority} reports {site.city}'s water at {site.gpgLow}-{site.gpgHigh} GPG, classified {site.gpgLabel}, serving {site.population} residents across {site.county} including {site.neighbourhoods.join(", ")} — but the reading at your own tap can vary slightly by plumbing age and fixture type. A free in-home test confirms your exact number before you spend anything on a system, see the full <a href="/water-quality/">{site.city} water quality report</a> for the citywide data behind it.</p>
