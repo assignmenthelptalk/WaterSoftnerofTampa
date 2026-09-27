@@ -317,6 +317,19 @@ const faqs = [
   </section>
 
   <style>
+    /* ---------- Harmonized H2 styling — every homepage section shares this
+       base; section-specific rules below only override margin/alignment/
+       width, not font-family/size/color/letter-spacing ---------- */
+    h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--surface-footer);
+      margin: 0 0 16px;
+    }
+
     /* ---------- 1. Hero — two-column light layout ---------- */
     .hero-section {
       background: linear-gradient(180deg, #ffffff 0%, var(--color-primary-light) 100%);
@@ -438,13 +451,6 @@ const faqs = [
     /* ---------- 2b. Best water softener callout ---------- */
     .best-softener-section { padding: 64px 24px; }
     .best-softener-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .best-softener-inner h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(24px, 3.5vw, 38px);
-      letter-spacing: -0.02em;
-      color: var(--surface-footer);
-      margin-bottom: 16px;
-    }
     .best-softener-inner p {
       font-family: var(--font-body);
       font-size: 16px;
@@ -492,12 +498,7 @@ const faqs = [
     /* ---------- 4 & 5. Alternating image-text sections ---------- */
     .service-section-wrapper { max-width: 1000px; margin: 0 auto; }
     .service-section-title {
-      font-family: var(--font-heading);
-      font-size: clamp(24px, 3.5vw, 38px);
-      letter-spacing: -0.02em;
-      color: var(--surface-footer);
       margin-bottom: 28px;
-      line-height: 1.2;
       width: 100%;
     }
     .service-section-grid {
@@ -561,13 +562,7 @@ const faqs = [
     /* ---------- 7. Service areas (only rendered when serviceAreas is non-empty) ---------- */
     .homepage-service-areas { padding: 72px 24px; background: var(--surface-base); }
     .homepage-service-areas-inner { max-width: 960px; margin: 0 auto; text-align: center; }
-    .homepage-service-areas h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(24px, 3.5vw, 38px);
-      letter-spacing: -0.02em;
-      color: var(--surface-footer);
-      margin-bottom: 12px;
-    }
+    .homepage-service-areas h2 { margin-bottom: 12px; }
     .homepage-service-areas p {
       font-family: var(--font-body);
       font-size: 16px;
@@ -628,13 +623,7 @@ const faqs = [
     .homepage-faq-section { padding: 72px 24px; background: var(--surface-elevated); }
     .homepage-faq-inner { max-width: 860px; margin: 0 auto; }
     .homepage-faq-header { text-align: center; margin-bottom: 40px; }
-    .homepage-faq-header h2 {
-      font-family: var(--font-heading);
-      font-size: clamp(24px, 3.5vw, 38px);
-      letter-spacing: -0.02em;
-      color: var(--surface-footer);
-      margin-bottom: 12px;
-    }
+    .homepage-faq-header h2 { margin-bottom: 12px; }
     .homepage-faq-header p {
       font-family: var(--font-body);
       font-size: 16px;
