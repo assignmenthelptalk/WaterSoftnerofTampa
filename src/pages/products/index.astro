@@ -6,12 +6,13 @@ import headerImage from "../../assets/images/products-header.webp";
 ---
 
 <Layout
-  title={`Water Softener Systems in ${site.city}, ${site.stateAbbr}`}
+  title={`Best Water Softener for ${site.city}, ${site.stateAbbr}`}
+  fullTitle={`Best Water Softener for ${site.city}, ${site.stateAbbr} | Water Softeners of ${site.city}`}
   description={`Recommended water softener systems for ${site.city}, ${site.stateAbbr}. Systems selected and sized for ${site.gpgLow}–${site.gpgHigh} GPG hard water from ${site.waterAuthority}.`}
 >
   <PageHero
     breadcrumbs={[{ label: "Products" }]}
-    heading={`Water Softener Systems in ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
+    heading={`Best Water Softener for ${site.city}, ${site.stateAbbr} | Trusted Local Specialists`}
     primaryCta={site.phoneNumber && site.phoneNumber !== "PHONE_NUMBER" ? { href: `tel:${site.phoneNumber}`, text: `📞 ${site.phoneNumber}` } : { href: "/contact/", text: "📞 Call for a Free Consultation" }}
     secondaryCta={{ href: "/quote/", text: "Get a Free Quote" }}
     image={headerImage}
