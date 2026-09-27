@@ -1,8 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../components/Layout.astro";
 import PageHero from "../../components/PageHero.astro";
 import { site } from "../../lib/site";
 import headerImage from "../../assets/images/about-header.webp";
+import beforeAfterImage from "../../assets/images/about-before-after.webp";
+import serviceCallImage from "../../assets/images/about-service-call.webp";
+import happyHomeownerImage from "../../assets/images/about-happy-homeowner.webp";
+import foundersImage from "../../assets/images/about-founders.webp";
+import cleanWaterImage from "../../assets/images/about-clean-water.webp";
 
 const services = [
   {
@@ -120,11 +126,11 @@ const faqs = [
         <h2>What We Do | Water Softener {site.city} {site.stateAbbr} Services</h2>
       </div>
       <div class="about-media-wrap">
-        <img
-          src={`https://placehold.co/900x400/${site.design.primaryColor.replace("#", "")}/${site.design.primaryLight.replace("#", "")}?text=Before+%2F+After+Hard+Water+Results`}
-          alt="Before and after comparison of hard water vs soft water results"
-          width="900"
-          height="400"
+        <Image
+          src={beforeAfterImage}
+          alt="Before and after comparison of a hard water stained shower versus a clean, soft water shower"
+          width={900}
+          height={400}
           loading="lazy"
         />
       </div>
@@ -147,11 +153,11 @@ const faqs = [
         <h2>What Makes {site.businessName} Different | Water Softener {site.city} {site.stateAbbr} Experts</h2>
       </div>
       <div class="about-media-wrap">
-        <img
-          src={`https://placehold.co/900x400/${site.design.accentColor.replace("#", "")}/ffffff?text=Team+On+A+Service+Call`}
-          alt="Team working on installation or service call"
-          width="900"
-          height="400"
+        <Image
+          src={serviceCallImage}
+          alt="Water softener technicians servicing a system in a residential garage"
+          width={900}
+          height={400}
           loading="lazy"
         />
       </div>
@@ -173,11 +179,11 @@ const faqs = [
         <h2>Who Uses Our Water Softener {site.city} {site.stateAbbr} Services</h2>
       </div>
       <div class="about-media-wrap">
-        <img
-          src={`https://placehold.co/900x400/${site.design.primaryColor.replace("#", "")}/${site.design.primaryLight.replace("#", "")}?text=Happy+Homeowner`}
-          alt="Happy homeowner using clean water at home"
-          width="900"
-          height="400"
+        <Image
+          src={happyHomeownerImage}
+          alt="Happy homeowner filling a glass with clean water at the kitchen sink"
+          width={900}
+          height={400}
           loading="lazy"
         />
       </div>
@@ -194,11 +200,11 @@ const faqs = [
         <h2>The Team Behind {site.businessName}</h2>
       </div>
       <div class="about-media-wrap">
-        <img
-          src={`https://placehold.co/700x500/${site.design.accentColor.replace("#", "")}/ffffff?text=Founders`}
-          alt="Founders portrait"
-          width="700"
-          height="500"
+        <Image
+          src={foundersImage}
+          alt={`${site.founderNames}, founders of ${site.businessName}`}
+          width={700}
+          height={500}
           loading="lazy"
         />
       </div>
@@ -287,11 +293,11 @@ const faqs = [
         <h2>Frequently Asked Questions | Water Softener {site.city} {site.stateAbbr}</h2>
       </div>
       <div class="about-media-wrap">
-        <img
-          src={`https://placehold.co/900x300/${site.design.accentColor.replace("#", "")}/ffffff?text=Clean+Water+Flowing`}
-          alt="Close up of clean water flowing"
-          width="900"
-          height="300"
+        <Image
+          src={cleanWaterImage}
+          alt="Close-up of clean water flowing from a kitchen faucet"
+          width={900}
+          height={300}
           loading="lazy"
         />
       </div>
