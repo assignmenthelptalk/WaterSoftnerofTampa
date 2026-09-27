@@ -213,6 +213,22 @@ export interface SiteConfig {
   /** Fully-qualified site URL derived from `domain`, e.g. "https://example.com" */
   siteUrl: string;
 
+  // ── About page facts — edit directly, no CMS ─────────────────────────────
+  /** Founder/team name(s) shown on the About page. Set to an explicit alias
+   * per owner instruction (2026-09-27) — no tenant/owner exists yet — and
+   * must be replaced with real names once the site is rented. */
+  founderNames: string;
+  /** Year the tenant business was founded. Alias/illustrative value per the
+   * same 2026-09-27 instruction — replace once a tenant confirms. */
+  foundedYear: string;
+  /** Approximate customers served, shown in the About page Key Facts table.
+   * Illustrative placeholder, labeled as such — not a real, verified
+   * statistic. Replace once a tenant provides a real figure. */
+  customersServed: string;
+  /** Approximate projects delivered, shown in the About page Key Facts
+   * table — same illustrative-placeholder rule as customersServed. */
+  projectsDelivered: string;
+
   // ── Design tokens (deep teal + warm orange defaults; other cities override) ─────
   design: {
     /** Primary brand color — deep teal or navy, hex */
@@ -283,6 +299,13 @@ export const siteConfig: SiteConfig = {
   address: "",
   googleBusinessUrl: "",
   siteUrl: `https://${domain}`,
+
+  // About page facts — alias/illustrative values per owner instruction
+  // (2026-09-27), no tenant/owner exists yet. Replace once the site is rented.
+  founderNames: "Marcus Reyes and Dana Whitfield",
+  foundedYear: "2019",
+  customersServed: "500+ (illustrative)",
+  projectsDelivered: "650+ (illustrative)",
 
   // Design tokens — adapted from SPSSassignment.help's theme: blue/slate,
   // single sans-serif family, no teal/orange. See src/styles/global.css
