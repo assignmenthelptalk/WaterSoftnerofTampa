@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     q: `Why test my water if ${site.city}'s hardness is already known?`,
-    a: `${site.waterAuthority}'s ${site.gpgLow}-${site.gpgHigh} GPG figure is a citywide average — your exact reading, iron content, and fixture layout still determine the right system size, which the in-home test confirms directly.`,
+    a: `${site.waterAuthority}'s ${site.gpgLow}-${site.gpgHigh} GPG figure is a citywide average. Your exact reading, iron content, and fixture layout still determine the right system size, which the in-home test confirms directly.`,
   },
   {
     q: "Can I get a virtual consultation instead of an in-home visit?",
-    a: "Yes — a virtual consultation covers the same household walkthrough and recommendation using photos and a video call, useful if an in-person visit doesn't fit your schedule.",
+    a: "Yes. A virtual consultation covers the same household walkthrough and recommendation using photos and a video call, useful if an in-person visit doesn't fit your schedule.",
   },
 ];
 ---
@@ -55,7 +55,7 @@ const faqs = [
     <div class="container">
 
       <div class="section-header">
-        <p>{site.waterAuthority} reports {site.city}'s water at {site.gpgLow}-{site.gpgHigh} GPG, classified {site.gpgLabel}, serving {site.population} residents across {site.county} including {site.neighbourhoods.join(", ")} — but the reading at your own tap can vary slightly by plumbing age and fixture type. A free in-home test confirms your exact number before you spend anything on a system, see the full <a href="/water-quality/">{site.city} water quality report</a> for the citywide data behind it.</p>
+        <p>{site.waterAuthority} reports {site.city}'s water at {site.gpgLow}-{site.gpgHigh} GPG, classified {site.gpgLabel}, serving {site.population} residents across {site.county} including {site.neighbourhoods.join(", ")}. The reading at your own tap can vary slightly by plumbing age and fixture type. A free in-home test confirms your exact number before you spend anything on a system, see the full <a href="/water-quality/">{site.city} water quality report</a> for the citywide data behind it.</p>
       </div>
 
       <h2>What's Included</h2>
@@ -75,7 +75,7 @@ const faqs = [
     <div class="container">
       <div class="section-header">
         <h2>What Happens After the Test</h2>
-        <p>You get a written recommendation on the spot — a specific grain capacity, system type, and price range based on your actual results, not a generic estimate. If you want to move forward, we schedule installation directly; if not, keep the results with no further obligation. See our <a href="/water-softener-sizing/">sizing guide</a> for how we calculate the number your test confirms.</p>
+        <p>You get a written recommendation on the spot: a specific grain capacity, system type, and price range based on your actual results, not a generic estimate. If you want to move forward, we schedule installation directly; if not, keep the results with no further obligation. See our <a href="/water-softener-sizing/">sizing guide</a> for how we calculate the number your test confirms.</p>
       </div>
     </div>
   </section>

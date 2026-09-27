@@ -15,11 +15,11 @@ const faqs = [
   },
   {
     q: `How much does a water softener cost to install in ${site.city}?`,
-    a: `Installed cost depends on system size and household water usage — exact ${site.city} pricing is [PLACEHOLDER — confirm local price range for equipment + install]. See Water Softener Installation in Tampa: Process, Timeline & Cost for the full breakdown.`,
+    a: `Installed cost depends on system size and household water usage. Exact ${site.city} pricing is [PLACEHOLDER: confirm local price range for equipment + install]. See Water Softener Installation in Tampa: Process, Timeline & Cost for the full breakdown.`,
   },
   {
     q: `How long does installation take?`,
-    a: `Typical install duration is [PLACEHOLDER — confirm with installer], depending on existing plumbing across ${site.county}.`,
+    a: `Typical install duration is [PLACEHOLDER: confirm with installer], depending on existing plumbing across ${site.county}.`,
   },
   {
     q: `What size softener do I need for my ${site.city} home?`,
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: `Does a softener remove chlorine or other contaminants?`,
-    a: `No — a standalone softener only targets hardness minerals. A softener/filter combo system also addresses chlorine and sediment from ${site.waterAuthority}'s supply.`,
+    a: `No. A standalone softener only targets hardness minerals. A softener/filter combo system also addresses chlorine and sediment from ${site.waterAuthority}'s supply.`,
   },
   {
     q: `Can I install a water softener myself?`,
@@ -51,11 +51,11 @@ const faqs = [
   },
   {
     q: `Do you service all of ${site.county}?`,
-    a: `Yes — ${site.waterAuthority} serves ${site.population} residents across ${site.county}, including ${site.neighbourhoods.join(", ")} at ZIP codes ${site.zipCodes.join(", ")}, and surrounding areas.`,
+    a: `Yes. ${site.waterAuthority} serves ${site.population} residents across ${site.county}, including ${site.neighbourhoods.join(", ")} at ZIP codes ${site.zipCodes.join(", ")}, and surrounding areas.`,
   },
   {
     q: `What's the difference between a softener and reverse osmosis?`,
-    a: `A softener treats water for the whole house to prevent scale. Reverse osmosis is a separate, targeted filtration system — usually under the kitchen sink — for drinking and cooking water quality.`,
+    a: `A softener treats water for the whole house to prevent scale. Reverse osmosis is a separate, targeted filtration system, usually under the kitchen sink, for drinking and cooking water quality.`,
   },
   {
     q: `Will a water softener increase my water bill?`,
@@ -84,7 +84,7 @@ const faqSchema = {
 
 <Layout
   title={`Water Softener FAQ ${site.city}, ${site.stateAbbr}`}
-  description={`Common water softener questions from ${site.city}, ${site.stateAbbr} homeowners. ${site.city} water hardness, installation cost, system sizing, and maintenance — all answered.`}
+  description={`Common water softener questions from ${site.city}, ${site.stateAbbr} homeowners. ${site.city} water hardness, installation cost, system sizing, and maintenance, all answered.`}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 

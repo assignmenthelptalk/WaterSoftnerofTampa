@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "Does household size alone determine the right size?",
-    a: `No. Household size, ${site.city}'s ${site.gpgLow}-${site.gpgHigh} GPG hardness, fixture count, and peak-hour flow rate all factor in — the table below is a starting estimate, and a free in-home test confirms the exact number for your home.`,
+    a: `No. Household size, ${site.city}'s ${site.gpgLow}-${site.gpgHigh} GPG hardness, fixture count, and peak-hour flow rate all factor in. The table below is a starting estimate, and a free in-home test confirms the exact number for your home.`,
   },
 ];
 ---
@@ -53,7 +53,7 @@ const faqs = [
     <div class="container">
 
       <div class="section-header">
-        <p>Grain capacity is calculated as household size × 75 gallons of daily water use per person × {site.city}'s hardness reading in GPG. At {site.gpgLow}-{site.gpgHigh} GPG, per {site.waterAuthority}, this formula gives a starting point — see the sizing table below for four common household sizes. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>
+        <p>Grain capacity is calculated as household size × 75 gallons of daily water use per person × {site.city}'s hardness reading in GPG. At {site.gpgLow}-{site.gpgHigh} GPG, per {site.waterAuthority}, this formula gives a starting point. See the sizing table below for four common household sizes. {site.waterAuthority} delivers this reading to {site.population} residents across {site.county}, including {site.neighbourhoods.join(", ")} at ZIP codes {site.zipCodes.join(", ")}.</p>
       </div>
 
       <table class="data-table">
@@ -70,7 +70,7 @@ const faqs = [
           ))}
         </tbody>
       </table>
-      <p>These figures assume {site.city}'s midpoint hardness of {gpgMid} GPG and a standard 3-day reserve between regenerations — your exact fixture count and peak flow rate can shift the right size up or down a tier.</p>
+      <p>These figures assume {site.city}'s midpoint hardness of {gpgMid} GPG and a standard 3-day reserve between regenerations. Your exact fixture count and peak flow rate can shift the right size up or down a tier.</p>
     </div>
   </section>
 
@@ -83,7 +83,7 @@ const faqs = [
       <div class="grid grid-3">
         <div class="card">
           <h3>Guessing from a Big-Box Chart</h3>
-          <p>National sizing charts assume average hardness nationwide, not {site.city}'s actual {site.gpgLow}-{site.gpgHigh} GPG reading — the wrong input produces the wrong system size.</p>
+          <p>National sizing charts assume average hardness nationwide, not {site.city}'s actual {site.gpgLow}-{site.gpgHigh} GPG reading. The wrong input produces the wrong system size.</p>
         </div>
         <div class="card">
           <h3>Counting Only Bedrooms</h3>
@@ -91,7 +91,7 @@ const faqs = [
         </div>
         <div class="card">
           <h3>Sizing for Today, Not 10 Years</h3>
-          <p>A growing family or a planned bathroom addition changes the right grain capacity — sizing slightly ahead avoids a second install later.</p>
+          <p>A growing family or a planned bathroom addition changes the right grain capacity, so sizing slightly ahead avoids a second install later.</p>
         </div>
       </div>
       <p>Get a free in-home water test to confirm the exact size for your household before you buy.</p>
