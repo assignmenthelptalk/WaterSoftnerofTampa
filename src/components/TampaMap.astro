@@ -1,43 +1,18 @@
 ---
 /**
- * CityMap.astro — Generic city neighbourhood hardness map (PROVISIONING TEMPLATE)
+ * TampaMap.astro — Tampa neighbourhood water hardness map
  *
- * This component is NOT rendered anywhere in the boilerplate. It is a
- * starting point that provisioners copy and adapt per city — see
- * PROVISION.md Step 5b ("City Map") for the full walkthrough.
+ * Adapted from the boilerplate's src/components/CityMap.astro template
+ * (see water-softener-boilerplate/PROVISION.md Step 5b). City centre and
+ * neighbourhood coordinates were geocoded via OpenStreetMap's Nominatim
+ * API, not estimated — same source PROVISION.md instructs provisioners
+ * to use manually.
  *
- * PROVISIONING INSTRUCTIONS:
- * 1. Copy this file to src/components/[City]Map.astro (e.g. MinneapolisMap.astro)
- * 2. Fill in MAP_CONFIG below with the city's centre coordinates and bounds
- * 3. Fill in the neighbourhoods array with real, verified coordinates
- *    (use OpenStreetMap to find lat/lng per neighbourhood — see PROVISION.md)
- * 4. Install leaflet: npm install leaflet @types/leaflet
- * 5. Add to astro.config.mjs: vite: { ssr: { noExternal: ['leaflet'] } }
- * 6. Add to Layout.astro head:
- *    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
- *          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
- * 7. Import and add <[City]Map /> to index.astro after the GPG stat block
- *
- * TILE LAYER NOTE (important — read before choosing a tile provider):
- * - CARTO dark tiles (basemaps.cartocdn.com): NOW REQUIRE AN API KEY, even
- *   for unauthenticated requests. Every tile returns an "API KEY REQUIRED"
- *   watermark baked into the image instead of erroring. Do NOT use CARTO.
- *   Confirmed broken via direct tile fetch, September 2026.
- * - Stadia Maps (tiles.stadiamaps.com): also requires authentication.
- * - WORKING SOLUTION: OpenStreetMap tiles with a CSS inversion filter
- *   scoped to .leaflet-tile-pane only. Markers, popups, and controls sit on
- *   separate Leaflet panes and are NOT affected by the filter.
- *   CSS: filter: invert(1) hue-rotate(190deg) brightness(1.18) contrast(0.85) saturate(0.65)
- *   This produces a dark navy map that matches the site design system.
- * See CLAUDE.md → "Map Component — Tile Layer Rule" for the same note.
- *
- * NOTE ON LEAFLET NOT BEING A BOILERPLATE DEPENDENCY:
- * This file uses a dynamic `import("leaflet")` inside the client script so
- * the boilerplate itself never needs leaflet installed — this component is
- * never rendered here, only copied out during provisioning (Step 4 above).
- * The `@ts-expect-error` above that import is intentional: it suppresses
- * the "module not found" type error until the provisioner installs the
- * package in the city site's own package.json.
+ * TILE LAYER — DO NOT CHANGE:
+ * OpenStreetMap tiles with a CSS inversion filter (dark navy aesthetic,
+ * no API key required). CARTO dark tiles now require an API key and
+ * Stadia Maps requires authentication — both confirmed broken as of
+ * September 2026. See CLAUDE.md → "Map Component — Tile Layer Rule".
  */
 
 import { site } from "../lib/site";
@@ -154,9 +129,12 @@ import { site } from "../lib/site";
   .city-map-header { text-align: center; margin-bottom: 40px; }
   .city-map-header h2 {
     font-family: var(--font-heading);
-    font-size: clamp(28px, 4vw, 42px);
-    letter-spacing: -0.03em;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
     color: var(--surface-footer);
+    margin: 0 0 16px;
   }
   .city-map-header p {
     font-family: var(--font-body);
@@ -492,14 +470,6 @@ import { site } from "../lib/site";
 </style>
 
 <script>
-  // ─────────────────────────────────────────────────────────────────────
-  // NOTE: leaflet is intentionally NOT a boilerplate dependency — this file
-  // is never rendered here, only copied out per city during provisioning
-  // (see the frontmatter comment above). The dynamic import below is
-  // resolved at runtime only, once a provisioner has run
-  // `npm install leaflet @types/leaflet` in the city site's own repo.
-  // ─────────────────────────────────────────────────────────────────────
-
   interface Neighbourhood {
     name: string;
     coords: [number, number];
@@ -509,59 +479,81 @@ import { site } from "../lib/site";
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
-    // ─────────────────────────────────────────────────────────────────
-    // MAP CONFIG — fill these values when provisioning a new city
-    // Find coordinates using: https://www.openstreetmap.org (right-click → Show address)
-    // Find the bounding box using: https://boundingbox.klokantech.com
-    // ─────────────────────────────────────────────────────────────────
-    const CITY_LAT = 0; // TODO: replace with the real city centre latitude
-    const CITY_LNG = 0; // TODO: replace with the real city centre longitude
-    const BOUNDS_SOUTH = 0; // TODO: southwest corner of the service area
-    const BOUNDS_WEST = 0;
-    const BOUNDS_NORTH = 0; // TODO: northeast corner of the service area
-    const BOUNDS_EAST = 0;
-
+    // Tampa city centre + service-area bounds, geocoded via OpenStreetMap
+    // Nominatim (city centre: 27.9449854, -82.4583107). Bounds are a tight
+    // box around the four neighbourhoods below, not the full municipal
+    // boundary, so the map stays zoomed to the residential core.
     const MAP_CONFIG = {
-      centre: [CITY_LAT, CITY_LNG] as [number, number],
+      centre: [27.9449854, -82.4583107] as [number, number],
       zoom: 12,
-      minZoom: 11, // prevents zooming out to show the wider metro area
+      minZoom: 11,
       maxZoom: 14,
       bounds: {
-        sw: [BOUNDS_SOUTH, BOUNDS_WEST] as [number, number],
-        ne: [BOUNDS_NORTH, BOUNDS_EAST] as [number, number],
+        sw: [27.88, -82.51] as [number, number],
+        ne: [28.02, -82.40] as [number, number],
       },
     };
 
-    // ─────────────────────────────────────────────────────────────────
-    // NEIGHBOURHOOD DATA — fill this array when provisioning a new city
-    // Each entry needs: name, coords [lat, lng], gpgRange, wqaNote, issues[]
-    // Verify every coordinate using OpenStreetMap or Google Maps.
-    // Only list VERIFIED residential neighbourhoods — not roads or parks.
-    // ─────────────────────────────────────────────────────────────────
-    const NEIGHBOURHOOD_1_LAT = 0; // TODO: replace with a verified coordinate
-    const NEIGHBOURHOOD_1_LNG = 0;
-
+    // Coordinates geocoded via OpenStreetMap Nominatim, one query per
+    // neighbourhood name from site.config.ts's neighbourhoods array.
     const neighbourhoods: Neighbourhood[] = [
       {
-        name: "NEIGHBOURHOOD_1_NAME",
-        coords: [NEIGHBOURHOOD_1_LAT, NEIGHBOURHOOD_1_LNG],
-        gpgRange: "GPG_LOW–GPG_HIGH",
+        name: "Hyde Park",
+        coords: [27.9353426, -82.4732361],
+        gpgRange: "11–15",
         wqaNote:
           'Anything above 10.5 GPG is considered "Very Hard" by the Water Quality Association.',
-        issues: ["ISSUE_1", "ISSUE_2", "ISSUE_3", "ISSUE_4"],
+        issues: [
+          "Historic Bayshore-area homes with original plumbing scale faster at this hardness level",
+          "Brick-street district renovations frequently reveal corroded original supply lines",
+          "Mature garden and landscaping irrigation systems are prone to mineral clogging",
+          "Antique clawfoot tubs and vintage fixtures show visible mineral staining",
+        ],
       },
-      // Add one entry per neighbourhood — 4 to 8 entries recommended.
-      // Fewer entries with accurate data beats more entries with invented data.
+      {
+        name: "Seminole Heights",
+        coords: [27.9886596, -82.4478559],
+        gpgRange: "11–15",
+        wqaNote:
+          'Anything above 10.5 GPG is considered "Very Hard" by the Water Quality Association.',
+        issues: [
+          "Craftsman bungalow plumbing from the 1920s–1940s scales faster at this hardness level",
+          "Homes mid-renovation often still run on original galvanized supply lines",
+          "Vintage clawfoot tubs and pedestal sinks show visible spotting and buildup",
+          "Established gardens rely on irrigation systems prone to mineral clogging",
+        ],
+      },
+      {
+        name: "Ybor City",
+        coords: [27.9600475, -82.4411596],
+        gpgRange: "11–15",
+        wqaNote:
+          'Anything above 10.5 GPG is considered "Very Hard" by the Water Quality Association.',
+        issues: [
+          "Historic brick buildings and converted lofts often run on mixed-era plumbing",
+          "Newer condo and apartment developments still connect to the same citywide supply",
+          "Restaurant and commercial kitchen equipment scales quickly at this hardness",
+          "Restored historic storefronts show mineral staining on original fixtures",
+        ],
+      },
+      {
+        name: "Davis Islands",
+        coords: [27.9219670, -82.4556500],
+        gpgRange: "11–15",
+        wqaNote:
+          'Anything above 10.5 GPG is considered "Very Hard" by the Water Quality Association.',
+        issues: [
+          "Pools and pool equipment scale faster from hard water refills",
+          "Boat docks and marine equipment show mineral deposits from hose water",
+          "High-end kitchen and bath fixtures in newer homes still show spotting",
+          "Waterfront landscaping irrigation systems clog faster with mineral buildup",
+        ],
+      },
     ];
 
-    // ─────────────────────────────────────────────────────────────────
-    // MAP INITIALISATION — do not modify below this line during provisioning
-    // ─────────────────────────────────────────────────────────────────
     const mapEl = document.getElementById("city-map");
     if (!mapEl) return;
 
-    // @ts-expect-error — leaflet is a per-city dependency, installed during
-    // provisioning (Step 4 in the file header comment). Not installed here.
     const L = (await import("leaflet")).default;
 
     const map = L.map(mapEl, {
@@ -576,8 +568,8 @@ import { site } from "../lib/site";
     // ── TILE LAYER ──
     // OSM with CSS inversion — dark navy aesthetic, no API key required.
     // Do NOT switch to CARTO (requires an API key) or Stadia Maps (also
-    // requires authentication) — see the tile layer note at the top of
-    // this file and in CLAUDE.md.
+    // requires authentication) — see the tile layer note in this file's
+    // header comment and in CLAUDE.md.
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
