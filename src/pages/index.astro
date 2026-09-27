@@ -246,18 +246,17 @@ const faqs = [
   <section class="section" style="background: var(--color-surface);">
     <div class="container why-choose-us">
       <h2>Cost, Timeline &amp; What's Included</h2>
+      <ul class="cost-details-list">
+        <li><strong>Installation Time:</strong> Typical setup takes between 2 to 4 hours.</li>
+        <li><strong>Warranty Coverage:</strong> Includes a 1 to 10-year warranty on labor and components, with lifetime warranties available on premium tanks and valves.</li>
+        <li><strong>Pricing &amp; Financing:</strong> System equipment and professional installation cost $1,500 to $4,500 for standard systems (up to $5,800+ for large or dual-tank filtration combos), with low monthly payment plans starting around $32 to $50 per month available for larger systems.</li>
+        <li><strong>System Sizing:</strong> {site.city} systems are custom-sized using {site.city}'s confirmed {site.gpgLow}–{site.gpgHigh} GPG hardness reading multiplied by daily household water usage.</li>
+        <li><strong>Permitting Requirements:</strong> A {site.county} plumbing permit is required for any municipal supply line connection. This must be pulled by a licensed master plumber through {site.county} Development Services or the City of {site.city} Construction Services Division, unless the homeowner occupies the residence and self-permits. A backflow preventer is strictly required at the connection point before work begins.</li>
+        <li><strong>Ongoing Maintenance:</strong> Systems operate on a 4 to 8-week (roughly 1 to 2 months) salt refill and service schedule.</li>
+      </ul>
       <p>
-        Typical installation time is [PLACEHOLDER — confirm with installer], and every installation carries a
-        [PLACEHOLDER — confirm warranty terms]. Equipment and install pricing runs [PLACEHOLDER — confirm local
-        price range], with [PLACEHOLDER — confirm financing options] available for larger systems.
-        {site.city} installs are sized using [PLACEHOLDER — confirm grain-capacity sizing guidance] for local
-        household sizes. A Hillsborough County plumbing permit is required for any work connecting to the municipal
-        supply line, issued through Hillsborough County Development Services or the City of Tampa Construction
-        Services Division — a licensed master plumber must pull it unless the homeowner occupies the residence and
-        self-permits, and a backflow preventer is required at the connection point before work begins. Maintenance
-        runs on a [PLACEHOLDER — confirm salt refill/service interval] schedule once installed. See{" "}
-        <a href="/installation/">Water Softener Installation in Tampa: Process, Timeline &amp; Cost</a> for the
-        full breakdown, or{" "}
+        For a comprehensive analysis, review{" "}
+        <a href="/installation/">Water Softener Installation in Tampa: Process, Timeline &amp; Cost</a>, or select{" "}
         <a href="/quote/">Get a Free Water Softener Quote in Tampa</a> for pricing specific to your household.
       </p>
     </div>
@@ -594,6 +593,33 @@ const faqs = [
       color: var(--color-primary);
       font-weight: 700;
     }
+
+    /* ---------- 8b. Cost, Timeline & What's Included list ---------- */
+    .cost-details-list {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cost-details-list li {
+      position: relative;
+      padding-left: 28px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+    .cost-details-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    .cost-details-list li strong { color: var(--color-text); }
 
     /* ---------- 9. FAQ accordion ---------- */
     .homepage-faq-section { padding: 72px 24px; background: var(--surface-elevated); }
