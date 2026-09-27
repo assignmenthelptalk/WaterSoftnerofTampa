@@ -40,8 +40,8 @@ const faqs = [
 ---
 
 <Layout
-  title={`Water Softeners ${site.city}, ${site.stateAbbr}`}
-  fullTitle={`Water Softeners ${site.city}, ${site.stateAbbr} | Expert Water Softener Installation ${site.city}`}
+  title={`Water Softener ${site.city}, ${site.stateAbbr}`}
+  fullTitle={`Water Softener ${site.city}, ${site.stateAbbr} | Expert Water Softener Installation ${site.city}`}
   description={`Water softener installation and repair in ${site.city}, ${site.stateAbbr}. ${site.city} water tests at ${site.gpgLow}–${site.gpgHigh} GPG — ${site.gpgLabel}. Free in-home water test available. Same day service across ${site.city} and ${site.county}.`}
 >
   <LocalSchema />
@@ -57,7 +57,7 @@ const faqs = [
           <span class="hero-badge">✓ No Obligation</span>
         </div>
 
-        <h1>Water Softeners in {site.city}, {site.stateAbbr}</h1>
+        <h1>Water Softener in {site.city}, {site.stateAbbr} | Expert Water Softener Services in {site.city}, {site.stateAbbr}</h1>
 
         <h3 class="hero-subheading">Professional Water Softener Installation and Repair in {site.city}</h3>
 
@@ -114,6 +114,21 @@ const faqs = [
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- 2b. Best water softener callout -->
+  <section class="best-softener-section">
+    <div class="best-softener-inner">
+      <h2>Best Water Softener for {site.city}</h2>
+      <p>
+        From our experience working with homeowners and businesses across {site.city}, the best water softener
+        is one that is properly sized and matched to local water conditions. We have worked with many clients
+        dealing with {site.gpgLow}–{site.gpgHigh} GPG hardness, and the most effective systems are salt-based
+        units designed for consistent performance. The right setup depends on your water usage, household
+        size, and existing plumbing.
+      </p>
+      <a class="service-learn-more" href="/products/">See our recommendation for the best water softener for {site.city}</a>
     </div>
   </section>
 
@@ -419,6 +434,24 @@ const faqs = [
     .service-tile-emoji { font-size: 28px; }
     .service-tile h3 { color: var(--surface-footer); margin: 0; }
     .service-tile p { font-size: 14px; color: var(--color-text-muted); margin: 0; }
+
+    /* ---------- 2b. Best water softener callout ---------- */
+    .best-softener-section { padding: 64px 24px; }
+    .best-softener-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .best-softener-inner h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 3.5vw, 38px);
+      letter-spacing: -0.02em;
+      color: var(--surface-footer);
+      margin-bottom: 16px;
+    }
+    .best-softener-inner p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--color-text-muted);
+      margin: 0 0 20px;
+    }
 
     /* ---------- 3. GPG data ---------- */
     .gpg-data-grid {
