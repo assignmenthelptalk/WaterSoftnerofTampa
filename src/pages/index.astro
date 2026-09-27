@@ -142,20 +142,43 @@ const faqs = [
       <div>
         <h2>{site.city}'s Water Hardness Reading</h2>
         <p>
-          {site.city} water tests at {site.gpgLow}-{site.gpgHigh} GPG citywide, classified as {site.gpgLabel} by
-          the Water Quality Association. This reading comes from {site.waterSource}, delivered by
-          {site.waterAuthority}, and it stays consistent across every neighbourhood {site.city} homes sit in,
-          including {site.neighbourhoods.join(", ")}. At this hardness level, calcium and magnesium deposits
-          build up on fixtures, appliances, and plumbing within weeks of moving in. A properly sized salt-based
-          water softener removes these minerals completely. Free in-home water test available. No obligation.
+          {site.city}'s citywide tap water tests at {site.gpgLow} to {site.gpgHigh} GPG (Grains per Gallon). The
+          Water Quality Association (WQA) classifies this extreme concentration of calcium and magnesium as
+          "{site.gpgLabel}."
         </p>
+
+        <h3>Where Does {site.city}'s Water Come From?</h3>
         <p>
-          {site.waterAuthority} serves {site.population} residents across {site.county}, including ZIP codes{" "}
-          {site.zipCodes.join(", ")}. See the full{" "}
-          <a href="/water-quality/">Tampa Water Quality Report: Hardness, Source &amp; Safety</a> for a
-          neighbourhood-by-neighbourhood breakdown, or read{" "}
-          <a href="/hard-water/">Hard Water Effects in Tampa: What It Does to Your Home</a> to see what this
-          reading does to fixtures and appliances left untreated.
+          The municipal supply is a complex blend managed by {site.waterAuthority}. Because mineral content
+          changes with the weather, water hardness fluctuates between the wet and dry seasons. The region
+          relies on three primary sources:
+        </p>
+        <ul class="water-source-list">
+          <li><strong>Surface Water:</strong> Sourced mainly from the Hillsborough River, Alafia River, and the Tampa Bypass Canal.</li>
+          <li><strong>Groundwater:</strong> Drawn from the deep Floridan Aquifer.</li>
+          <li><strong>Desalinated Seawater:</strong> Treated using reverse osmosis at the Tampa Bay Seawater Desalination Plant in Apollo Beach to bridge supply gaps during droughts.</li>
+        </ul>
+        <p>
+          This mineral blend stays consistent across every local neighbourhood, including{" "}
+          {site.neighbourhoods.join(", ")}.
+        </p>
+
+        <h3>The Cost of Hard Water on Your Home</h3>
+        <p>
+          At these levels, microscopic mineral particles drop out of the water every time it is heated or
+          dried. Within weeks of moving into a home, you will notice:
+        </p>
+        <ul class="water-source-list">
+          <li>White, crusty scale buildup choking out showerheads and plumbing fixtures.</li>
+          <li>Film, streaks, and water spots lingering on dishes, glassware, and shower doors.</li>
+          <li>Reduced efficiency and shortened lifespans for water heaters, washing machines, and dishwashers.</li>
+        </ul>
+        <p>A properly sized, salt-based water softener binds to and removes these minerals entirely.</p>
+
+        <h3>🛡️ Protect Your Home's Plumbing</h3>
+        <p>
+          {site.waterAuthority} serves {site.population} residents across {site.city} and {site.county},
+          covering major residential ZIP codes like {site.zipCodes.join(", ")}.
         </p>
       </div>
       <div class="gpg-stat-card">
@@ -459,8 +482,26 @@ const faqs = [
       display: grid;
       grid-template-columns: 1fr 280px;
       gap: 40px;
-      align-items: center;
+      align-items: start;
     }
+    .gpg-data-grid h3 {
+      font-size: 1.25rem;
+      margin: 28px 0 12px;
+    }
+    .water-source-list {
+      margin: 0 0 16px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .water-source-list li {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+    .water-source-list li strong { color: var(--color-text); }
     .gpg-stat-card {
       display: flex;
       flex-direction: column;
