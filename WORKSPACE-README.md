@@ -21,7 +21,10 @@ in per-city data here — that's the rest of this file, below.
 | Favicon | ✅ added this build — `public/favicon.svg`, blue water-droplet mark (the boilerplate's `<link>` reference had no file behind it before) |
 | CLAUDE.md | ✅ (pre-existing, unchanged) |
 | PROVISION.md | ✅ (pre-existing, unchanged) |
-| CityMap.astro (city-specific pins) | ❌ not built — no neighbourhood map on the homepage yet |
+| TampaMap.astro (neighbourhood water hardness map) | ✅ added 2026-09-27 — real interactive Leaflet map on the homepage, placed after "Best Water Softener for Tampa" and before the GPG data section. City centre and all 4 neighbourhood coordinates geocoded live via OpenStreetMap's Nominatim API (not estimated). `leaflet` + `@types/leaflet` added as dependencies, `astro.config.mjs` has `vite.ssr.noExternal: ["leaflet"]`, `Layout.astro` head has the Leaflet stylesheet link. The boilerplate's own unfilled `CityMap.astro` template (never rendered anywhere, dead code once leaflet became a real dependency) was deleted from this repo |
+| About page | ✅ rebuilt 2026-09-27 to match the boilerplate's expanded 8-section template (What We Do, Differentiators, Who Uses Our Services, Team, How It Works, Key Facts table, FAQ, CTA) — see Notes for the alias founder/stats data used |
+| Brand name in inner-page backlinks | ✅ corrected 2026-09-27 — anchor text changed from "Water Softeners of Tampa" (plural) to "Water Softener of Tampa" (singular), matching `site.businessName`, across all 21 inner pages. Meta titles/H1s intentionally left untouched (out of scope for that pass) |
+| Em dashes in visible content | ✅ removed 2026-09-28 — every em dash in rendered page text across all 22 content pages rewritten as sentences/comma/colon joins. En dashes for GPG ranges (e.g. "11–15") are unrelated and untouched. Dev-facing HTML/CSS/JS comments still contain em dashes by design (never rendered) |
 | InstallationProcess.astro / Testimonials.astro | ❌ city-specific, not built |
 
 **Next action**: Run the Local-SEO-Toolkit quality gate against all 22 pages
@@ -93,27 +96,45 @@ Run: cd C:\Users\lenevo\Local-SEO-Toolkit
      npm run score-built-site -- --business watersoftenertampafl --dist C:\Users\lenevo\waterSoftenerProjects\watersoftenertampafl\dist
 
 ## Current task
-All 22 pages written and all 23 site images are real photography (0
-`placehold.co` references remain in `src/`). Homepage hero rebuilt as a
-two-column light layout (real product photo replacing the boilerplate's
-centered dark-gradient design). Homepage H1 is
-"Water Softeners of {city} - Premier Water Softener Installation in
-{city}, {state}" (committed and pushed). Meta-title pattern
-(`[Service] in [City], [State] | Water Softeners of [City]: ...`) and
-inner-page H1 pattern (`[Service] in [City], [State] | Trusted Local
-Specialists`) are applied across all pages, centralized in
-`Layout.astro` for the title. All 21 inner pages are migrated to the
-`PageHero.astro` split layout, with the Glendale Elite opening paragraph
-moved inside the hero (no separate section below it) and the old
-`subheading` prop removed entirely. The homepage hero was restructured
-the same way — its Brand IS paragraph now lives directly in the hero,
-split into two paragraphs, brand name linked to `/`. Everything above is
-committed and pushed to `main` (last commit `8a49a26`); working tree is
-otherwise clean except one small leftover fix (a dead `.page-hero-sub`
-CSS selector renamed to `.page-hero-opening` after the subheading was
-removed — build-verified, about to be committed with this README
-update). Next: run the quality gate (never run), then fill remaining
-`[PLACEHOLDER]` business facts once a tenant/operator is identified.
+All 22 pages written, all site images are real photography (including
+5 new About-page images added 2026-09-27), and a real interactive
+neighbourhood map (`TampaMap.astro`) is live on the homepage. Since the
+last major README update (PageHero migration), the following landed:
+
+- **Homepage**: H1 is now "Water Softener in {city}, {state} | Expert
+  Water Softener Services in {city}, {state}"; meta title is "Water
+  Softener {city}, {state} | Expert Water Softener Installation {city}"
+  (set via `Layout`'s `fullTitle` prop, bypassing the sitewide
+  auto-suffix). Hero adopted Albuquerque's structure: an italic H3
+  subheading below the H1, two intro paragraphs (plain `{site.businessName}`
+  text, not the hyperlinked Glendale Elite pattern — that tradeoff was
+  explicit and flagged at the time), and an exact-title secondary CTA.
+  A new "Best Water Softener for {city}" section sits right after the
+  services grid, followed immediately by `<TampaMap />`. All 9 H2s on
+  the page now share one harmonized style (previously 3 sections fell
+  back to a smaller, blue, unstyled default). The "Water Hardness
+  Reading" section was restructured with 3 H3 subsections (water
+  sources, hard-water effects, utility service info) and no longer
+  links out. "Cost, Timeline & What's Included" placeholders are filled
+  with real figures.
+- **Comparison page**: H1/meta title changed to "Salt-Based vs.
+  Salt-Free Water Conditioner in {city}, {state}" — a descriptive H1,
+  intentionally not the "Trusted Local Specialists" pattern.
+- **Products page**: H1/meta title changed to "Best Water Softener for
+  {city}, {state} | Trusted Local Specialists".
+- **Installation page**: all pricing/duration/warranty/financing
+  `[PLACEHOLDER]` markers filled with confirmed figures.
+- **About page**: rebuilt to the boilerplate's newer 8-section template
+  (see build-status table above and Notes for the alias founder data).
+- **Brand name**: inner-page backlink anchor text corrected from
+  "Water Softeners of {city}" to "Water Softener of {city}" (singular),
+  matching `site.businessName`, across all 21 inner pages.
+- **Em dashes**: removed from all visible page content sitewide.
+
+Everything above is committed and pushed to `main` (last commit
+`98a6f2c`); working tree clean. Next: run the quality gate (never run),
+then fill remaining `[PLACEHOLDER]` business facts and replace the
+alias founder/stats data once a tenant/operator is identified.
 
 ## Local data
 - Neighbourhoods:  Hyde Park, Seminole Heights, Ybor City, Davis Islands
@@ -135,7 +156,7 @@ itself if a step here needs more detail than fits on one line.
 - [x] Step 3 — `src/site.config.ts` filled in with real city data (phone/email still placeholders — no tenant yet)
 - [x] Step 4 — ~~Keystatic~~ REMOVED — no CMS step
 - [x] Step 5 — Content written for all 22 pages
-- [x] Step 6 — `npm run build` — 0 errors, 0 warnings confirmed (last verified after the PageHero opening-paragraph migration)
+- [x] Step 6 — `npm run build` — 0 errors, 0 warnings confirmed (last verified after the em-dash cleanup, commit `98a6f2c`)
 - [ ] Step 6b — Quality gate never run — no page has a score yet
 - [x] Step 7 — Deployed to Vercel, auto-deploy on push confirmed working (live images verified returning 200 OK)
 - [ ] Step 8 — Custom domain (watersofteneroftampa.com) not yet connected
@@ -178,5 +199,21 @@ _Add any city-specific notes, open data gaps, or decisions made here._
   data-viz illustration — a visitor searching "water softener in tampa"
   needs instant product recognition, which a chart-style graphic (the
   SPSS reference pattern) doesn't provide for a local-service audience.
+- **About page founder/stats data is an explicit alias, not real.** No
+  tenant/owner exists yet. Per direct owner instruction (2026-09-27),
+  `site.config.ts`'s `founderNames` ("Marcus Reyes and Dana Whitfield"),
+  `foundedYear` ("2019"), `customersServed`, and `projectsDelivered`
+  (both labeled "(illustrative)") are placeholder values to replace
+  once the site is rented — not invented facts presented as verified.
+- **TampaMap.astro coordinates are real, not estimated.** City centre
+  and all 4 neighbourhood coordinates were geocoded live via
+  OpenStreetMap's Nominatim API during the same session that built the
+  map, not pulled from memory. The bounding box is a tight box around
+  the 4 neighbourhoods, not the full municipal boundary, so the map
+  stays zoomed to the residential core at the locked zoom levels.
+- **Installation page sizing note uses the site's own 11-15 GPG figure**,
+  not a "9 to 18 GPG" baseline that appeared in a pasted content block.
+  That number would have contradicted the GPG reading stated everywhere
+  else on the site, so it was not used.
 - Full detail on all of the above is in the conversation history — this
   file is a status snapshot, not a replacement for it.
