@@ -19,6 +19,16 @@ redeploys automatically.
 `[serviceArea]` dynamic route for expanding into nearby cities once they
 pass the QDP test (see `PROVISION.md` Step 5c).
 
+## Google Search Console
+
+The Google site verification meta tag is configured in `src/components/Layout.astro` and included in the `<head>` of all pages:
+
+```html
+<meta name="google-site-verification" content="uKZ0i0iIYAlXHKjVpPu4PbDo3CBNcyYU8p_Q5gZ1mFM" />
+```
+
+This allows Google Search Console to verify ownership of the Tampa water softener site.
+
 ## Development
 
 ```
