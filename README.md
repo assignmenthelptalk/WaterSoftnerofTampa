@@ -29,6 +29,45 @@ The Google site verification meta tag is configured in `src/components/Layout.as
 
 This allows Google Search Console to verify ownership of the Tampa water softener site.
 
+### Pages to Submit for Indexing
+
+Submit these 25+ pages to Google Search Console in priority order:
+
+**Core Pages (High Priority):**
+- https://watersofteneroftampa.com/
+- https://watersofteneroftampa.com/water-quality/
+- https://watersofteneroftampa.com/hard-water/
+- https://watersofteneroftampa.com/installation/
+- https://watersofteneroftampa.com/repair/
+- https://watersofteneroftampa.com/comparison/
+- https://watersofteneroftampa.com/products/
+- https://watersofteneroftampa.com/faq/
+- https://watersofteneroftampa.com/about/
+- https://watersofteneroftampa.com/contact/
+
+**Service Pages (High Priority):**
+- https://watersofteneroftampa.com/salt-based-installation/
+- https://watersofteneroftampa.com/salt-free-installation/
+- https://watersofteneroftampa.com/whole-home-filtration/
+- https://watersofteneroftampa.com/reverse-osmosis/
+- https://watersofteneroftampa.com/water-softener-sizing/
+- https://watersofteneroftampa.com/free-water-test/
+- https://watersofteneroftampa.com/brine-tank-cleaning/
+- https://watersofteneroftampa.com/resin-bed-replacement/
+
+**Repair & Installation Pages (Medium Priority):**
+- https://watersofteneroftampa.com/control-head-repair/
+- https://watersofteneroftampa.com/new-construction-installation/
+
+**Neighborhood Pages (Medium Priority):**
+- https://watersofteneroftampa.com/neighbourhood/
+- https://watersofteneroftampa.com/neighbourhood/#davis-islands
+- https://watersofteneroftampa.com/neighbourhood/#ybor-city
+- https://watersofteneroftampa.com/neighbourhood/#seminole-heights
+- https://watersofteneroftampa.com/neighbourhood/#hyde-park
+
+Use Google Search Console's "URL inspection" tool to request indexing for these pages.
+
 ## Development
 
 ```
