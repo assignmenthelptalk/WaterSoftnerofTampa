@@ -1,6 +1,6 @@
 <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
-  <!-- Shield background with watermark transparency -->
-  <g opacity="0.35">
+  <!-- Shield background -->
+  <g>
     <!-- Outer shield outline -->
     <path d="M 120 40 L 180 80 L 180 140 C 180 165, 150 190, 120 200 C 90 190, 60 165, 60 140 L 60 80 Z" fill="none" stroke="#0369a1" stroke-width="8" stroke-linejoin="round"/>
 
