@@ -269,22 +269,6 @@ const { breadcrumbs, heading, primaryCta, secondaryCta, image } = Astro.props;
     overflow: hidden;
   }
 
-  .page-hero-img-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('/watermark.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 25%;
-    pointer-events: none;
-    mix-blend-mode: overlay;
-    z-index: 1;
-  }
-
   /* Real image — fills the right column flush */
   .page-hero-img {
     width: 100%;
