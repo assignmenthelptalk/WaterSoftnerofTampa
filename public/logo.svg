@@ -1,0 +1,17 @@
+<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle background -->
+  <circle cx="35" cy="50" r="32" fill="#2563eb" />
+
+  <!-- Water droplet shape inside circle -->
+  <path d="M 35 20 C 35 20, 25 30, 25 40 C 25 48.84, 29.48 56, 35 56 C 40.52 56, 45 48.84, 45 40 C 45 30, 35 20, 35 20 Z" fill="white" />
+
+  <!-- Text: Company Name -->
+  <text x="75" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">
+    WATER SOFTENER
+  </text>
+
+  <!-- Text: City -->
+  <text x="75" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#2563eb" letter-spacing="2">
+    OF TAMPA
+  </text>
+</svg>
