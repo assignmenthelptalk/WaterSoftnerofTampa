@@ -1,0 +1,27 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wmShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0369a1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wmDropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main watermark group with transparency -->
+  <g opacity="0.25">
+    <!-- Shield -->
+    <path d="M 100 30 L 150 65 L 150 120 C 150 145, 125 170, 100 180 C 75 170, 50 145, 50 120 L 50 65 Z"
+          fill="url(#wmShieldGrad)" stroke="#0369a1" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- Water droplet -->
+    <path d="M 100 50 C 100 50, 85 65, 85 80 C 85 92, 91 102, 100 102 C 109 102, 115 92, 115 80 C 115 65, 100 50, 100 50 Z"
+          fill="url(#wmDropGrad)" />
+
+    <!-- Checkmark -->
+    <path d="M 107 85 L 113 95 L 125 75" stroke="white" stroke-width="2" fill="none"
+          stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  </g>
+</svg>

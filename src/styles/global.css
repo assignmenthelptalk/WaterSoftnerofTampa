@@ -382,3 +382,54 @@ table.data-table tbody tr:nth-child(even) { background: var(--surface-elevated);
   width: auto;
   max-width: 300px;
 }
+
+/* Image watermarking — adds transparent logo to all page images */
+img {
+  position: relative;
+}
+
+/* Watermark overlay for images — applies to all img tags with watermark class or data attribute */
+.watermarked,
+img[data-watermark="true"] {
+  position: relative;
+  display: inline-block;
+}
+
+.watermarked::after,
+img[data-watermark="true"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/watermark.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 35%;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Auto-watermark all page images in content sections */
+.page-header-image,
+.section img:not(.logo) {
+  position: relative;
+}
+
+.page-header-image::after,
+.section img:not(.logo)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/watermark.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20%;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
