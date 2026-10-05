@@ -62,15 +62,17 @@ const { breadcrumbs, heading, primaryCta, secondaryCta, image } = Astro.props;
 
     <div class="page-hero-visual">
       {image ? (
-        <Image
-          src={image}
-          alt={`${heading.replace(" | Trusted Local Specialists", "")} — water softener service`}
-          class="page-hero-img"
-          loading="eager"
-          decoding="async"
-          width={600}
-          height={480}
-        />
+        <div class="page-hero-img-wrapper">
+          <Image
+            src={image}
+            alt={`${heading.replace(" | Trusted Local Specialists", "")} — water softener service`}
+            class="page-hero-img"
+            loading="eager"
+            decoding="async"
+            width={600}
+            height={480}
+          />
+        </div>
       ) : (
         <div class="page-hero-stat-card">
           <div class="page-hero-stat-gpg">{site.gpgLow}–{site.gpgHigh}</div>
@@ -257,6 +259,30 @@ const { breadcrumbs, heading, primaryCta, secondaryCta, image } = Astro.props;
     justify-content: center;
     height: 100%;
     min-height: 320px;
+  }
+
+  /* Image wrapper with watermark */
+  .page-hero-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+  }
+
+  .page-hero-img-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/watermark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 1;
   }
 
   /* Real image — fills the right column flush */
