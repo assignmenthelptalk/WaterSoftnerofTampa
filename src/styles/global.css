@@ -351,3 +351,34 @@ table.data-table tbody tr:nth-child(even) { background: var(--surface-elevated);
   border-radius: var(--radius-full);
   white-space: nowrap;
 }
+
+/* Site header and logo styling */
+.site-header {
+  background: var(--surface-base);
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 0;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  max-width: 300px;
+}
