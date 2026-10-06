@@ -68,6 +68,17 @@ Submit these 25+ pages to Google Search Console in priority order:
 
 Use Google Search Console's "URL inspection" tool to request indexing for these pages.
 
+## Branding
+
+- **Header logo:** `public/logo.svg`, rendered by `src/components/Layout.astro`
+  with sizing in `src/styles/global.css` (`.logo img`).
+- **Image watermark:** the logo is baked into every file in
+  `src/assets/images/` (centered at the bottom, semi-transparent badge, sized
+  to the area that stays visible after `object-fit: cover` cropping). It is
+  part of the image files, not a CSS overlay. Restore originals from git
+  history (commit `4d2f4cd`) before re-stamping, or the logo will be applied
+  twice. New images need the watermark added the same way.
+
 ## Development
 
 ```
