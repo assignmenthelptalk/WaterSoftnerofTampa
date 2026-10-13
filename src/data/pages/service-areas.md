@@ -20,10 +20,10 @@ markerCount: 0
 
 We serve Hyde Park, Seminole Heights, Ybor City and Davis Islands, along with every other Tampa neighborhood. Each neighborhood page is published once its water provider is confirmed.
 
-- Hyde Park
-- Seminole Heights
-- Ybor City
-- Davis Islands
+- [Hyde Park](/water-softener-hyde-park-fl/)
+- [Seminole Heights](/water-softener-seminole-heights-fl/)
+- [Ybor City](/water-softener-ybor-city-fl/)
+- [Davis Islands](/water-softener-davis-islands-fl/)
 
 Not sure whether your home is in our area? Call or request an estimate, and we will confirm.
 
