@@ -1,34 +1,32 @@
 /* =============================================================================
-   Water Softener of Tampa — Design System
+   Water Softener Boilerplate — Design System
    =============================================================================
-   Theme adapted from SPSSassignment.help: blue-600 (#2563EB) as the single
-   brand hue (no separate orange accent — accent is just a darker blue shade,
-   matching SPSS's own monochrome approach), slate neutrals, one sans-serif
-   family (Inter) for both headings and body — SPSS never pairs a serif
-   display font with body text, so this site doesn't either. Shadows are
-   flatter and lower-opacity than the boilerplate default, matching SPSS's
-   minimal, mostly-border-driven card style. Legacy --brand-* / --font-display
-   names are kept as aliases so any selector not explicitly migrated still
-   renders on-brand instead of silently falling back to an unstyled default.
+   Deep teal (#2563EB) as primary, warm orange (#1D4ED8) reserved for CTAs
+   and key highlights, DM Serif Display for headings, Inter for body/labels/
+   navigation. This file is NOT city-specific — every city site cloned from
+   this boilerplate inherits it unchanged; only src/site.config.ts differs
+   per city. Legacy --brand-* / --font-display names are kept as aliases so
+   any selector not explicitly migrated still renders on-brand instead of
+   silently falling back to an unstyled default.
    ============================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Brand colors — matched to SPSSassignment.help's literal hex values */
-  --color-primary:       #2563EB; /* blue-600 */
-  --color-primary-dark:  #1E40AF; /* blue-800 — hero/page-header gradient endpoint */
-  --color-primary-light: #EFF6FF; /* blue-50 */
-  --color-accent:        #1D4ED8; /* blue-700 — SPSS's own button-hover blue, reused as accent */
-  --color-accent-dark:   #1E3A8A; /* blue-900 — accent hover/active state */
-  --color-accent-light:  #DBEAFE; /* blue-100 — light accent tint for badges */
+  /* Brand colors — exact hex values from the site's design tokens */
+  --color-primary:       #2563EB;
+  --color-primary-dark:  #1E40AF; /* hero gradient endpoint */
+  --color-primary-light: #EFF6FF;
+  --color-accent:        #1D4ED8;
+  --color-accent-dark:   #1E3A8A; /* accent hover/active state */
+  --color-accent-light:  #DBEAFE; /* light accent tint for badges */
 
   /* Depth system: base -> elevated -> floating, never one flat z-plane */
   --surface-base:     #ffffff;
-  --surface-elevated: #F8FAFC; /* slate-50 */
-  --surface-footer:   #0F172A; /* slate-900 — SPSS's own dark CTA-section color */
+  --surface-elevated: #F8FAFC;
+  --surface-footer:   #0F172A; /* darkened primary, footer only */
 
-  /* One sans-serif family throughout, matching SPSS exactly */
+  /* Never the same font for headings and body */
   --font-heading: 'Inter', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
@@ -40,10 +38,10 @@
   --brand-accent-light: var(--color-accent-light);
   --font-display:       var(--font-heading);
 
-  --color-text:       #0F172A; /* slate-900 */
-  --color-text-muted: #475569; /* slate-600 */
+  --color-text:       #0f172a;
+  --color-text-muted: #475569;
   --color-surface:    var(--surface-elevated);
-  --color-border:     #E2E8F0; /* slate-200 */
+  --color-border:     #e2e8f0;
 
   --radius-sm:    4px;
   --radius-md:    6px;
@@ -52,8 +50,7 @@
   --radius-full:  9999px;
   --radius-brand: 6px;
 
-  /* Flat, low-opacity slate/blue-tinted shadows — SPSS relies on borders
-     first and only a subtle hover:shadow-md, never a heavy tinted glow. */
+  /* Layered, color-tinted shadows — never a flat shadow-md */
   --shadow-card:         0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
   --shadow-card-hover:   0 4px 6px rgba(15, 23, 42, 0.05), 0 10px 15px rgba(15, 23, 42, 0.08);
   --shadow-button-hover: 0 4px 6px rgba(37, 99, 235, 0.15);
@@ -68,9 +65,6 @@
   --duration-micro: 200ms;
   --duration-large: 300ms;
 
-  /* SPSS uses flat colors, not gradients — these resolve to a single hue
-     so every component that references a "gradient" var still renders
-     correctly without introducing a blend SPSS never uses. */
   --gradient-accent:  linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
   --gradient-primary: linear-gradient(160deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }
@@ -247,21 +241,6 @@ table.data-table tbody tr:nth-child(even) { background: var(--surface-elevated);
   margin: 6px 0 0;
 }
 
-/* Photo strip directly under .page-header on pages that have one — used by
-   6 expansion pages originally, now also the 15 core pages below. Had no
-   CSS definition anywhere in the boilerplate until now (every instance
-   rendered at native image size with no crop/radius treatment). */
-.page-header-image-section {
-  padding: 20px 0 0;
-}
-.page-header-image {
-  width: 100%;
-  height: clamp(200px, 32vw, 420px);
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-
 /* Brand backlink — used on 10+ pages (see grep for "brand-backlink") but
    had no CSS definition anywhere in the boilerplate until now, so every
    instance rendered completely unstyled. Ported from watersoftenerhendersonnv,
@@ -352,36 +331,6 @@ table.data-table tbody tr:nth-child(even) { background: var(--surface-elevated);
   white-space: nowrap;
 }
 
-/* Site header and logo styling */
-.site-header {
-  background: var(--surface-base);
-  border-bottom: 1px solid var(--color-border);
-  padding: 16px 0;
-}
-
-.site-header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  transition: opacity 200ms ease;
-}
-
-.logo:hover {
-  opacity: 0.8;
-}
-
-.logo img {
-  height: 50px;
-  width: auto;
-  max-width: 300px;
-}
-
-/* Image watermarking — watermark applied via component wrapper ::after pseudo-element */
-/* Watermarks are added in PageHero and other image components for proper rendering */
+/* No photo yet: hide the grey placeholder art instead of showing it on a live page. When the real card photo
+   exists, `npm run import-content` swaps it in and this rule no longer matches. */
+.prose img[src*="/placeholders/"] { display: none; }

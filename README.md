@@ -1,88 +1,28 @@
-# watersoftenertampafl
+# tampa-tmp
 
-Rank-and-rent local lead-generation site for water softener services in
-Tampa, FL (`watersofteneroftampa.com`). Built with Astro (static output).
-Deployed via Vercel on push to `main`.
+Rank-and-rent lead-generation site for **Water Softener of Tampa** (watersofteneroftampa.com, target keyword "water softener tampa fl").
+Astro 7 static site created from `water-softener-boilerplate` with `Local-SEO-Toolkit/scripts/create-site-project.mjs`.
 
-Cloned from [assignmenthelptalk/water-softener-boilerplate](https://github.com/assignmenthelptalk/water-softener-boilerplate) —
-see that repo's `PROVISION.md` for how sites like this one get created.
+**Status: scaffold only.** The site builds with starter pages (home, About, Contact, thank-you, 404). The topical map, briefs and
+research live in `Local-SEO-Toolkit/data/watersofteneroftampa/`. No copy has been written or imported yet, no images or logo have been added,
+and nothing is pushed or deployed.
 
-## Content
+## Commands
 
-All city data (water hardness, source, service area, SEO targeting) and
-business identity fields (phone, email, address) live in
-`src/site.config.ts` — no CMS layer. To update any detail after a tenant
-signs, edit the fields directly and `git push`; Vercel rebuilds and
-redeploys automatically.
-
-22 pages read from that single config, plus an optional QDP-gated
-`[serviceArea]` dynamic route for expanding into nearby cities once they
-pass the QDP test (see `PROVISION.md` Step 5c).
-
-## Google Search Console
-
-The Google site verification meta tag is configured in `src/components/Layout.astro` and included in the `<head>` of all pages:
-
-```html
-<meta name="google-site-verification" content="uKZ0i0iIYAlXHKjVpPu4PbDo3CBNcyYU8p_Q5gZ1mFM" />
-```
-
-This allows Google Search Console to verify ownership of the Tampa water softener site.
-
-### Pages to Submit for Indexing
-
-Submit these 25+ pages to Google Search Console in priority order:
-
-**Core Pages (High Priority):**
-- https://watersofteneroftampa.com/
-- https://watersofteneroftampa.com/water-quality/
-- https://watersofteneroftampa.com/hard-water/
-- https://watersofteneroftampa.com/installation/
-- https://watersofteneroftampa.com/repair/
-- https://watersofteneroftampa.com/comparison/
-- https://watersofteneroftampa.com/products/
-- https://watersofteneroftampa.com/faq/
-- https://watersofteneroftampa.com/about/
-- https://watersofteneroftampa.com/contact/
-
-**Service Pages (High Priority):**
-- https://watersofteneroftampa.com/salt-based-installation/
-- https://watersofteneroftampa.com/salt-free-installation/
-- https://watersofteneroftampa.com/whole-home-filtration/
-- https://watersofteneroftampa.com/reverse-osmosis/
-- https://watersofteneroftampa.com/water-softener-sizing/
-- https://watersofteneroftampa.com/free-water-test/
-- https://watersofteneroftampa.com/brine-tank-cleaning/
-- https://watersofteneroftampa.com/resin-bed-replacement/
-
-**Repair & Installation Pages (Medium Priority):**
-- https://watersofteneroftampa.com/control-head-repair/
-- https://watersofteneroftampa.com/new-construction-installation/
-
-**Neighborhood Pages (Medium Priority):**
-- https://watersofteneroftampa.com/neighbourhood/
-- https://watersofteneroftampa.com/neighbourhood/#davis-islands
-- https://watersofteneroftampa.com/neighbourhood/#ybor-city
-- https://watersofteneroftampa.com/neighbourhood/#seminole-heights
-- https://watersofteneroftampa.com/neighbourhood/#hyde-park
-
-Use Google Search Console's "URL inspection" tool to request indexing for these pages.
-
-## Branding
-
-- **Header logo:** `public/logo.svg`, rendered by `src/components/Layout.astro`
-  with sizing in `src/styles/global.css` (`.logo img`).
-- **Image watermark:** the logo is baked into every file in
-  `src/assets/images/` (centered at the bottom, semi-transparent badge, sized
-  to the area that stays visible after `object-fit: cover` cropping). It is
-  part of the image files, not a CSS overlay. Restore originals from git
-  history (commit `4d2f4cd`) before re-stamping, or the logo will be applied
-  twice. New images need the watermark added the same way.
-
-## Development
-
-```
+```bash
 npm install
-npm run dev      # local dev server
-npm run build    # astro check && astro build — must complete with 0 errors, 0 warnings
+npm run import-content   # strategy folder -> src/data/pages, nav.json, map-points.json, LAUNCH-CHECKLIST.md (needs written-content/)
+npm run dev
+npm run build            # astro check + build, 0 errors and 0 warnings
+npm run verify           # structural checks on dist/
 ```
+
+## Next steps
+
+1. Run the research in `Local-SEO-Toolkit/data/watersofteneroftampa/reports/cowork-research-prompt.md` and confirm the utility's hardness.
+2. Write the copy from the briefs, then `npm run import-content`.
+3. Logo, footer logo, favicon and the two diagrams: `node scripts/make-logo.mjs && node scripts/build-diagrams.mjs` (done for you with `--install`). Add the generated photos (`node scripts/prepare-images.mjs`) and `map-points.json`.
+4. Replace the placeholders in `src/site.config.ts` (phone, email, `socialLinks`, founder, population, ZIP codes) and set `hardnessVerified` once confirmed.
+5. Work through `LAUNCH-CHECKLIST.md`. Do not deploy while any marker remains.
+
+Full recipe: `Local-SEO-Toolkit/workflows/new-site-playbook.md`.

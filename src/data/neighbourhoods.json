@@ -1,0 +1,39 @@
+{
+  "hardness": {
+    "value": "12.3",
+    "unit": "GPG",
+    "label": "Very Hard",
+    "short": "12.3 GPG avg (2025)",
+    "intro": "The Tampa Water Department's 2025 water quality report put average total hardness at 12.3 GPG, and the city says it runs 8 to 17 GPG through the year. Click a neighbourhood to see what that means for your home.",
+    "reportNote": "The Tampa Water Department's 2025 report gave a citywide average of 12.3 GPG (211 mg/L), and the city says it runs 8 to 17 GPG through the year. The U.S. Geological Survey rates over 180 mg/L as \"Very Hard.\"",
+    "footnote": "Hardness is the Tampa Water Department's citywide figure from its 2025 report; it moves with the season and can read higher or lower at your tap."
+  },
+  "issues": [
+    "White scale on faucets and showerheads",
+    "Spotting and film on glassware and dishes",
+    "Scale buildup in water heaters and appliances",
+    "Soap scum, dry skin and stiff laundry"
+  ],
+  "neighbourhoods": [
+    {
+      "name": "Hyde Park",
+      "lat": 27.9353426,
+      "lng": -82.4732361
+    },
+    {
+      "name": "Seminole Heights",
+      "lat": 27.9917,
+      "lng": -82.4564
+    },
+    {
+      "name": "Ybor City",
+      "lat": 27.9600475,
+      "lng": -82.4411596
+    },
+    {
+      "name": "Davis Islands",
+      "lat": 27.9304849,
+      "lng": -82.4565865
+    }
+  ]
+}

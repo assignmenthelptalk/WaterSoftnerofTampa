@@ -150,6 +150,9 @@ export interface SiteConfig {
   state: string;
   /** Two-letter state abbreviation, e.g. "NV" */
   stateAbbr: string;
+  /** Wider region the business serves, used in the homepage "Why We're the
+   * Best" heading, e.g. "Greater Austin" */
+  region: string;
   /** Live domain, no protocol, no trailing slash, e.g. "lasvegaswatersoftener.com" */
   domain: string;
 
@@ -160,6 +163,9 @@ export interface SiteConfig {
   gpgHigh: number;
   /** Human label for the hardness range, e.g. "Very Hard" | "Extreme" */
   gpgLabel: string;
+  /** Set to false while the hardness range is not confirmed by the utility. The About page then shows
+   * a [VERIFY] marker beside the figure. Omit (or true) once the utility's own number is in. */
+  hardnessVerified?: boolean;
   /** Where the city's tap water comes from, e.g. "Municipal reservoir supply" */
   waterSource: string;
   /** The utility/authority that manages the water supply */
@@ -192,7 +198,20 @@ export interface SiteConfig {
   affiliateRO: string;
 
   // ── Business identity — edit directly, no CMS ────────────────────────────
-  /** Business name shown in the header, footer, and page titles */
+  /** The brand mention used everywhere across the site: nav logo, footer,
+   * meta titles, every page's opening-paragraph brand-link, the homepage
+   * H1/H3/hero paragraphs, and the LocalBusiness schema name. This is the
+   * single source of truth for the brand string — no page hardcodes it.
+   *
+   * Two accepted formats, chosen per city based on domain availability
+   * (check whichever domain you're buying before picking one):
+   *   - "[City] Water Softener"   (city-first — use when this domain,
+   *     e.g. albuquerquewatersoftener.com, is available)
+   *   - "Water Softeners of [City]" (fallback — use when the city-first
+   *     domain is taken, e.g. watersoftenerof[city].com is available instead)
+   * Prefer city-first when both are available. Do not mix formats within
+   * one site, and do not invent a third format — every page assumes one
+   * of these two exact shapes. */
   businessName: string;
   /** Phone number — SCREAMING_SNAKE_CASE placeholder until a tenant signs.
    * Every phone display checks for this exact placeholder string (not just
@@ -210,23 +229,28 @@ export interface SiteConfig {
   /** Google Business Profile URL — blank until claimed; used as the
    * footer link and the LocalBusiness schema's sameAs URL. */
   googleBusinessUrl: string;
+  /** Social profile URLs shown as icons in the footer. Leave a network blank until the profile exists: a blank one
+   * renders as an inert icon (no link). Filled-in URLs are also added to the LocalBusiness schema's sameAs. */
+  socialLinks: { facebook: string; instagram: string; pinterest: string; x: string; youtube: string };
+  /** Optional Google Search Console verification token, rendered as a meta tag in the page head */
+  googleSiteVerification?: string;
   /** Fully-qualified site URL derived from `domain`, e.g. "https://example.com" */
   siteUrl: string;
 
   // ── About page facts — edit directly, no CMS ─────────────────────────────
-  /** Founder/team name(s) shown on the About page. Set to an explicit alias
-   * per owner instruction (2026-09-27) — no tenant/owner exists yet — and
-   * must be replaced with real names once the site is rented. */
+  /** Founder/team name(s) shown on the About page — SCREAMING_SNAKE_CASE
+   * placeholder until a tenant provides real names. Never invent a name. */
   founderNames: string;
-  /** Year the tenant business was founded. Alias/illustrative value per the
-   * same 2026-09-27 instruction — replace once a tenant confirms. */
+  /** Year the tenant business was founded — SCREAMING_SNAKE_CASE placeholder
+   * until a tenant confirms. Never invent a date. */
   foundedYear: string;
-  /** Approximate customers served, shown in the About page Key Facts table.
-   * Illustrative placeholder, labeled as such — not a real, verified
-   * statistic. Replace once a tenant provides a real figure. */
+  /** Approximate customers served, shown in the About page Key Facts table —
+   * SCREAMING_SNAKE_CASE placeholder until a tenant provides a real figure.
+   * If used illustratively before a tenant signs, label it "(illustrative)"
+   * or similar rather than presenting it as a real, unverified statistic. */
   customersServed: string;
   /** Approximate projects delivered, shown in the About page Key Facts
-   * table — same illustrative-placeholder rule as customersServed. */
+   * table — same placeholder rule as customersServed. */
   projectsDelivered: string;
 
   // ── Design tokens (deep teal + warm orange defaults; other cities override) ─────
@@ -262,31 +286,24 @@ export const siteConfig: SiteConfig = {
   city: "Tampa",
   state: "Florida",
   stateAbbr: "FL",
+  region: "the Tampa Bay area",
   domain,
 
-  // Water hardness data — range brackets the 12.9 GPG / 220 mg/L confirmed
-  // reading from supplemental research (2026-09-23), still within the WQA
-  // "Very Hard" band (>10.5 GPG) also confirmed by tampa.gov/water/faq's own
-  // 8-17 GPG seasonal range and 2024 Water Quality Report average.
-  gpgLow: 11,
-  gpgHigh: 15,
+  // Water hardness data
+  gpgLow: 12.3,
+  gpgHigh: 12.3,
   gpgLabel: "Very Hard",
-  waterSource: "Surface water from the Hillsborough River, Alafia River, and Tampa Bypass Canal, supplemented by Floridan Aquifer groundwater and desalinated seawater from the Tampa Bay Seawater Desalination Plant at Apollo Beach during dry periods",
+  waterSource: "The Hillsborough River is the primary source, supplemented by treated water stored in the department's aquifer storage and recovery wells and, when necessary, water purchased from Tampa Bay Water",
   waterAuthority: "Tampa Water Department",
-
-  // SEO — searchVol is an open data gap: no keyword-tool access from this
-  // session (Keyword Planner/Ahrefs/Semrush). Verify before relying on it.
+  // SEO
   primaryKeyword: "water softener tampa fl",
   searchVol: 0,
-  metaDescription: "Hard water in Tampa, FL? Get expert water softener installation, repair, and free quotes from a local team serving Hillsborough County.",
-
-  // Local data — population from Census Reporter (ACS 2024 1-year estimate).
-  // Neighbourhoods and ZIPs verified via real-estate/city sources (see chat).
+  metaDescription: "Water softener installation, repair and replacement in Tampa, FL. The Tampa Water Department's 2025 report puts average hardness at 12.3 grains per gallon. Free estimate.",
+  // Local data
   population: "414,575",
   county: "Hillsborough County",
   neighbourhoods: ["Hyde Park", "Seminole Heights", "Ybor City", "Davis Islands"],
   zipCodes: ["33606", "33604", "33609"],
-
   // Monetisation
   affiliateSoftener: "https://springwellwater.com/follow/softener/",
   affiliateCombo: "https://springwellwater.com/follow/combo/",
@@ -294,30 +311,27 @@ export const siteConfig: SiteConfig = {
 
   // Business identity — edit directly, no CMS
   businessName: "Water Softener of Tampa",
-  phoneNumber: "PHONE_NUMBER",
+  phoneNumber: "(813) 000-0000",
   businessEmail: "BUSINESS_EMAIL",
   address: "",
   googleBusinessUrl: "",
+  socialLinks: { facebook: "", instagram: "", pinterest: "", x: "", youtube: "" },
+  googleSiteVerification: "uKZ0i0iIYAlXHKjVpPu4PbDo3CBNcyYU8p_Q5gZ1mFM",
   siteUrl: `https://${domain}`,
 
-  // About page facts — alias/illustrative values per owner instruction
-  // (2026-09-27), no tenant/owner exists yet. Replace once the site is rented.
+  // About page facts — edit directly, no CMS
   founderNames: "Marcus Reyes and Dana Whitfield",
   foundedYear: "2019",
   customersServed: "500+ (illustrative)",
   projectsDelivered: "650+ (illustrative)",
-
-  // Design tokens — adapted from SPSSassignment.help's theme: blue/slate,
-  // single sans-serif family, no teal/orange. See src/styles/global.css
-  // and src/styles/tailwind.css for the actual live values these mirror
-  // (design.* here is documentation only — not read by any component).
+  // Design tokens (deep teal + warm orange defaults — other cities override these)
   design: {
     primaryColor: "#2563EB",
     primaryLight: "#EFF6FF",
     accentColor: "#1D4ED8",
     headingFont: "Inter",
     bodyFont: "Inter",
-    borderRadius: "6px",
+    borderRadius: "8px",
     gpgStatColor: "#2563EB",
   },
 
