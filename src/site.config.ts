@@ -226,8 +226,6 @@ export interface SiteConfig {
   /** Physical or service-area address — blank (not a placeholder token)
    * until a tenant signs; every usage hides gracefully when empty. */
   address: string;
-  /** Circle the business serves, for the schema areaServed (radius in miles). Optional. */
-  serviceArea?: { lat: number; lng: number; radiusMiles: number };
   /** Google Business Profile URL — blank until claimed; used as the
    * footer link and the LocalBusiness schema's sameAs URL. */
   googleBusinessUrl: string;
