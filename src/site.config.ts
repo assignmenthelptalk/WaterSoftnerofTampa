@@ -236,6 +236,8 @@ export interface SiteConfig {
   googleSiteVerification?: string;
   /** Fully-qualified site URL derived from `domain`, e.g. "https://example.com" */
   siteUrl: string;
+  /** GA4 web-stream Measurement ID ("G-XXXXXXXXXX"). Leave unset to turn GA4 off. */
+  ga4MeasurementId?: string;
 
   // ── About page facts — edit directly, no CMS ─────────────────────────────
   /** Founder/team name(s) shown on the About page — SCREAMING_SNAKE_CASE
@@ -318,6 +320,7 @@ export const siteConfig: SiteConfig = {
   socialLinks: { facebook: "", instagram: "", pinterest: "", x: "", youtube: "" },
   googleSiteVerification: "uKZ0i0iIYAlXHKjVpPu4PbDo3CBNcyYU8p_Q5gZ1mFM",
   siteUrl: `https://${domain}`,
+  ga4MeasurementId: "G-VT6QGE0R3P",
 
   // About page facts — edit directly, no CMS
   founderNames: "Marcus Reyes and Dana Whitfield",
