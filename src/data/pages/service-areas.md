@@ -18,12 +18,12 @@ markerCount: 0
 
 ## Tampa Neighborhoods
 
-We serve Hyde Park, Seminole Heights, Ybor City and Davis Islands, along with every other Tampa neighborhood. Each neighborhood page is published once its water provider is confirmed.
+We serve Hyde Park, Seminole Heights, Ybor City and Davis Islands, along with every other Tampa neighborhood. These neighborhoods share the city's water system, so they are covered on this page instead of on separate pages.
 
-- [Hyde Park](/water-softener-hyde-park-fl/)
-- [Seminole Heights](/water-softener-seminole-heights-fl/)
-- [Ybor City](/water-softener-ybor-city-fl/)
-- [Davis Islands](/water-softener-davis-islands-fl/)
+- **Hyde Park:** Much of Hyde Park dates from the National Register district's period of significance, 1875 to 1949, according to the National Park Service. A home of that age can have original, repaired or fully replaced plumbing, so a free test and a look at your pipes decide what we recommend.
+- **Seminole Heights:** The Seminole Heights Residential District is on the National Register of Historic Places, with 1912 as its significant year and a noted period of 1912 to 1928, so many bungalows here are a century old. A free test and a look at the pipes decide what we recommend.
+- **Ybor City:** Ybor City began in 1885, was listed on the National Register of Historic Places in 1974 and was declared a National Historic Landmark District in 1990. Buildings that old can have original, repaired or fully replaced plumbing, so a free test and a look at the pipes decide what we recommend.
+- **Davis Islands:** Built from sand dredged out of the bay, with developer D. P. Davis assembling the property in 1924. Many original homes are Mediterranean in style, and homes from the 1920s onward can have original, repaired or fully replaced plumbing, so a free test and a look at the pipes decide what we recommend.
 
 Not sure whether your home is in our area? Call or request an estimate, and we will confirm.
 
