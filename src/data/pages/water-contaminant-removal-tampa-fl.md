@@ -11,7 +11,7 @@ openingHtml: "Water contaminant removal in Tampa, FL installs filters that reduc
 formHeading: ""
 formIntro: ""
 leadImage: null
-images: [{"file":"water-contaminant-removal-tampa-fl.webp","alt":"Water contaminant removal Tampa FL filter installation","exists":false},{"file":"card-lead-and-arsenic-removal-tampa-fl.webp","alt":"Lead and Arsenic Removal Tampa FL","exists":false},{"file":"card-chloramine-and-chlorine-removal-tampa-fl.webp","alt":"Chloramine and Chlorine Removal Tampa FL","exists":false},{"file":"card-fluoride-filter-installation-tampa-fl.webp","alt":"Fluoride Filter Installation Tampa FL","exists":false},{"file":"card-pfas-water-filter-tampa-fl.webp","alt":"PFAS Water Filter Tampa FL","exists":false},{"file":"card-nitrate-filter-installation-tampa-fl.webp","alt":"Nitrate Filter Installation Tampa FL","exists":false},{"file":"card-voc-volatile-organic-compound-filter-tampa-fl.webp","alt":"VOC (Volatile Organic Compound) Filter Tampa FL","exists":false}]
+images: [{"file":"water-contaminant-removal-tampa-fl.webp","alt":"Water contaminant removal Tampa FL filter installation","exists":false},{"file":"card-lead-and-arsenic-removal-tampa-fl.webp","alt":"Lead and Arsenic Removal Tampa FL","exists":true},{"file":"card-chloramine-and-chlorine-removal-tampa-fl.webp","alt":"Chloramine and Chlorine Removal Tampa FL","exists":true},{"file":"card-fluoride-filter-installation-tampa-fl.webp","alt":"Fluoride Filter Installation Tampa FL","exists":true},{"file":"card-pfas-water-filter-tampa-fl.webp","alt":"PFAS Water Filter Tampa FL","exists":true},{"file":"card-nitrate-filter-installation-tampa-fl.webp","alt":"Nitrate Filter Installation Tampa FL","exists":true},{"file":"card-voc-volatile-organic-compound-filter-tampa-fl.webp","alt":"VOC (Volatile Organic Compound) Filter Tampa FL","exists":true}]
 faq: [{"q":"Does one filter remove every contaminant?","a":"No. Each contaminant needs its own method, and reverse osmosis covers the most. A test tells us which ones you need."},{"q":"Is Tampa tap water safe?","a":"City reports list results against EPA limits. For your own tap, a home test checks what the report cannot, such as your plumbing."},{"q":"How do I know a filter really works?","a":"Look for certification to NSF/ANSI standards for the specific contaminant, and retest your water after installation."},{"q":"Can a water softener remove these contaminants?","a":"No. A softener removes hardness. Contaminant removal needs a different filter."},{"q":"What does contaminant removal cost?","a":"It depends on the contaminant. The estimate is free and itemized. Water Softener of Tampa FL provides water contaminant removal for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Six filter types target specific contaminants: lead and arsenic, chloramine and 
 <div class="svc-card">
 
 
-![Lead and Arsenic Removal Tampa FL](/placeholders/card.svg)
+
+![Lead and Arsenic Removal Tampa FL](../../assets/images/card-lead-and-arsenic-removal-tampa-fl.webp)
+
+
 
 ### Lead and Arsenic Removal
 
@@ -36,7 +39,10 @@ Lead enters drinking water mainly from old plumbing, and the EPA sets its health
 <div class="svc-card">
 
 
-![Chloramine and Chlorine Removal Tampa FL](/placeholders/card.svg)
+
+![Chloramine and Chlorine Removal Tampa FL](../../assets/images/card-chloramine-and-chlorine-removal-tampa-fl.webp)
+
+
 
 ### Chloramine and Chlorine Removal
 
@@ -47,7 +53,10 @@ Chlorine and chloramine are disinfectants that can affect taste and smell. Stand
 <div class="svc-card">
 
 
-![Fluoride Filter Installation Tampa FL](/placeholders/card.svg)
+
+![Fluoride Filter Installation Tampa FL](../../assets/images/card-fluoride-filter-installation-tampa-fl.webp)
+
+
 
 ### Fluoride Filter Installation
 
@@ -58,7 +67,10 @@ Fluoride occurs naturally in some groundwater, and the EPA enforceable limit is 
 <div class="svc-card">
 
 
-![PFAS Water Filter Tampa FL](/placeholders/card.svg)
+
+![PFAS Water Filter Tampa FL](../../assets/images/card-pfas-water-filter-tampa-fl.webp)
+
+
 
 ### PFAS Water Filter
 
@@ -69,7 +81,10 @@ PFAS are man-made chemicals. In 2024 the EPA set limits of 4 parts per trillion 
 <div class="svc-card">
 
 
-![Nitrate Filter Installation Tampa FL](/placeholders/card.svg)
+
+![Nitrate Filter Installation Tampa FL](../../assets/images/card-nitrate-filter-installation-tampa-fl.webp)
+
+
 
 ### Nitrate Filter Installation
 
@@ -80,7 +95,10 @@ Nitrate comes from fertilizer, septic systems and livestock, and the EPA limit i
 <div class="svc-card">
 
 
-![VOC (Volatile Organic Compound) Filter Tampa FL](/placeholders/card.svg)
+
+![VOC (Volatile Organic Compound) Filter Tampa FL](../../assets/images/card-voc-volatile-organic-compound-filter-tampa-fl.webp)
+
+
 
 ### VOC (Volatile Organic Compound) Filter
 

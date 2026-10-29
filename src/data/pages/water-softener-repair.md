@@ -11,7 +11,7 @@ openingHtml: "Water softener repair in Tampa, FL finds and fixes the failed part
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"water-softener-repair-tampa-fl.webp","alt":"Water softener repair Tampa FL technician servicing a control valve"}
-images: [{"file":"water-softener-repair-tampa-fl.webp","alt":"Water softener repair Tampa FL technician servicing a control valve","exists":true},{"file":"card-water-softener-control-valve-repair-tampa-fl.webp","alt":"Water Softener Control Valve Repair Tampa FL","exists":false},{"file":"card-water-softener-motor-replacement-tampa-fl.webp","alt":"Water Softener Motor Replacement Tampa FL","exists":false},{"file":"card-float-valve-repair-tampa-fl.webp","alt":"Float Valve Repair Tampa FL","exists":true},{"file":"card-injector-cleaning-tampa-fl.webp","alt":"Injector Cleaning Tampa FL","exists":true},{"file":"card-head-replacement-tampa-fl.webp","alt":"Head Replacement Tampa FL","exists":true},{"file":"card-brine-line-repair-tampa-fl.webp","alt":"Brine Line Repair Tampa FL","exists":true},{"file":"card-water-softener-leak-repair-tampa-fl.webp","alt":"Water Softener Leak Repair Tampa FL","exists":false}]
+images: [{"file":"water-softener-repair-tampa-fl.webp","alt":"Water softener repair Tampa FL technician servicing a control valve","exists":true},{"file":"card-water-softener-control-valve-repair-tampa-fl.webp","alt":"Water Softener Control Valve Repair Tampa FL","exists":true},{"file":"card-water-softener-motor-replacement-tampa-fl.webp","alt":"Water Softener Motor Replacement Tampa FL","exists":true},{"file":"card-float-valve-repair-tampa-fl.webp","alt":"Float Valve Repair Tampa FL","exists":true},{"file":"card-injector-cleaning-tampa-fl.webp","alt":"Injector Cleaning Tampa FL","exists":true},{"file":"card-head-replacement-tampa-fl.webp","alt":"Head Replacement Tampa FL","exists":true},{"file":"card-brine-line-repair-tampa-fl.webp","alt":"Brine Line Repair Tampa FL","exists":true},{"file":"card-water-softener-leak-repair-tampa-fl.webp","alt":"Water Softener Leak Repair Tampa FL","exists":true}]
 faq: [{"q":"Why is my water still hard even though the softener has salt?","a":"Salt alone does not soften water. A clogged injector, fouled resin, a failed valve or a missed regeneration cycle can all leave hard water."},{"q":"How do I fix a water softener that is not regenerating?","a":"Check power and the control head settings first. If the unit still does not cycle, the motor, valve or head needs repair, and a technician diagnoses which."},{"q":"What causes a salt bridge?","a":"Humidity and salt type cause a crust to form above the water in the brine tank. Breaking the crust and cleaning the tank restores brine."},{"q":"Why is my water softener leaking?","a":"Leaks come from loose fittings, worn seals, a cracked drain line or a failing tank. A technician finds the source and replaces the part."},{"q":"How much does water softener repair cost?","a":"The cost depends on the part. We give a price before work begins."},{"q":"Do you offer same-day repair in Tampa?","a":"Same-day service depends on technician availability. Call and we will do our best to schedule quickly. Water Softener of Tampa FL provides water softener repair for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Seven repairs cover the common failures: control valve repair, motor [replacemen
 <div class="svc-card">
 
 
-![Water Softener Control Valve Repair Tampa FL](/placeholders/card.svg)
+
+![Water Softener Control Valve Repair Tampa FL](../../assets/images/card-water-softener-control-valve-repair-tampa-fl.webp)
+
+
 
 ### Water Softener Control Valve Repair
 
@@ -36,7 +39,10 @@ The control valve directs water through the service, backwash, brine and rinse s
 <div class="svc-card">
 
 
-![Water Softener Motor Replacement Tampa FL](/placeholders/card.svg)
+
+![Water Softener Motor Replacement Tampa FL](../../assets/images/card-water-softener-motor-replacement-tampa-fl.webp)
+
+
 
 ### Water Softener Motor Replacement
 
@@ -103,7 +109,10 @@ The brine line carries brine from the tank to the valve. Cracks, kinks or loose 
 <div class="svc-card">
 
 
-![Water Softener Leak Repair Tampa FL](/placeholders/card.svg)
+
+![Water Softener Leak Repair Tampa FL](../../assets/images/card-water-softener-leak-repair-tampa-fl.webp)
+
+
 
 ### Water Softener Leak Repair
 
