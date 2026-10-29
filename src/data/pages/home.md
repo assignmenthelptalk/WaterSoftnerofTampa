@@ -69,6 +69,17 @@ At **Water Softener of Tampa**, we recommend evaluating every water treatment co
 
 </div>
 
+<div class="why-details">
+
+- **Florida State Licensing & Insurance:** Every installation must be executed by a Certified Plumbing Contractor (CPC) licensed under the Florida Department of Business and Professional Regulation (DBPR), backed by full commercial liability and workers' compensation coverage.
+- **Comprehensive Equipment & Labor Warranties:** True authority stands behind its work. Ensure your written estimate details separate coverage for both the NSF/ANSI-certified control head/resin vessel and the physical plumbing labor.
+- **Flow Rate & Hardness Sizing:** Proper sizing requires an on-site titration test paired with your home's peak gallons-per-minute (GPM) demand, rather than a pre-packaged, off-the-shelf unit.
+- **Tampa Bay Aquifer & Seasonal Hydro-Geology:** The Tampa Water Department blends surface supply from the Hillsborough River with groundwater from the Floridan Aquifer and desalinated water via Tampa Bay Water. Hardness fluctuates seasonally from 8 to 17 GPG (137 to 291 mg/L), requiring demand-initiated regeneration valves calibrated for variable mineral spikes.
+- **Rapid Dispatch & Local Scheduling:** Working with a dedicated Hillsborough County water treatment specialist ensures rapid service turnarounds, same-day site visits, and dedicated local technician availability.
+- **Itemized, Transparent Estimates:** Clear scope of work detailing the grain capacity, by-pass valve assembly, main POE (point-of-entry) tie-ins, and disposal of legacy systems with zero hidden add-ons.
+
+</div>
+
 
 ## What Water Softener Services Are Available in Tampa, FL?
 

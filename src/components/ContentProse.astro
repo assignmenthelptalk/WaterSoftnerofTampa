@@ -291,10 +291,64 @@
     border-radius: 10px;
     box-shadow: none;
   }
+  /* The six benchmarks in full, below the banner: tinted rows with a blue check badge, two per row */
+  .prose :global(.why-details) {
+    width: min(1100px, calc(100vw - 2rem));
+    margin: 0 0 2rem 50%;
+    transform: translateX(-50%);
+  }
+  .prose :global(.why-details ul) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+  .prose :global(.why-details li) {
+    position: relative;
+    margin: 0;
+    padding: 0.8rem 1rem 0.8rem 3.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    background: #f1f7ff;
+    border: 1px solid #dbe7fb;
+    border-radius: var(--radius-lg);
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .prose :global(.why-details li:hover) {
+    border-color: #93b4f0;
+    box-shadow: 0 6px 16px -10px rgba(37, 99, 235, 0.45);
+  }
+  .prose :global(.why-details li::before) {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    top: 0.85rem;
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+    box-shadow: 0 3px 8px -2px rgba(37, 99, 235, 0.5);
+  }
+  .prose :global(.why-details li::after) {
+    content: "";
+    position: absolute;
+    left: 1.55rem;
+    top: 1.12rem;
+    width: 0.32rem;
+    height: 0.62rem;
+    border: solid #ffffff;
+    border-width: 0 2.5px 2.5px 0;
+    border-radius: 1px;
+    transform: rotate(45deg);
+  }
+  .prose :global(.why-details li strong) { color: var(--color-primary-dark); }
   /* Phones and narrow tablets: photo on top, then the text; the checks go to one column on small phones */
   @media (max-width: 800px) {
     .prose :global(.why-split) { grid-template-columns: 1fr; gap: 1.6rem; }
     .prose :global(.why-photo) { min-height: 0; aspect-ratio: 4 / 3; }
+    .prose :global(.why-details ul) { grid-template-columns: 1fr; }
   }
   @media (max-width: 520px) {
     .prose :global(.why-badges) { gap: 0.5rem; flex-wrap: nowrap; }
