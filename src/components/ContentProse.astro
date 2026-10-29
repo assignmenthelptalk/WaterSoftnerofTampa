@@ -180,11 +180,14 @@
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: 3rem;
-    align-items: center;
+    align-items: start;
     width: min(1100px, calc(100vw - 2rem));
     margin: 2rem 0 2rem 50%;
     transform: translateX(-50%);
   }
+  /* The photo keeps its own proportions and stays in view beside the long text column as the page scrolls
+     (stretching it to the text height would zoom in on the logo plate stamped into its lower edge) */
+  .prose :global(.why-photo) { position: sticky; top: 110px; }
   .prose :global(.why-photo > p) { margin: 0; }
   .prose :global(.why-photo img) { margin: 0; aspect-ratio: 4 / 5; object-fit: cover; }
   .prose :global(.why-text h2) {
@@ -208,7 +211,10 @@
     text-decoration: none;
   }
   .prose :global(.why-text p:last-child a:hover) { background: var(--color-accent-dark); color: #fff; }
-  @media (max-width: 800px) { .prose :global(.why-split) { grid-template-columns: 1fr; gap: 1.5rem; } }
+  @media (max-width: 800px) {
+    .prose :global(.why-split) { grid-template-columns: 1fr; gap: 1.5rem; }
+    .prose :global(.why-photo) { position: static; }
+  }
 
   /* FAQ: question rows that open on click (<details>), on a light panel, like the roofing-site accordion */
   .prose :global(.faq-list) { background: #eef1f5; padding: 1rem; border-radius: var(--radius-brand); margin: 0 0 2rem; }
