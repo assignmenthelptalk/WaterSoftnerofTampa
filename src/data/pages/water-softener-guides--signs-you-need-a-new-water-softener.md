@@ -11,7 +11,7 @@ openingHtml: "You need to replace your water softener when hard water keeps retu
 formHeading: ""
 formIntro: ""
 leadImage: null
-images: [{"file":"signs-you-need-a-new-water-softener-tampa-fl.webp","alt":"Signs you need a new water softener Tampa FL scale on faucet and leaking tank","exists":false},{"file":"card-hard-water-symptoms-return-tampa-fl.webp","alt":"Hard-Water Symptoms Return Tampa FL","exists":false},{"file":"card-salt-use-rises-sharply-tampa-fl.webp","alt":"Salt Use Rises Sharply Tampa FL","exists":false},{"file":"card-salt-bridges-or-mush-keep-returning-tampa-fl.webp","alt":"Salt Bridges or Mush Keep Returning Tampa FL","exists":false},{"file":"card-leaks-from-the-tank-head-or-drain-tampa-fl.webp","alt":"Leaks From the Tank, Head or Drain Tampa FL","exists":false},{"file":"card-error-codes-or-no-cycling-tampa-fl.webp","alt":"Error Codes or No Cycling Tampa FL","exists":false},{"file":"card-resin-beads-in-faucets-or-sinks-tampa-fl.webp","alt":"Resin Beads in Faucets or Sinks Tampa FL","exists":false}]
+images: [{"file":"signs-you-need-a-new-water-softener-tampa-fl.webp","alt":"Signs you need a new water softener Tampa FL scale on faucet and leaking tank","exists":false},{"file":"card-hard-water-symptoms-return-tampa-fl.webp","alt":"Hard-Water Symptoms Return Tampa FL","exists":true},{"file":"card-salt-use-rises-sharply-tampa-fl.webp","alt":"Salt Use Rises Sharply Tampa FL","exists":true},{"file":"card-salt-bridges-or-mush-keep-returning-tampa-fl.webp","alt":"Salt Bridges or Mush Keep Returning Tampa FL","exists":true},{"file":"card-leaks-from-the-tank-head-or-drain-tampa-fl.webp","alt":"Leaks From the Tank, Head or Drain Tampa FL","exists":true},{"file":"card-error-codes-or-no-cycling-tampa-fl.webp","alt":"Error Codes or No Cycling Tampa FL","exists":true},{"file":"card-resin-beads-in-faucets-or-sinks-tampa-fl.webp","alt":"Resin Beads in Faucets or Sinks Tampa FL","exists":true}]
 faq: [{"q":"How can I tell if my softener is working?","a":"Test the softened water for hardness or watch for spots and scale. Soft water also makes soap lather easily."},{"q":"Is a new softener worth it if mine is 12 years old?","a":"Often yes, if it shows any of the signs above. New units regenerate by demand and use less salt and water."},{"q":"Can I replace just the control head?","a":"Yes, when the tank and resin are sound. It restores timing and cycles for less than a new unit."},{"q":"How long does replacement take?","a":"Most replacements finish in one visit, often in 2 to 4 hours. Water Softener of Tampa FL provides water softener replacement for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Seven signs show a softener is failing, and the first six are listed below.
 <div class="svc-card">
 
 
-![Hard-Water Symptoms Return Tampa FL](/placeholders/card.svg)
+
+![Hard-Water Symptoms Return Tampa FL](../../assets/images/card-hard-water-symptoms-return-tampa-fl.webp)
+
+
 
 ### 1. Hard-Water Symptoms Return
 
@@ -36,7 +39,10 @@ Spotted dishes, scale on faucets, soap film and stiff laundry come back even tho
 <div class="svc-card">
 
 
-![Salt Use Rises Sharply Tampa FL](/placeholders/card.svg)
+
+![Salt Use Rises Sharply Tampa FL](../../assets/images/card-salt-use-rises-sharply-tampa-fl.webp)
+
+
 
 ### 2. Salt Use Rises Sharply
 
@@ -47,7 +53,10 @@ The unit goes through salt much faster than it used to. **Check:** compare how o
 <div class="svc-card">
 
 
-![Salt Bridges or Mush Keep Returning Tampa FL](/placeholders/card.svg)
+
+![Salt Bridges or Mush Keep Returning Tampa FL](../../assets/images/card-salt-bridges-or-mush-keep-returning-tampa-fl.webp)
+
+
 
 ### 3. Salt Bridges or Mush Keep Returning
 
@@ -58,7 +67,10 @@ A salt bridge is a hard crust above the water in the brine tank, and mush is a s
 <div class="svc-card">
 
 
-![Leaks From the Tank, Head or Drain Tampa FL](/placeholders/card.svg)
+
+![Leaks From the Tank, Head or Drain Tampa FL](../../assets/images/card-leaks-from-the-tank-head-or-drain-tampa-fl.webp)
+
+
 
 ### 4. Leaks From the Tank, Head or Drain
 
@@ -69,7 +81,10 @@ Water pools around the softener or drips from the control head. **Check:** find 
 <div class="svc-card">
 
 
-![Error Codes or No Cycling Tampa FL](/placeholders/card.svg)
+
+![Error Codes or No Cycling Tampa FL](../../assets/images/card-error-codes-or-no-cycling-tampa-fl.webp)
+
+
 
 ### 5. Error Codes or No Cycling
 
@@ -80,7 +95,10 @@ The display shows repeated codes or the unit never starts a regeneration. **Chec
 <div class="svc-card">
 
 
-![Resin Beads in Faucets or Sinks Tampa FL](/placeholders/card.svg)
+
+![Resin Beads in Faucets or Sinks Tampa FL](../../assets/images/card-resin-beads-in-faucets-or-sinks-tampa-fl.webp)
+
+
 
 ### 6. Resin Beads in Faucets or Sinks
 

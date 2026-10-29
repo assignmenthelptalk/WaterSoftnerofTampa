@@ -11,7 +11,7 @@ openingHtml: "Hard water in Tampa, FL is water that carries dissolved calcium an
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"hard-water-tampa-fl.webp","alt":"Hard water scale on a faucet in a Tampa FL home water softener needed"}
-images: [{"file":"hard-water-tampa-fl.webp","alt":"Hard water scale on a faucet in a Tampa FL home water softener needed","exists":true},{"file":"card-what-is-hard-water-tampa-fl.webp","alt":"What Is Hard Water? Tampa FL","exists":false},{"file":"card-why-is-new-braunfels-water-hard-tampa-fl.webp","alt":"Why Is Tampa Water Hard? Tampa FL","exists":false},{"file":"card-how-hard-is-new-braunfels-water-tampa-fl.webp","alt":"How Hard Is Tampa Water? Tampa FL","exists":false}]
+images: [{"file":"hard-water-tampa-fl.webp","alt":"Hard water scale on a faucet in a Tampa FL home water softener needed","exists":true},{"file":"card-what-is-hard-water-tampa-fl.webp","alt":"What Is Hard Water? Tampa FL","exists":true},{"file":"card-why-is-tampa-water-hard-tampa-fl.webp","alt":"Why Is Tampa Water Hard? Tampa FL","exists":true},{"file":"card-how-hard-is-tampa-water-tampa-fl.webp","alt":"How Hard Is Tampa Water? Tampa FL","exists":true}]
 faq: [{"q":"Is Tampa water safe to drink?","a":"The Tampa Water Department's water quality reports list results against federal limits. Hardness is a quality issue, not a health limit, and the reports cover regulated contaminants separately."},{"q":"Does a water softener remove minerals I need?","a":"A softener swaps calcium and magnesium for sodium or potassium. Food supplies most of your minerals, and drinking water is a minor source."},{"q":"Why does my glassware spot even with a rinse aid?","a":"Dissolved minerals dry on glass as white spots. Softened water stops the spotting at the source."},{"q":"Can hard water damage my water heater?","a":"Scale insulates the heating element or tank bottom, which makes the heater work harder and shortens its life. Flushing helps, and softened water prevents most of the buildup."},{"q":"Do homes on well water have harder water?","a":"Often yes, since private wells draw directly from the aquifer. A test shows the hardness and checks for iron and other minerals. Water Softener of Tampa FL provides water softener installation for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Three questions cover the basics: what hard water is, why Tampa water is hard an
 <div class="svc-card">
 
 
-![What Is Hard Water? Tampa FL](/placeholders/card.svg)
+
+![What Is Hard Water? Tampa FL](../../assets/images/card-what-is-hard-water-tampa-fl.webp)
+
+
 
 ### What Is Hard Water?
 
@@ -36,7 +39,10 @@ Hard water is water with a high concentration of dissolved calcium and magnesium
 <div class="svc-card">
 
 
-![Why Is Tampa Water Hard? Tampa FL](/placeholders/card.svg)
+
+![Why Is Tampa Water Hard? Tampa FL](../../assets/images/card-why-is-tampa-water-hard-tampa-fl.webp)
+
+
 
 ### Why Is Tampa Water Hard?
 
@@ -47,7 +53,10 @@ Tampa water is hard because the river it comes from carries minerals from limest
 <div class="svc-card">
 
 
-![How Hard Is Tampa Water? Tampa FL](/placeholders/card.svg)
+
+![How Hard Is Tampa Water? Tampa FL](../../assets/images/card-how-hard-is-tampa-water-tampa-fl.webp)
+
+
 
 ### How Hard Is Tampa Water?
 

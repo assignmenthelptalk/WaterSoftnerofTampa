@@ -11,7 +11,7 @@ openingHtml: "Water quality testing in Tampa, FL measures the hardness, minerals
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"water-quality-testing-tampa-fl.webp","alt":"Water quality testing Tampa FL technician testing tap water"}
-images: [{"file":"water-quality-testing-tampa-fl.webp","alt":"Water quality testing Tampa FL technician testing tap water","exists":true},{"file":"card-free-hard-water-test-tampa-fl.webp","alt":"Free Hard Water Test Tampa FL","exists":false},{"file":"card-tds-testing-tampa-fl.webp","alt":"TDS Testing Tampa FL","exists":false},{"file":"card-iron-content-testing-tampa-fl.webp","alt":"Iron Content Testing Tampa FL","exists":false},{"file":"card-ph-level-testing-tampa-fl.webp","alt":"pH Level Testing Tampa FL","exists":false},{"file":"card-chlorine-testing-tampa-fl.webp","alt":"Chlorine Testing Tampa FL","exists":true},{"file":"card-sulfur-testing-tampa-fl.webp","alt":"Sulfur Testing Tampa FL","exists":false},{"file":"card-heavy-metals-testing-tampa-fl.webp","alt":"Heavy Metals Testing Tampa FL","exists":false}]
+images: [{"file":"water-quality-testing-tampa-fl.webp","alt":"Water quality testing Tampa FL technician testing tap water","exists":true},{"file":"card-free-hard-water-test-tampa-fl.webp","alt":"Free Hard Water Test Tampa FL","exists":true},{"file":"card-tds-testing-tampa-fl.webp","alt":"TDS Testing Tampa FL","exists":true},{"file":"card-iron-content-testing-tampa-fl.webp","alt":"Iron Content Testing Tampa FL","exists":true},{"file":"card-ph-level-testing-tampa-fl.webp","alt":"pH Level Testing Tampa FL","exists":true},{"file":"card-chlorine-testing-tampa-fl.webp","alt":"Chlorine Testing Tampa FL","exists":true},{"file":"card-sulfur-testing-tampa-fl.webp","alt":"Sulfur Testing Tampa FL","exists":true},{"file":"card-heavy-metals-testing-tampa-fl.webp","alt":"Heavy Metals Testing Tampa FL","exists":true}]
 faq: [{"q":"Is the water test really free?","a":"Ask exactly which tests are free and which carry a fee before you book."},{"q":"How long does a water test take?","a":"In-home tests for hardness, TDS, pH, iron and chlorine give results in minutes. Lab tests take longer. Lab results typically take a few business days, depending on the lab and the test."},{"q":"How often does water need testing?","a":"Test city water when you notice a change or move in. Test a private well for bacteria at least once a year, and for other substances as local conditions suggest."},{"q":"Do I need a test before buying a softener?","a":"Yes. The result sizes the softener and shows whether you also need a filter."},{"q":"What test shows if my water is safe to drink?","a":"A certified lab panel for bacteria, nitrate, metals and other regulated substances. The Tampa Water Department reports cover the public supply. Water Softener of Tampa FL provides water quality testing for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Seven tests cover hardness, total dissolved solids, iron, pH, chlorine, sulfur a
 <div class="svc-card">
 
 
-![Free Hard Water Test Tampa FL](/placeholders/card.svg)
+
+![Free Hard Water Test Tampa FL](../../assets/images/card-free-hard-water-test-tampa-fl.webp)
+
+
 
 ### Free Hard Water Test
 
@@ -36,7 +39,10 @@ A [hard water](/water-softener-guides/hard-water-tampa-fl/) test measures calciu
 <div class="svc-card">
 
 
-![TDS Testing Tampa FL](/placeholders/card.svg)
+
+![TDS Testing Tampa FL](../../assets/images/card-tds-testing-tampa-fl.webp)
+
+
 
 ### TDS Testing
 
@@ -47,7 +53,10 @@ Total dissolved solids (TDS) is the combined amount of minerals, salts and metal
 <div class="svc-card">
 
 
-![Iron Content Testing Tampa FL](/placeholders/card.svg)
+
+![Iron Content Testing Tampa FL](../../assets/images/card-iron-content-testing-tampa-fl.webp)
+
+
 
 ### Iron Content Testing
 
@@ -58,7 +67,10 @@ An iron test checks for dissolved and particulate iron. The EPA's secondary leve
 <div class="svc-card">
 
 
-![pH Level Testing Tampa FL](/placeholders/card.svg)
+
+![pH Level Testing Tampa FL](../../assets/images/card-ph-level-testing-tampa-fl.webp)
+
+
 
 ### pH Level Testing
 
@@ -83,7 +95,10 @@ A chlorine test measures the disinfectant left in your tap water. It helps expla
 <div class="svc-card">
 
 
-![Sulfur Testing Tampa FL](/placeholders/card.svg)
+
+![Sulfur Testing Tampa FL](../../assets/images/card-sulfur-testing-tampa-fl.webp)
+
+
 
 ### Sulfur Testing
 
@@ -94,7 +109,10 @@ A sulfur test confirms hydrogen sulfide, the cause of a rotten-egg smell, most c
 <div class="svc-card">
 
 
-![Heavy Metals Testing Tampa FL](/placeholders/card.svg)
+
+![Heavy Metals Testing Tampa FL](../../assets/images/card-heavy-metals-testing-tampa-fl.webp)
+
+
 
 ### Heavy Metals Testing
 

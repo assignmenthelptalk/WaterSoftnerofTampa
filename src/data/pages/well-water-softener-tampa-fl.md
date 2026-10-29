@@ -11,7 +11,7 @@ openingHtml: "A well water softener in Tampa, FL treats private-well water that 
 formHeading: ""
 formIntro: ""
 leadImage: null
-images: [{"file":"well-water-softener-tampa-fl.webp","alt":"Well water softener Tampa FL pressure tank with softener and iron filter","exists":false},{"file":"card-well-water-softener-installation-tampa-fl.webp","alt":"Well Water Softener Installation Tampa FL","exists":true},{"file":"card-iron-filter-installation-tampa-fl.webp","alt":"Iron Filter Installation Tampa FL","exists":false},{"file":"card-hydrogen-sulfide-filter-tampa-fl.webp","alt":"Hydrogen Sulfide Filter Tampa FL","exists":true},{"file":"card-well-water-sediment-filter-tampa-fl.webp","alt":"Well Water Sediment Filter Tampa FL","exists":true},{"file":"card-why-well-water-in-the-tampa-area-needs-special-treatment-tampa-fl.webp","alt":"Why Well Water in the Tampa Area Needs Special Treatment Tampa FL","exists":true}]
+images: [{"file":"well-water-softener-tampa-fl.webp","alt":"Well water softener Tampa FL pressure tank with softener and iron filter","exists":false},{"file":"card-well-water-softener-installation-tampa-fl.webp","alt":"Well Water Softener Installation Tampa FL","exists":true},{"file":"card-iron-filter-installation-tampa-fl.webp","alt":"Iron Filter Installation Tampa FL","exists":true},{"file":"card-hydrogen-sulfide-filter-tampa-fl.webp","alt":"Hydrogen Sulfide Filter Tampa FL","exists":true},{"file":"card-well-water-sediment-filter-tampa-fl.webp","alt":"Well Water Sediment Filter Tampa FL","exists":true},{"file":"card-why-well-water-in-the-tampa-area-needs-special-treatment-tampa-fl.webp","alt":"Why Well Water in the Tampa Area Needs Special Treatment Tampa FL","exists":true}]
 faq: [{"q":"Can a water softener remove iron from well water?","a":"A softener removes small amounts of dissolved iron, but heavier iron needs an iron filter first or it fouls the resin."},{"q":"How do I know if my well water is safe?","a":"Only a test shows. Guidance recommends testing for bacteria every year, with nitrate and other substances on a schedule that depends on local conditions."},{"q":"Why does my well water smell like rotten eggs?","a":"That smell usually comes from hydrogen sulfide gas. A test confirms it, and an oxidizing filter removes it."},{"q":"Do I need a softener and a filter for a well?","a":"Most wells need both. Filters handle iron, sulfur and sediment, and the softener handles hardness."},{"q":"What does well water treatment cost in Tampa?","a":"Iron content and flow rate decide the system, so your test results set the price. The estimate is free and itemized. Water Softener of Tampa FL provides well water softener and treatment for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -39,7 +39,10 @@ A well water softener installs after the pressure tank so it treats all water en
 <div class="svc-card">
 
 
-![Iron Filter Installation Tampa FL](/placeholders/card.svg)
+
+![Iron Filter Installation Tampa FL](../../assets/images/card-iron-filter-installation-tampa-fl.webp)
+
+
 
 ### Iron Filter Installation
 
