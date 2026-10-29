@@ -97,7 +97,7 @@ Water Softener of Tampa covers six core services, from first installation to lon
 
 ### Water Softener Installation
 
-Installation connects a new softener to your home's main water line so every faucet, shower and appliance receives softened water. The unit is sized to your household and water use, fitted with a bypass valve, connected to a drain and brine line, programmed and tested at every tap before the technician leaves.
+Professional installation connects your new high-efficiency water softener directly to the main water line so every faucet, shower, and appliance receives conditioned water. When we do this, we custom-size the unit to your household and daily usage, fit it with a durable bypass valve, properly connect your drain and brine lines, program the system with precision, and test it at every tap before our technician leaves.
 
 </div>
 
