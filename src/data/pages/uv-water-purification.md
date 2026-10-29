@@ -11,7 +11,7 @@ openingHtml: "UV water purification system installation in Tampa, FL adds an ult
 formHeading: ""
 formIntro: ""
 leadImage: null
-images: [{"file":"uv-water-purification-tampa-fl.webp","alt":"UV water purification Tampa FL ultraviolet system on a main line","exists":false},{"file":"card-how-uv-water-purification-works-tampa-fl.webp","alt":"How UV Water Purification Works Tampa FL","exists":false},{"file":"card-uv-system-installation-tampa-fl.webp","alt":"UV System Installation Tampa FL","exists":false},{"file":"card-uv-and-water-softener-combination-tampa-fl.webp","alt":"UV and Water Softener Combination Tampa FL","exists":false}]
+images: [{"file":"uv-water-purification-tampa-fl.webp","alt":"UV water purification Tampa FL ultraviolet system on a main line","exists":false},{"file":"card-how-uv-water-purification-works-tampa-fl.webp","alt":"How UV Water Purification Works Tampa FL","exists":true},{"file":"card-uv-system-installation-tampa-fl.webp","alt":"UV System Installation Tampa FL","exists":true},{"file":"card-uv-and-water-softener-combination-tampa-fl.webp","alt":"UV and Water Softener Combination Tampa FL","exists":true}]
 faq: [{"q":"Does UV remove chemicals or hardness?","a":"No. UV inactivates microbes only. Hardness, chemicals and sediment need other treatment."},{"q":"How often do I replace the UV lamp?","a":"Lamps commonly need replacing about once a year, even if they still glow, because output fades. Follow your unit's guidance."},{"q":"Does UV change the taste of water?","a":"No. UV adds no chemicals and leaves taste unchanged."},{"q":"Do I need a pre-filter with a UV system?","a":"Yes. Cloudy or sediment-heavy water shields microbes from the light, so a sediment filter goes ahead of the UV unit. Water Softener of Tampa FL provides UV water purification system installation for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ UV purification covers three topics: how UV works, UV system installation and co
 <div class="svc-card">
 
 
-![How UV Water Purification Works Tampa FL](/placeholders/card.svg)
+
+![How UV Water Purification Works Tampa FL](../../assets/images/card-how-uv-water-purification-works-tampa-fl.webp)
+
+
 
 ### How UV Water Purification Works
 
@@ -36,7 +39,10 @@ UV purification passes water through a chamber with an ultraviolet lamp. The lig
 <div class="svc-card">
 
 
-![UV System Installation Tampa FL](/placeholders/card.svg)
+
+![UV System Installation Tampa FL](../../assets/images/card-uv-system-installation-tampa-fl.webp)
+
+
 
 ### UV System Installation
 
@@ -47,7 +53,10 @@ We install the UV unit on the main line after any sediment or carbon filters, so
 <div class="svc-card">
 
 
-![UV and Water Softener Combination Tampa FL](/placeholders/card.svg)
+
+![UV and Water Softener Combination Tampa FL](../../assets/images/card-uv-and-water-softener-combination-tampa-fl.webp)
+
+
 
 ### UV and Water Softener Combination
 
