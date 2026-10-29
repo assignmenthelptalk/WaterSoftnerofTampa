@@ -11,7 +11,7 @@ openingHtml: "Water conditioner installation in Tampa, FL adds a system that tre
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"water-conditioner-installation-tampa-fl.webp","alt":"Water conditioner installation Tampa FL on a main water line"}
-images: [{"file":"water-conditioner-installation-tampa-fl.webp","alt":"Water conditioner installation Tampa FL on a main water line","exists":true},{"file":"card-salt-free-water-conditioners-tampa-fl.webp","alt":"Salt-Free Water Conditioners Tampa FL","exists":false},{"file":"card-potassium-chloride-water-softener-systems-tampa-fl.webp","alt":"Potassium Chloride Water Softener Systems Tampa FL","exists":false},{"file":"card-hard-water-treatment-service-tampa-fl.webp","alt":"Hard Water Treatment Service Tampa FL","exists":false},{"file":"card-limescale-treatment-service-tampa-fl.webp","alt":"Limescale Treatment Service Tampa FL","exists":false},{"file":"card-scale-inhibitor-system-installation-tampa-fl.webp","alt":"Scale Inhibitor System Installation Tampa FL","exists":false}]
+images: [{"file":"water-conditioner-installation-tampa-fl.webp","alt":"Water conditioner installation Tampa FL on a main water line","exists":true},{"file":"card-salt-free-water-conditioners-tampa-fl.webp","alt":"Salt-Free Water Conditioners Tampa FL","exists":true},{"file":"card-potassium-chloride-water-softener-systems-tampa-fl.webp","alt":"Potassium Chloride Water Softener Systems Tampa FL","exists":true},{"file":"card-hard-water-treatment-service-tampa-fl.webp","alt":"Hard Water Treatment Service Tampa FL","exists":true},{"file":"card-limescale-treatment-service-tampa-fl.webp","alt":"Limescale Treatment Service Tampa FL","exists":true},{"file":"card-scale-inhibitor-system-installation-tampa-fl.webp","alt":"Scale Inhibitor System Installation Tampa FL","exists":false}]
 faq: [{"q":"What is the difference between a water conditioner and a water softener?","a":"A softener removes calcium and magnesium. A conditioner leaves them in the water but changes how they form scale."},{"q":"Is a potassium chloride softener better than a salt softener?","a":"It softens the same way but adds potassium instead of sodium. It costs more to run, so it fits households avoiding sodium."},{"q":"Will a conditioner remove existing limescale?","a":"Not fully. Existing buildup needs a descaling service, and the conditioner slows new buildup."},{"q":"Do scale inhibitors work for a whole house?","a":"They protect pipes and heaters, but they do not make water feel soft. They suit equipment protection more than comfort."},{"q":"What does water conditioner installation cost in Tampa?","a":"The estimate is free and itemized. Water Softener of Tampa FL provides water conditioner installation for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Five options treat scale and [hard water](/water-softener-guides/hard-water-tamp
 <div class="svc-card">
 
 
-![Salt-Free Water Conditioners Tampa FL](/placeholders/card.svg)
+
+![Salt-Free Water Conditioners Tampa FL](../../assets/images/card-salt-free-water-conditioners-tampa-fl.webp)
+
+
 
 ### Salt-Free Water Conditioners
 
@@ -36,7 +39,10 @@ A salt-free water conditioner changes how hardness minerals behave so they form 
 <div class="svc-card">
 
 
-![Potassium Chloride Water Softener Systems Tampa FL](/placeholders/card.svg)
+
+![Potassium Chloride Water Softener Systems Tampa FL](../../assets/images/card-potassium-chloride-water-softener-systems-tampa-fl.webp)
+
+
 
 ### Potassium Chloride Water Softener Systems
 
@@ -47,7 +53,10 @@ A potassium chloride water softener works like a standard softener, using ion ex
 <div class="svc-card">
 
 
-![Hard Water Treatment Service Tampa FL](/placeholders/card.svg)
+
+![Hard Water Treatment Service Tampa FL](../../assets/images/card-hard-water-treatment-service-tampa-fl.webp)
+
+
 
 ### Hard Water Treatment Service
 
@@ -58,7 +67,10 @@ A hard water treatment service starts with testing and ends with the right equip
 <div class="svc-card">
 
 
-![Limescale Treatment Service Tampa FL](/placeholders/card.svg)
+
+![Limescale Treatment Service Tampa FL](../../assets/images/card-limescale-treatment-service-tampa-fl.webp)
+
+
 
 ### Limescale Treatment Service
 

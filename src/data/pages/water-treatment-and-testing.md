@@ -11,7 +11,7 @@ openingHtml: "Water treatment services in Tampa, FL start with a test, because t
 formHeading: ""
 formIntro: ""
 leadImage: null
-images: [{"file":"water-treatment-tampa-fl.webp","alt":"Water treatment Tampa FL whole house filter and water softener setup","exists":false},{"file":"card-why-test-before-you-treat-tampa-fl.webp","alt":"Why Test Before You Treat Tampa FL","exists":false},{"file":"card-water-quality-testing-tampa-fl.webp","alt":"Water Quality Testing Tampa FL","exists":true},{"file":"card-water-filtration-system-installation-tampa-fl.webp","alt":"Water Filtration System Installation Tampa FL","exists":false},{"file":"card-well-water-softener-and-treatment-tampa-fl.webp","alt":"Well Water Softener and Treatment Tampa FL","exists":false},{"file":"card-water-contaminant-removal-tampa-fl.webp","alt":"Water Contaminant Removal Tampa FL","exists":false},{"file":"card-reverse-osmosis-system-installation-tampa-fl.webp","alt":"Reverse Osmosis System Installation Tampa FL","exists":false},{"file":"card-uv-water-purification-system-installation-tampa-fl.webp","alt":"UV Water Purification System Installation Tampa FL","exists":false},{"file":"card-drinking-water-system-installation-tampa-fl.webp","alt":"Drinking Water System Installation Tampa FL","exists":false}]
+images: [{"file":"water-treatment-tampa-fl.webp","alt":"Water treatment Tampa FL whole house filter and water softener setup","exists":false},{"file":"card-why-test-before-you-treat-tampa-fl.webp","alt":"Why Test Before You Treat Tampa FL","exists":true},{"file":"card-water-quality-testing-tampa-fl.webp","alt":"Water Quality Testing Tampa FL","exists":true},{"file":"card-water-filtration-system-installation-tampa-fl.webp","alt":"Water Filtration System Installation Tampa FL","exists":true},{"file":"card-well-water-softener-and-treatment-tampa-fl.webp","alt":"Well Water Softener and Treatment Tampa FL","exists":true},{"file":"card-water-contaminant-removal-tampa-fl.webp","alt":"Water Contaminant Removal Tampa FL","exists":true},{"file":"card-reverse-osmosis-system-installation-tampa-fl.webp","alt":"Reverse Osmosis System Installation Tampa FL","exists":true},{"file":"card-uv-water-purification-system-installation-tampa-fl.webp","alt":"UV Water Purification System Installation Tampa FL","exists":true},{"file":"card-drinking-water-system-installation-tampa-fl.webp","alt":"Drinking Water System Installation Tampa FL","exists":true}]
 faq: [{"q":"Do I need a filter if I have a water softener?","a":"A softener and a filter solve different problems, so many homes use both. A softener removes calcium and magnesium, and a carbon filter reduces chlorine taste and odor. The Tampa Water Department's 2025 report gave a 3.6 ppm daily average for chlorine and chloramines, so a carbon stage is the usual choice for households that notice chlorine."},{"q":"Does reverse osmosis remove hardness?","a":"Reverse osmosis removes most dissolved minerals at one tap, but it is built for drinking water, not for protecting a whole house. Hard water shortens a membrane's life, so a softener ahead of the system helps it last."},{"q":"How often does a private well need testing?","a":"EPA recommends that private well owners test for bacteria every year and test for other contaminants when a risk is present. Nobody tests a private well for you, so the owner schedules it."},{"q":"Does Tampa city water need UV treatment?","a":"City water from the Tampa Water Department is already disinfected, so UV is mainly for private wells and for homes with a bacteria result on a test. A test shows whether a household needs it. Water Softener of Tampa FL provides water treatment services for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Water treatment starts with testing and covers filtration, well water treatment,
 <div class="svc-card">
 
 
-![Why Test Before You Treat Tampa FL](/placeholders/card.svg)
+
+![Why Test Before You Treat Tampa FL](../../assets/images/card-why-test-before-you-treat-tampa-fl.webp)
+
+
 
 ### Why Test Before You Treat
 
@@ -50,7 +53,10 @@ A water test tells you which problem you have before you pay to solve it. The Ta
 <div class="svc-card">
 
 
-![Water Filtration System Installation Tampa FL](/placeholders/card.svg)
+
+![Water Filtration System Installation Tampa FL](../../assets/images/card-water-filtration-system-installation-tampa-fl.webp)
+
+
 
 ### Water Filtration System Installation
 
@@ -61,7 +67,10 @@ A water test tells you which problem you have before you pay to solve it. The Ta
 <div class="svc-card">
 
 
-![Well Water Softener and Treatment Tampa FL](/placeholders/card.svg)
+
+![Well Water Softener and Treatment Tampa FL](../../assets/images/card-well-water-softener-and-treatment-tampa-fl.webp)
+
+
 
 ### Well Water Softener and Treatment
 
@@ -72,7 +81,10 @@ A water test tells you which problem you have before you pay to solve it. The Ta
 <div class="svc-card">
 
 
-![Water Contaminant Removal Tampa FL](/placeholders/card.svg)
+
+![Water Contaminant Removal Tampa FL](../../assets/images/card-water-contaminant-removal-tampa-fl.webp)
+
+
 
 ### Water Contaminant Removal
 
@@ -83,7 +95,10 @@ A water test tells you which problem you have before you pay to solve it. The Ta
 <div class="svc-card">
 
 
-![Reverse Osmosis System Installation Tampa FL](/placeholders/card.svg)
+
+![Reverse Osmosis System Installation Tampa FL](../../assets/images/card-reverse-osmosis-system-installation-tampa-fl.webp)
+
+
 
 ### Reverse Osmosis System Installation
 
@@ -94,7 +109,10 @@ A water test tells you which problem you have before you pay to solve it. The Ta
 <div class="svc-card">
 
 
-![UV Water Purification System Installation Tampa FL](/placeholders/card.svg)
+
+![UV Water Purification System Installation Tampa FL](../../assets/images/card-uv-water-purification-system-installation-tampa-fl.webp)
+
+
 
 ### UV Water Purification System Installation
 
@@ -105,7 +123,10 @@ A water test tells you which problem you have before you pay to solve it. The Ta
 <div class="svc-card">
 
 
-![Drinking Water System Installation Tampa FL](/placeholders/card.svg)
+
+![Drinking Water System Installation Tampa FL](../../assets/images/card-drinking-water-system-installation-tampa-fl.webp)
+
+
 
 ### Drinking Water System Installation
 

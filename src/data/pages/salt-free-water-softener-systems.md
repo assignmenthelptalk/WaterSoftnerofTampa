@@ -11,7 +11,7 @@ openingHtml: "A salt-free water softener system in Tampa, FL conditions hard wat
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"salt-free-water-softener-tampa-fl.webp","alt":"Salt-free water softener Tampa FL conditioner on main water line"}
-images: [{"file":"salt-free-water-softener-tampa-fl.webp","alt":"Salt-free water softener Tampa FL conditioner on main water line","exists":true},{"file":"card-template-assisted-crystallization-tac-systems-tampa-fl.webp","alt":"Template Assisted Crystallization (TAC) Systems Tampa FL","exists":false},{"file":"card-electronic-descaler-installation-tampa-fl.webp","alt":"Electronic Descaler Installation Tampa FL","exists":false},{"file":"card-magnetic-water-conditioner-installation-tampa-fl.webp","alt":"Magnetic Water Conditioner Installation Tampa FL","exists":false}]
+images: [{"file":"salt-free-water-softener-tampa-fl.webp","alt":"Salt-free water softener Tampa FL conditioner on main water line","exists":true},{"file":"card-template-assisted-crystallization-tac-systems-tampa-fl.webp","alt":"Template Assisted Crystallization (TAC) Systems Tampa FL","exists":true},{"file":"card-electronic-descaler-installation-tampa-fl.webp","alt":"Electronic Descaler Installation Tampa FL","exists":true},{"file":"card-magnetic-water-conditioner-installation-tampa-fl.webp","alt":"Magnetic Water Conditioner Installation Tampa FL","exists":true}]
 faq: [{"q":"Does a salt-free water softener actually soften water?","a":"No. It conditions water so scale does not stick, and it leaves hardness minerals in place. A salt-based softener removes the minerals."},{"q":"How long does a TAC media cartridge last?","a":"Replacement timing depends on water use and system size. Media is typically rated for about 5 to 8 years. The technician sets the schedule at installation."},{"q":"Is a salt-free system better for the environment?","a":"It uses no salt and sends no brine to the drain. Salt-based systems discharge brine during regeneration, which some communities limit."},{"q":"Can I install a salt-free system myself?","a":"Many units install on the main line with basic plumbing skills, but a correct size and pressure check matter. We install and test the unit for you."},{"q":"What does a salt-free system cost in Tampa?","a":"Our estimate is free and itemized. Water Softener of Tampa FL provides salt-free water softener systems for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -31,7 +31,10 @@ Three salt-free technologies are installed for scale: template assisted crystall
 <div class="svc-card">
 
 
-![Template Assisted Crystallization (TAC) Systems Tampa FL](/placeholders/card.svg)
+
+![Template Assisted Crystallization (TAC) Systems Tampa FL](../../assets/images/card-template-assisted-crystallization-tac-systems-tampa-fl.webp)
+
+
 
 ### Template Assisted Crystallization (TAC) Systems
 
@@ -42,7 +45,10 @@ A template assisted crystallization (TAC) system passes water over specially mad
 <div class="svc-card">
 
 
-![Electronic Descaler Installation Tampa FL](/placeholders/card.svg)
+
+![Electronic Descaler Installation Tampa FL](../../assets/images/card-electronic-descaler-installation-tampa-fl.webp)
+
+
 
 ### Electronic Descaler Installation
 
@@ -53,7 +59,10 @@ An electronic descaler wraps a coil around the main pipe and sends a changing el
 <div class="svc-card">
 
 
-![Magnetic Water Conditioner Installation Tampa FL](/placeholders/card.svg)
+
+![Magnetic Water Conditioner Installation Tampa FL](../../assets/images/card-magnetic-water-conditioner-installation-tampa-fl.webp)
+
+
 
 ### Magnetic Water Conditioner Installation
 
