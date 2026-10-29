@@ -32,7 +32,7 @@ markerCount: 0
 
 ## Why Are We the Premier Water Softener Installation Company in Tampa, FL?
 
-At Water Softener of Tampa, we recommend evaluating every water treatment contractor against six strict local benchmarks:
+At **Water Softener of Tampa**, we recommend evaluating every water treatment contractor against six strict local benchmarks:
 
 - **Florida State Licensing & Insurance:** Every installation must be executed by a Certified Plumbing Contractor (CPC) licensed under the Florida Department of Business and Professional Regulation (DBPR), backed by full commercial liability and workers' compensation coverage.
 - **Comprehensive Equipment & Labor Warranties:** True authority stands behind its work. Ensure your written estimate details separate coverage for both the NSF/ANSI-certified control head/resin vessel and the physical plumbing labor.
