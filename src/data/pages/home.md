@@ -7,7 +7,7 @@ slug: "/"
 pageType: "home"
 parentSlug: null
 crumb: "Water Softener of Tampa - Premier Water Softener Installation"
-openingHtml: "Tampa's drinking water comes mainly from the Hillsborough River, and the Tampa Water Department's 2025 water quality report put average total hardness at 12.3 grains per gallon, about 211 mg/L. Water Softener of Tampa installs, replaces and services water softener systems for homeowners in Tampa and Hillsborough County. Request a free estimate and get a system sized to your household and your water."
+openingHtml: "Tampa's drinking water, sourced from the <strong>Hillsborough River</strong>, <strong>Floridan Aquifer</strong> and <strong>Seawater Desalination Plant</strong>, averages <strong>12.3 grains per gallon (211 mg/L)</strong> of hardness, classed as Very Hard by USGS. <strong>Water Softener of Tampa</strong> provides commercial-grade, metered softeners custom-engineered for Florida's heavy mineral scale. Request a free estimate and get a system sized to your household and your water."
 formHeading: "Get Your Free Water Softener Estimate in Tampa, FL"
 formIntro: "A free estimate covers your home's water use, the right system size and a clear installed price. Fill in the form and we will contact you to confirm a time."
 leadImage: {"file":"hero-water-softener-tampa-fl.webp","alt":"Technician installing a water softener Tampa FL home"}
