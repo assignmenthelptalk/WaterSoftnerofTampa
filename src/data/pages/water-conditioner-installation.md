@@ -11,7 +11,7 @@ openingHtml: "Water conditioner installation in Tampa, FL adds a system that tre
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"water-conditioner-installation-tampa-fl.webp","alt":"Water conditioner installation Tampa FL on a main water line"}
-images: [{"file":"water-conditioner-installation-tampa-fl.webp","alt":"Water conditioner installation Tampa FL on a main water line","exists":true},{"file":"card-salt-free-water-conditioners-tampa-fl.webp","alt":"Salt-Free Water Conditioners Tampa FL","exists":true},{"file":"card-potassium-chloride-water-softener-systems-tampa-fl.webp","alt":"Potassium Chloride Water Softener Systems Tampa FL","exists":true},{"file":"card-hard-water-treatment-service-tampa-fl.webp","alt":"Hard Water Treatment Service Tampa FL","exists":true},{"file":"card-limescale-treatment-service-tampa-fl.webp","alt":"Limescale Treatment Service Tampa FL","exists":true},{"file":"card-scale-inhibitor-system-installation-tampa-fl.webp","alt":"Scale Inhibitor System Installation Tampa FL","exists":false}]
+images: [{"file":"water-conditioner-installation-tampa-fl.webp","alt":"Water conditioner installation Tampa FL on a main water line","exists":true},{"file":"card-salt-free-water-conditioners-tampa-fl.webp","alt":"Salt-Free Water Conditioners Tampa FL","exists":true},{"file":"card-potassium-chloride-water-softener-systems-tampa-fl.webp","alt":"Potassium Chloride Water Softener Systems Tampa FL","exists":true},{"file":"card-hard-water-treatment-service-tampa-fl.webp","alt":"Hard Water Treatment Service Tampa FL","exists":true},{"file":"card-limescale-treatment-service-tampa-fl.webp","alt":"Limescale Treatment Service Tampa FL","exists":true},{"file":"card-scale-inhibitor-system-installation-tampa-fl.webp","alt":"Scale Inhibitor System Installation Tampa FL","exists":true}]
 faq: [{"q":"What is the difference between a water conditioner and a water softener?","a":"A softener removes calcium and magnesium. A conditioner leaves them in the water but changes how they form scale."},{"q":"Is a potassium chloride softener better than a salt softener?","a":"It softens the same way but adds potassium instead of sodium. It costs more to run, so it fits households avoiding sodium."},{"q":"Will a conditioner remove existing limescale?","a":"Not fully. Existing buildup needs a descaling service, and the conditioner slows new buildup."},{"q":"Do scale inhibitors work for a whole house?","a":"They protect pipes and heaters, but they do not make water feel soft. They suit equipment protection more than comfort."},{"q":"What does water conditioner installation cost in Tampa?","a":"The estimate is free and itemized. Water Softener of Tampa FL provides water conditioner installation for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -81,7 +81,10 @@ Limescale is the hard, chalky deposit that builds up inside water heaters, kettl
 <div class="svc-card">
 
 
-![Scale Inhibitor System Installation Tampa FL](/placeholders/card.svg)
+
+![Scale Inhibitor System Installation Tampa FL](../../assets/images/card-scale-inhibitor-system-installation-tampa-fl.webp)
+
+
 
 ### Scale Inhibitor System Installation
 

@@ -11,7 +11,7 @@ openingHtml: "Water softener replacement in Tampa, FL removes an old or failing 
 formHeading: ""
 formIntro: ""
 leadImage: {"file":"water-softener-replacement-tampa-fl.webp","alt":"Water softener replacement Tampa FL old and new unit"}
-images: [{"file":"water-softener-replacement-tampa-fl.webp","alt":"Water softener replacement Tampa FL old and new unit","exists":true},{"file":"card-full-water-softener-system-replacement-tampa-fl.webp","alt":"Full Water Softener System Replacement Tampa FL","exists":false},{"file":"card-resin-bed-replacement-tampa-fl.webp","alt":"Resin Bed Replacement Tampa FL","exists":false},{"file":"card-water-softener-upgrade-service-tampa-fl.webp","alt":"Water Softener Upgrade Service Tampa FL","exists":false}]
+images: [{"file":"water-softener-replacement-tampa-fl.webp","alt":"Water softener replacement Tampa FL old and new unit","exists":true},{"file":"card-full-water-softener-system-replacement-tampa-fl.webp","alt":"Full Water Softener System Replacement Tampa FL","exists":true},{"file":"card-resin-bed-replacement-tampa-fl.webp","alt":"Resin Bed Replacement Tampa FL","exists":true},{"file":"card-water-softener-upgrade-service-tampa-fl.webp","alt":"Water Softener Upgrade Service Tampa FL","exists":true}]
 faq: [{"q":"How long does water softener replacement take?","a":"Most replacements finish in a single visit. Most standard replacements take about 2 to 4 hours. The technician confirms timing at your estimate."},{"q":"Can I replace just the resin instead of the whole unit?","a":"Yes, when the tank and valve are sound. A resin replacement restores softening for less than a new system, and the technician tests your water to confirm the resin is the cause."},{"q":"Do you remove and dispose of my old water softener?","a":"Ask whether removal and disposal of the old unit is included. The estimate states exactly what is included."},{"q":"Will a new softener use less salt?","a":"A newer control head regenerates by actual water use instead of a fixed timer, which cuts unneeded cycles and salt. Savings depend on your household and your water."},{"q":"Is it worth repairing an old softener?","a":"Repair is worth it when one part has failed on an otherwise sound unit. Past roughly 10 to 15 years, or with a leaking tank, replacement usually costs less over time. Water Softener of Tampa FL provides water softener replacement for homes and businesses across Tampa and Hillsborough County."}]
 markerCount: 0
 ---
@@ -25,7 +25,10 @@ Three replacement options fit different situations: full system replacement, res
 <div class="svc-card">
 
 
-![Full Water Softener System Replacement Tampa FL](/placeholders/card.svg)
+
+![Full Water Softener System Replacement Tampa FL](../../assets/images/card-full-water-softener-system-replacement-tampa-fl.webp)
+
+
 
 ### Full Water Softener System Replacement
 
@@ -36,7 +39,10 @@ Full replacement swaps the tank, resin, brine tank and control valve for a new s
 <div class="svc-card">
 
 
-![Resin Bed Replacement Tampa FL](/placeholders/card.svg)
+
+![Resin Bed Replacement Tampa FL](../../assets/images/card-resin-bed-replacement-tampa-fl.webp)
+
+
 
 ### Resin Bed Replacement
 
@@ -47,7 +53,10 @@ The resin bed is the layer of small beads inside the softener tank that traps ca
 <div class="svc-card">
 
 
-![Water Softener Upgrade Service Tampa FL](/placeholders/card.svg)
+
+![Water Softener Upgrade Service Tampa FL](../../assets/images/card-water-softener-upgrade-service-tampa-fl.webp)
+
+
 
 ### Water Softener Upgrade Service
 
